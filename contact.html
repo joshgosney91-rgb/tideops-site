@@ -7,13 +7,18 @@
   <meta name="description" content="Book an AI Efficiency Audit with TideOps. Let's find where automation can save your business time.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav nav-dark">
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="TideOps"></a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="TideOps" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none;">TideOps</span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -27,20 +32,26 @@
     </div>
   </nav>
 
+  <!-- ===== Hero ===== -->
   <section class="hero hero-small">
+    <div class="hero-mesh">
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+    </div>
+    <div class="geo-shapes" aria-hidden="true">
+      <div class="geo geo-2"></div>
+      <div class="geo geo-4"></div>
+      <div class="geo geo-5"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
-        <h1>Let's Talk</h1>
+        <h1>Let's <span class="accent-text">Talk</span></h1>
         <p>Tell us about your business and we'll show you where AI and automation can make the biggest impact.</p>
       </div>
     </div>
-    <div class="hero-flow">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#F7FAFC"/>
-      </svg>
-    </div>
   </section>
 
+  <!-- ===== Contact Form ===== -->
   <section>
     <div class="container">
       <div class="contact-grid fade-up">
@@ -49,7 +60,7 @@
           <p>We'll review your current workflows, identify the tasks draining the most time, and show you exactly where AI and automation can create immediate value.</p>
           <p>No pitch decks. No generic advice. Just a practical look at your operations and a clear plan for what to automate first.</p>
 
-          <div style="margin-top:32px;">
+          <div style="margin-top:36px;">
             <div class="contact-detail">
               <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               <a href="tel:9042939336">(904) 293-9336</a>
@@ -61,7 +72,7 @@
           </div>
 
           <div class="response-note">
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             We respond within 24 hours.
           </div>
         </div>
@@ -69,19 +80,19 @@
         <form class="contact-form" action="https://formspree.io/f/maqpdgnd" method="POST">
           <div class="form-group">
             <label for="name">Name *</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
           </div>
           <div class="form-group">
             <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
           </div>
           <div class="form-group">
             <label for="business">Business Name</label>
-            <input type="text" id="business" name="business">
+            <input type="text" id="business" name="business" placeholder="Your business name">
           </div>
           <div class="form-group">
             <label for="message">Tell us about your business and what's taking up too much time... *</label>
-            <textarea id="message" name="message" required></textarea>
+            <textarea id="message" name="message" placeholder="Describe your biggest operational challenges..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary">Book Your Audit</button>
         </form>
@@ -89,6 +100,7 @@
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -114,7 +126,7 @@
         </div>
         <div>
           <h4>Get Started</h4>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;">Book an Audit</a>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;font-size:0.88rem;padding:11px 22px;display:inline-block;">Book an Audit</a>
         </div>
       </div>
       <div class="footer-bottom">

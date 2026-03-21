@@ -7,13 +7,18 @@
   <meta name="description" content="TideOps exists to make AI practical for real businesses.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav nav-dark">
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="TideOps"></a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="TideOps" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none;">TideOps</span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -27,26 +32,31 @@
     </div>
   </nav>
 
+  <!-- ===== Hero ===== -->
   <section class="hero hero-small">
+    <div class="hero-mesh">
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+    </div>
+    <div class="geo-shapes" aria-hidden="true">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="geo geo-4"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
-        <h1>About TideOps</h1>
+        <h1>About <span class="accent-text">TideOps</span></h1>
         <p>We make AI practical for real businesses. No hype, no fluff — just systems that work.</p>
       </div>
     </div>
-    <div class="hero-flow">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#F7FAFC"/>
-      </svg>
-    </div>
   </section>
 
-  <!-- Mission -->
+  <!-- ===== Mission ===== -->
   <section>
     <div class="container">
       <div class="about-section fade-up">
-        <p class="section-label">Our Mission</p>
-        <h2>AI that works for your business, not the other way around.</h2>
+        <span class="section-label">Our Mission</span>
+        <h2>AI that works for your business,<br>not the other way around.</h2>
         <p>TideOps exists to make AI practical for real businesses. Not theoretical. Not experimental. Practical.</p>
         <p>Businesses don't need another dashboard or another tool to learn. They need systems that save time, reduce manual work, and run quietly in the background while the team focuses on growth.</p>
         <p>That's what we build. Implementation-focused, white-glove service, tailored to the way each business already operates.</p>
@@ -54,40 +64,40 @@
     </div>
   </section>
 
-  <!-- Approach -->
-  <section style="background:#fff;">
+  <!-- ===== Approach ===== -->
+  <section class="section-dark">
     <div class="container">
       <div class="about-section fade-up">
-        <p class="section-label">Our Approach</p>
+        <span class="section-label">Our Approach</span>
         <h2>We install systems. That's it.</h2>
         <p>We don't sell software licenses. We don't run workshops. We don't do "AI education." We install working systems into your business that save time from day one.</p>
       </div>
       <div class="approach-steps fade-up">
         <div class="approach-step">
-          <div class="num">01</div>
+          <span class="num">01</span>
           <h4>Discovery</h4>
         </div>
         <div class="approach-step">
-          <div class="num">02</div>
+          <span class="num">02</span>
           <h4>Build</h4>
         </div>
         <div class="approach-step">
-          <div class="num">03</div>
+          <span class="num">03</span>
           <h4>Deliver</h4>
         </div>
         <div class="approach-step">
-          <div class="num">04</div>
+          <span class="num">04</span>
           <h4>Refine</h4>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values -->
+  <!-- ===== Values ===== -->
   <section>
     <div class="container">
       <div class="about-section fade-up">
-        <p class="section-label">What We Believe</p>
+        <span class="section-label">What We Believe</span>
         <h2>Principles that guide every build.</h2>
       </div>
       <div class="values-grid fade-up">
@@ -111,6 +121,7 @@
     </div>
   </section>
 
+  <!-- ===== CTA ===== -->
   <section class="cta-section">
     <div class="container fade-up">
       <h2>See where AI fits in your business.</h2>
@@ -119,6 +130,7 @@
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -144,7 +156,7 @@
         </div>
         <div>
           <h4>Get Started</h4>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;">Book an Audit</a>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;font-size:0.88rem;padding:11px 22px;display:inline-block;">Book an Audit</a>
         </div>
       </div>
       <div class="footer-bottom">

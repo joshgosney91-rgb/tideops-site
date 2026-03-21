@@ -7,13 +7,18 @@
   <meta name="description" content="AI assistants, workflow automation, and custom systems built for your business.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="nav nav-dark">
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="TideOps"></a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="TideOps" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none;">TideOps</span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -27,26 +32,33 @@
     </div>
   </nav>
 
+  <!-- ===== Hero ===== -->
   <section class="hero hero-small">
+    <div class="hero-mesh">
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+    </div>
+    <div class="geo-shapes" aria-hidden="true">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-3"></div>
+      <div class="geo geo-5"></div>
+    </div>
     <div class="container">
       <div class="hero-content">
-        <h1>Our Services</h1>
+        <h1>Our <span class="accent-text">Services</span></h1>
         <p>We build and install AI assistants, workflow automation, and custom systems that help your business run smarter.</p>
       </div>
     </div>
-    <div class="hero-flow">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#F7FAFC"/>
-      </svg>
-    </div>
   </section>
 
+  <!-- ===== Services ===== -->
   <section>
     <div class="container">
+
       <!-- AI Assistants -->
       <div class="service-block fade-up">
         <div>
-          <p class="section-label">01</p>
+          <span class="section-label">01</span>
           <h3>AI Assistants</h3>
           <p>Custom AI tools built around the way your team communicates, follows up, and handles daily tasks. We install assistants that actually get used.</p>
           <ul class="service-list">
@@ -64,7 +76,7 @@
       <!-- Workflow Automation -->
       <div class="service-block reverse fade-up">
         <div>
-          <p class="section-label">02</p>
+          <span class="section-label">02</span>
           <h3>Workflow Automation</h3>
           <p>We connect your tools, eliminate redundant steps, and automate the processes that drain your team's time every week.</p>
           <ul class="service-list">
@@ -82,7 +94,7 @@
       <!-- Custom Systems -->
       <div class="service-block fade-up">
         <div>
-          <p class="section-label">03</p>
+          <span class="section-label">03</span>
           <h3>Custom Systems</h3>
           <p>When off-the-shelf doesn't fit, we build exactly what your business needs. Tailored AI and automation designed around your operations.</p>
           <ul class="service-list">
@@ -96,9 +108,11 @@
           <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         </div>
       </div>
+
     </div>
   </section>
 
+  <!-- ===== CTA ===== -->
   <section class="cta-section">
     <div class="container fade-up">
       <h2>Ready to automate?</h2>
@@ -107,6 +121,7 @@
     </div>
   </section>
 
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -132,7 +147,7 @@
         </div>
         <div>
           <h4>Get Started</h4>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;">Book an Audit</a>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;font-size:0.88rem;padding:11px 22px;display:inline-block;">Book an Audit</a>
         </div>
       </div>
       <div class="footer-bottom">

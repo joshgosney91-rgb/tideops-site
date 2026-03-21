@@ -7,14 +7,18 @@
   <meta name="description" content="TideOps helps small businesses save time, reduce manual work, and run smarter with practical AI and automation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Nav -->
-  <nav class="nav nav-dark">
+
+  <!-- ===== Navigation ===== -->
+  <nav class="nav">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><img src="assets/logo.jpg" alt="TideOps"></a>
+      <a href="index.html" class="nav-logo">
+        <img src="assets/logo.jpg" alt="TideOps" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none;">TideOps</span>
+      </a>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
@@ -28,11 +32,27 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <section class="hero">
+    <!-- Animated gradient mesh -->
+    <div class="hero-mesh">
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+      <div class="mesh-orb mesh-orb-3"></div>
+    </div>
+
+    <!-- Floating geometric shapes -->
+    <div class="geo-shapes" aria-hidden="true">
+      <div class="geo geo-1"></div>
+      <div class="geo geo-2"></div>
+      <div class="geo geo-3"></div>
+      <div class="geo geo-4"></div>
+      <div class="geo geo-5"></div>
+    </div>
+
     <div class="container">
       <div class="hero-content">
-        <h1>AI systems installed in your business.</h1>
+        <h1>AI systems installed<br>in your <span class="accent-text">business.</span></h1>
         <p>TideOps helps small businesses save time, reduce manual work, and run smarter with practical AI and automation built around the way they already operate.</p>
         <div class="hero-btns">
           <a href="contact.html" class="btn btn-primary">Book an AI Efficiency Audit</a>
@@ -40,19 +60,14 @@
         </div>
       </div>
     </div>
-    <div class="hero-flow">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,60 C360,120 1080,0 1440,60 L1440,120 L0,120 Z" fill="#F7FAFC"/>
-      </svg>
-    </div>
   </section>
 
-  <!-- What We Do -->
+  <!-- ===== What We Do ===== -->
   <section id="services">
     <div class="container">
       <div class="fade-up">
-        <p class="section-label">What We Do</p>
-        <h2 class="section-title">Practical AI and automation for your business.</h2>
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Practical AI and automation<br>for your business.</h2>
         <p class="section-intro">TideOps installs practical AI and automation systems that help businesses save time, reduce manual work, and operate more efficiently.</p>
       </div>
       <div class="card-grid fade-up">
@@ -81,13 +96,13 @@
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section style="background:#fff;">
+  <!-- ===== How It Works ===== -->
+  <section class="section-dark">
     <div class="container">
       <div class="fade-up" style="text-align:center;">
-        <p class="section-label">How It Works</p>
-        <h2 class="section-title">From manual work to smarter systems in three steps.</h2>
-        <p class="section-intro">We audit your workflow, build the right solution, and install systems your team can actually use.</p>
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">From manual work to smarter systems<br>in three steps.</h2>
+        <p class="section-intro" style="margin-left:auto;margin-right:auto;">We audit your workflow, build the right solution, and install systems your team can actually use.</p>
       </div>
       <div class="steps fade-up">
         <div class="step">
@@ -109,11 +124,11 @@
     </div>
   </section>
 
-  <!-- Who It's For -->
+  <!-- ===== Who It's For ===== -->
   <section>
     <div class="container">
       <div class="fade-up">
-        <p class="section-label">Who It's For</p>
+        <span class="section-label">Who It's For</span>
         <h2 class="section-title">Built for growing businesses.</h2>
         <p class="section-intro">TideOps works best for growing businesses that need stronger systems behind the scenes. We help teams that are overwhelmed by repetitive work, inconsistent follow-up, and manual processes that slow growth down.</p>
       </div>
@@ -142,11 +157,11 @@
     </div>
   </section>
 
-  <!-- Why TideOps -->
-  <section style="background:#fff;">
+  <!-- ===== Why TideOps ===== -->
+  <section class="section-dark">
     <div class="container">
       <div class="fade-up">
-        <p class="section-label">Why TideOps</p>
+        <span class="section-label">Why TideOps</span>
         <h2 class="section-title">Better systems, not more software.</h2>
         <p class="section-intro">Most businesses don't need more software. They need better systems. TideOps focuses on practical implementation, not hype. We build AI and automation that fits into the way your business already works, so your team can actually use it.</p>
       </div>
@@ -176,17 +191,17 @@
     </div>
   </section>
 
-  <!-- AI Efficiency Audit CTA -->
+  <!-- ===== AI Efficiency Audit CTA ===== -->
   <section class="cta-section cta-audit">
     <div class="container fade-up">
       <h2>AI Efficiency Audit</h2>
       <p>We review your workflows, identify time-wasting tasks, and show you where AI and automation can create immediate value inside your business.</p>
-      <a href="contact.html" class="btn btn-primary" style="background:#fff;color:var(--teal);">Book an AI Efficiency Audit</a>
+      <a href="contact.html" class="btn btn-primary">Book an AI Efficiency Audit</a>
       <p class="cta-support">Get a practical look at where your business can save time, improve follow-up, and operate more efficiently.</p>
     </div>
   </section>
 
-  <!-- Final CTA -->
+  <!-- ===== Final CTA ===== -->
   <section class="cta-section">
     <div class="container fade-up">
       <h2>See where AI can save your business time.</h2>
@@ -195,7 +210,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -221,7 +236,7 @@
         </div>
         <div>
           <h4>Get Started</h4>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;">Book an Audit</a>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:4px;font-size:0.88rem;padding:11px 22px;display:inline-block;">Book an Audit</a>
         </div>
       </div>
       <div class="footer-bottom">
