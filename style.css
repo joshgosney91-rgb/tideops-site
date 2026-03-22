@@ -1187,7 +1187,7 @@ body:hover .cursor-ring {
 
   /* Hero adjustments for mobile — same scroll animation, shorter scroll distance */
   .hero {
-    height: 150vh;
+    height: 120vh;
   }
 
   /* particles enabled on mobile */
