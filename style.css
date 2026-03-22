@@ -1185,7 +1185,11 @@ body:hover .cursor-ring {
     display: flex;
   }
 
-  /* Hero adjustments for mobile — same scroll animation, just smaller text */
+  /* Hero adjustments for mobile — same scroll animation, shorter scroll distance */
+  .hero {
+    height: 180vh;
+  }
+
   /* particles enabled on mobile */
 
   .hero-content {
