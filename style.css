@@ -1305,6 +1305,27 @@ body:hover .cursor-ring {
     padding: 1rem 2.5rem;
     font-size: 0.95rem;
   }
+
+  /* Scale videos to show more content on mobile portrait */
+  .video-bg {
+    object-fit: contain;
+    object-position: top center;
+    background: #050505;
+  }
+
+  .cta-video-bg video {
+    object-fit: contain;
+    object-position: center;
+    background: #050505;
+  }
+
+  .video-bg-container {
+    background: #050505;
+  }
+
+  .cta-video-bg {
+    background: #050505;
+  }
 }
 
 @media (max-width: 480px) {
