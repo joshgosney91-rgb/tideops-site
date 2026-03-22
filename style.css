@@ -1296,15 +1296,22 @@ body:hover .cursor-ring {
     font-size: 0.95rem;
   }
 
-  /* Mobile video: cover with better framing */
+  /* Mobile video: contain to show full scene */
   .video-bg {
-    object-fit: cover;
-    object-position: center 30%;
+    object-fit: contain;
+    object-position: top center;
+    background: #050505;
   }
 
   .cta-video-bg video {
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
+    background: #050505;
+  }
+
+  .video-bg-container,
+  .cta-video-bg {
+    background: #050505;
   }
 }
 
