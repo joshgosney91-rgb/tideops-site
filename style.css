@@ -1194,8 +1194,26 @@ body:hover .cursor-ring {
     position: absolute;
   }
 
+  #particle-canvas {
+    display: none;
+  }
+
   .hero-content {
     position: absolute;
+    padding: 0 1.5rem;
+    justify-content: center;
+    padding-bottom: 8rem;
+  }
+
+  .cta-button.cta-main {
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
+  }
+
+  .cta-button.hero-cta {
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
   }
 
   .hero-overlay {
@@ -1204,24 +1222,43 @@ body:hover .cursor-ring {
 
   .scroll-hint {
     position: absolute;
+    bottom: 1.5rem;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     letter-spacing: -1px;
+    margin-bottom: 1rem;
   }
 
   .hero-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-cta {
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
   }
 
   .section {
-    padding: 6rem 0;
+    padding: 5rem 0;
   }
 
   .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    letter-spacing: -1px;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.75rem;
   }
 
   .problem-grid,
@@ -1265,10 +1302,24 @@ body:hover .cursor-ring {
   }
 
   .cta-section {
-    padding: 8rem 0;
+    padding: 5rem 0;
     background-image: url('assets/images/wave-cta-fallback.jpg');
     background-size: cover;
     background-position: center;
+  }
+
+  .cta-headline {
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+  }
+
+  .cta-sub {
+    font-size: 1rem;
+  }
+
+  .cta-main {
+    padding: 1rem 2.5rem;
+    font-size: 0.95rem;
   }
 
   .cta-video-bg {
@@ -1293,26 +1344,75 @@ body:hover .cursor-ring {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
   }
 
   .glass-card {
-    padding: 2rem 1.5rem;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .glass-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .glass-card p {
+    font-size: 0.9rem;
   }
 
   .stat-card {
-    padding: 1.5rem 1rem;
+    padding: 1.25rem 1rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
   }
 
   .stats-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
   }
 
   .cta-headline {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .contact-form-wrapper {
     padding: 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .step h3 {
+    font-size: 1.1rem;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+  }
+
+  .audience-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .audience-card p {
+    font-size: 0.9rem;
+  }
+
+  .ready-title {
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
   }
 }
