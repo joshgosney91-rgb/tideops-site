@@ -14,6 +14,11 @@
   // ---- Detect Mobile ----
   const isMobile = window.innerWidth <= 768;
 
+  // Refresh ScrollTrigger after everything loads
+  window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
+  });
+
   // ========================================
   // SCROLL-DRIVEN FRAME ANIMATION (HERO)
   // ========================================
@@ -128,15 +133,52 @@
         }
       });
     } else {
-      // Mobile: show static first frame, no scroll animation
+      // Mobile: autoplay frame animation (ping-pong loop)
       heroSection.style.height = '100vh';
       canvas.style.position = 'absolute';
-      const img = new Image();
-      img.src = 'assets/frames/hero/frame_0060.webp'; // Middle frame for mobile
-      img.onload = () => {
-        frames.push(img);
-        resizeCanvas();
-      };
+
+      const mobileFrames = [];
+      let mobileLoaded = 0;
+      const step = 3; // Every 3rd frame for performance (~40 frames)
+      const totalMobile = Math.ceil(frameCount / step);
+
+      for (let i = 0; i < frameCount; i += step) {
+        const idx = i;
+        const img = new Image();
+        img.src = `assets/frames/hero/frame_${String(i + 1).padStart(4, '0')}.webp`;
+        img.onload = () => {
+          mobileFrames[Math.floor(idx / step)] = img;
+          mobileLoaded++;
+
+          // Show first loaded frame immediately
+          if (mobileLoaded === 1) {
+            resizeCanvas();
+            const ctx = canvas.getContext('2d');
+            const s = Math.max(canvas.width / img.width, canvas.height / img.height);
+            ctx.drawImage(img, (canvas.width - img.width * s) / 2, (canvas.height - img.height * s) / 2, img.width * s, img.height * s);
+          }
+
+          // All loaded — start autoplay
+          if (mobileLoaded === totalMobile) {
+            let f = 0;
+            let dir = 1;
+            function animateMobile() {
+              const ctx = canvas.getContext('2d');
+              const img = mobileFrames[f];
+              if (img) {
+                const s = Math.max(canvas.width / img.width, canvas.height / img.height);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, (canvas.width - img.width * s) / 2, (canvas.height - img.height * s) / 2, img.width * s, img.height * s);
+              }
+              f += dir;
+              if (f >= totalMobile - 1) dir = -1;
+              if (f <= 0) dir = 1;
+              setTimeout(animateMobile, 90);
+            }
+            animateMobile();
+          }
+        };
+      }
     }
   }
 
