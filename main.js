@@ -48,12 +48,15 @@
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Cover-fit the image to the canvas
       const cw = canvas.width;
       const ch = canvas.height;
       const iw = img.naturalWidth;
       const ih = img.naturalHeight;
-      const scale = Math.max(cw / iw, ch / ih);
+
+      // Mobile: contain-fit to show full image; Desktop: cover-fit
+      const scale = isMobile
+        ? Math.min(cw / iw, ch / ih)
+        : Math.max(cw / iw, ch / ih);
       const w = iw * scale;
       const h = ih * scale;
       const x = (cw - w) / 2;
