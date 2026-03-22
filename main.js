@@ -244,53 +244,59 @@
   // SCROLL ANIMATIONS — Fade up
   // ========================================
   gsap.utils.toArray('.animate-fade-up').forEach(el => {
-    gsap.from(el, {
-      y: 40,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        toggleActions: 'play none none none'
+    gsap.fromTo(el,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none none'
+        }
       }
-    });
+    );
   });
 
   // Staggered card reveals
   gsap.utils.toArray('.cards-container').forEach(container => {
     const cards = container.querySelectorAll('.glass-card');
-    gsap.from(cards, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.2,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: container,
-        start: 'top 85%'
+    gsap.fromTo(cards,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: container,
+          start: 'top 85%'
+        }
       }
-    });
+    );
   });
 
   // Staggered step reveals
   const stepsContainer = document.querySelector('.steps-container');
   if (stepsContainer) {
     const steps = stepsContainer.querySelectorAll('.step');
-    gsap.from(steps, {
-      y: 40,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.25,
-      ease: 'power2.out',
-      immediateRender: false,
-      scrollTrigger: {
-        trigger: stepsContainer,
-        start: 'top 85%'
+    gsap.fromTo(steps,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        stagger: 0.25,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: stepsContainer,
+          start: 'top 85%'
+        }
       }
-    });
+    );
   }
 
   // ========================================
