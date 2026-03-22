@@ -129,9 +129,20 @@
       y: -40,
       scrollTrigger: {
         trigger: heroSection,
-        start: '65% top',
-        end: '90% top',
+        start: '55% top',
+        end: '80% top',
         scrub: 1.5
+      }
+    });
+
+    // Fade out the hero canvas itself so it doesn't bleed into next section
+    gsap.to('#hero-canvas', {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: heroSection,
+        start: '75% top',
+        end: '95% top',
+        scrub: 1
       }
     });
   }
