@@ -260,44 +260,43 @@
     );
   });
 
-  // Staggered card reveals
-  gsap.utils.toArray('.cards-container').forEach(container => {
-    const cards = container.querySelectorAll('.glass-card');
-    gsap.fromTo(cards,
+  // Card reveals — each card triggers individually
+  gsap.utils.toArray('.glass-card').forEach((card, i) => {
+    gsap.fromTo(card,
       { y: 50, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 1,
-        stagger: 0.2,
+        delay: i * 0.15,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: container,
-          start: 'top 85%'
+          trigger: card,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
         }
       }
     );
   });
 
-  // Staggered step reveals
-  const stepsContainer = document.querySelector('.steps-container');
-  if (stepsContainer) {
-    const steps = stepsContainer.querySelectorAll('.step');
-    gsap.fromTo(steps,
+  // Step reveals — each step triggers individually
+  gsap.utils.toArray('.step').forEach((step, i) => {
+    gsap.fromTo(step,
       { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 1,
-        stagger: 0.25,
+        delay: i * 0.15,
         ease: 'power2.out',
         scrollTrigger: {
-          trigger: stepsContainer,
-          start: 'top 85%'
+          trigger: step,
+          start: 'top 90%',
+          toggleActions: 'play none none none'
         }
       }
     );
-  }
+  });
 
   // ========================================
   // ANIMATED STAT COUNTERS
