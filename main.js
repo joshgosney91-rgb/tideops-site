@@ -124,14 +124,15 @@
     });
 
     // Fade out hero content near end of scroll
+    const isMobileFade = window.innerWidth <= 768;
     gsap.to('.hero-content', {
       opacity: 0,
       y: -40,
       scrollTrigger: {
         trigger: heroSection,
-        start: '55% top',
-        end: '80% top',
-        scrub: 1.5
+        start: isMobileFade ? '30% top' : '55% top',
+        end: isMobileFade ? '50% top' : '80% top',
+        scrub: 1
       }
     });
 
@@ -140,8 +141,8 @@
       opacity: 0,
       scrollTrigger: {
         trigger: heroSection,
-        start: '75% top',
-        end: '95% top',
+        start: isMobileFade ? '40% top' : '75% top',
+        end: isMobileFade ? '60% top' : '95% top',
         scrub: 1
       }
     });
