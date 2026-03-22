@@ -1185,44 +1185,13 @@ body:hover .cursor-ring {
     display: flex;
   }
 
-  /* Hero adjustments for mobile */
-  .hero {
-    height: 100vh; /* No scroll animation on mobile */
-  }
-
-  #hero-canvas {
-    position: absolute;
-  }
-
+  /* Hero adjustments for mobile — same scroll animation, just smaller text */
   #particle-canvas {
     display: none;
   }
 
   .hero-content {
-    position: absolute;
     padding: 0 1.5rem;
-    justify-content: center;
-    padding-bottom: 8rem;
-  }
-
-  .cta-button.cta-main {
-    padding: 0.85rem 2rem;
-    font-size: 0.9rem;
-    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
-  }
-
-  .cta-button.hero-cta {
-    padding: 0.85rem 2rem;
-    font-size: 0.9rem;
-  }
-
-  .hero-overlay {
-    position: absolute;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 1.5rem;
   }
 
   .hero-title {
@@ -1236,9 +1205,15 @@ body:hover .cursor-ring {
     margin-bottom: 1.5rem;
   }
 
-  .hero-cta {
+  .cta-button.hero-cta {
     padding: 0.85rem 2rem;
     font-size: 0.9rem;
+  }
+
+  .cta-button.cta-main {
+    padding: 0.85rem 2rem;
+    font-size: 0.9rem;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
   }
 
   .cta-button {

@@ -78,108 +78,59 @@
       }
     }
 
-    if (!isMobile) {
-      preloadFrames();
-      window.addEventListener('resize', resizeCanvas);
+    preloadFrames();
+    window.addEventListener('resize', resizeCanvas);
 
-      // Use GSAP ScrollTrigger to drive the frame animation
-      ScrollTrigger.create({
-        trigger: heroSection,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 1.5,
-        onUpdate: (self) => {
-          const frameIndex = Math.min(
-            frameCount - 1,
-            Math.floor(self.progress * frameCount)
-          );
-          if (frameIndex !== currentFrame) {
-            currentFrame = frameIndex;
-            renderFrame(currentFrame);
-          }
+    // Use GSAP ScrollTrigger to drive the frame animation
+    ScrollTrigger.create({
+      trigger: heroSection,
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 1.5,
+      onUpdate: (self) => {
+        const frameIndex = Math.min(
+          frameCount - 1,
+          Math.floor(self.progress * frameCount)
+        );
+        if (frameIndex !== currentFrame) {
+          currentFrame = frameIndex;
+          renderFrame(currentFrame);
         }
-      });
-
-      // Fade out and hide hero content + overlay when scrolling past hero
-      const heroOverlay = document.querySelector('.hero-overlay');
-      const heroContent = document.querySelector('.hero-content');
-      const scrollHintEl = document.getElementById('scrollHint');
-
-      ScrollTrigger.create({
-        trigger: heroSection,
-        start: 'top top',
-        end: 'bottom top',
-        onLeave: () => {
-          if (heroOverlay) heroOverlay.style.display = 'none';
-          if (heroContent) heroContent.style.display = 'none';
-          if (scrollHintEl) scrollHintEl.style.display = 'none';
-        },
-        onEnterBack: () => {
-          if (heroOverlay) heroOverlay.style.display = '';
-          if (heroContent) heroContent.style.display = '';
-          if (scrollHintEl) scrollHintEl.style.display = '';
-        }
-      });
-
-      // Fade out hero content near end of scroll
-      gsap.to('.hero-content', {
-        opacity: 0,
-        y: -40,
-        scrollTrigger: {
-          trigger: heroSection,
-          start: '65% top',
-          end: '90% top',
-          scrub: 1.5
-        }
-      });
-    } else {
-      // Mobile: autoplay frame animation (ping-pong loop)
-      heroSection.style.height = '100vh';
-      canvas.style.position = 'absolute';
-
-      const mobileFrames = [];
-      let mobileLoaded = 0;
-      const step = 3; // Every 3rd frame for performance (~40 frames)
-      const totalMobile = Math.ceil(frameCount / step);
-
-      for (let i = 0; i < frameCount; i += step) {
-        const idx = i;
-        const img = new Image();
-        img.src = `assets/frames/hero/frame_${String(i + 1).padStart(4, '0')}.webp`;
-        img.onload = () => {
-          mobileFrames[Math.floor(idx / step)] = img;
-          mobileLoaded++;
-
-          // Show first loaded frame immediately
-          if (mobileLoaded === 1) {
-            resizeCanvas();
-            const ctx = canvas.getContext('2d');
-            const s = Math.max(canvas.width / img.width, canvas.height / img.height);
-            ctx.drawImage(img, (canvas.width - img.width * s) / 2, (canvas.height - img.height * s) / 2, img.width * s, img.height * s);
-          }
-
-          // All loaded — start autoplay
-          if (mobileLoaded === totalMobile) {
-            let f = 0;
-            let dir = 1;
-            function animateMobile() {
-              const ctx = canvas.getContext('2d');
-              const img = mobileFrames[f];
-              if (img) {
-                const s = Math.max(canvas.width / img.width, canvas.height / img.height);
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.drawImage(img, (canvas.width - img.width * s) / 2, (canvas.height - img.height * s) / 2, img.width * s, img.height * s);
-              }
-              f += dir;
-              if (f >= totalMobile - 1) dir = -1;
-              if (f <= 0) dir = 1;
-              setTimeout(animateMobile, 90);
-            }
-            animateMobile();
-          }
-        };
       }
-    }
+    });
+
+    // Fade out and hide hero content + overlay when scrolling past hero
+    const heroOverlay = document.querySelector('.hero-overlay');
+    const heroContent = document.querySelector('.hero-content');
+    const scrollHintEl = document.getElementById('scrollHint');
+
+    ScrollTrigger.create({
+      trigger: heroSection,
+      start: 'top top',
+      end: 'bottom top',
+      onLeave: () => {
+        if (heroOverlay) heroOverlay.style.display = 'none';
+        if (heroContent) heroContent.style.display = 'none';
+        if (scrollHintEl) scrollHintEl.style.display = 'none';
+      },
+      onEnterBack: () => {
+        if (heroOverlay) heroOverlay.style.display = '';
+        if (heroContent) heroContent.style.display = '';
+        if (scrollHintEl) scrollHintEl.style.display = '';
+      }
+    });
+
+    // Fade out hero content near end of scroll
+    gsap.to('.hero-content', {
+      opacity: 0,
+      y: -40,
+      scrollTrigger: {
+        trigger: heroSection,
+        start: '65% top',
+        end: '90% top',
+        scrub: 1.5
+      }
+    });
   }
 
   // ========================================
