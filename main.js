@@ -449,11 +449,11 @@
   // ========================================
   // PARTICLE NETWORK — Hero section only
   // ========================================
-  if (!isMobile) {
+  {
     const particleCanvas = document.getElementById('particle-canvas');
     if (particleCanvas) {
       const pCtx = particleCanvas.getContext('2d');
-      const PARTICLE_COUNT = 55;
+      const PARTICLE_COUNT = isMobile ? 35 : 55;
       const CONNECTION_DIST = 120;
       let particles = [];
       let pW, pH;

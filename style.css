@@ -1186,9 +1186,7 @@ body:hover .cursor-ring {
   }
 
   /* Hero adjustments for mobile — same scroll animation, just smaller text */
-  #particle-canvas {
-    display: none;
-  }
+  /* particles enabled on mobile */
 
   .hero-content {
     padding: 0 1.5rem;
