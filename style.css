@@ -105,6 +105,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   cursor: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -1106,18 +1107,12 @@ body:hover .cursor-ring {
 }
 
 /* --- Animation Utility --- */
-.animate-fade-up {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
+.animate-fade-up,
 .glass-card,
 .step,
 .stat-card,
 .audience-card,
 .problem-item {
-  will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
@@ -1207,20 +1202,13 @@ body:hover .cursor-ring {
     margin-bottom: 1.5rem;
   }
 
-  .cta-button.hero-cta {
+  .cta-button {
     padding: 0.85rem 2rem;
     font-size: 0.9rem;
   }
 
   .cta-button.cta-main {
-    padding: 0.85rem 2rem;
-    font-size: 0.9rem;
     box-shadow: 0 0 30px rgba(37, 99, 235, 0.2);
-  }
-
-  .cta-button {
-    padding: 0.85rem 2rem;
-    font-size: 0.9rem;
   }
 
   .section {
@@ -1308,25 +1296,15 @@ body:hover .cursor-ring {
     font-size: 0.95rem;
   }
 
-  /* Scale videos to show more content on mobile portrait */
+  /* Mobile video: cover with better framing */
   .video-bg {
-    object-fit: contain;
-    object-position: top center;
-    background: #050505;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
   .cta-video-bg video {
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
-    background: #050505;
-  }
-
-  .video-bg-container {
-    background: #050505;
-  }
-
-  .cta-video-bg {
-    background: #050505;
   }
 }
 

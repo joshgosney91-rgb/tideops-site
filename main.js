@@ -124,14 +124,13 @@
     });
 
     // Fade out hero content near end of scroll
-    const isMobileFade = window.innerWidth <= 768;
     gsap.to('.hero-content', {
       opacity: 0,
       y: -40,
       scrollTrigger: {
         trigger: heroSection,
-        start: isMobileFade ? '30% top' : '55% top',
-        end: isMobileFade ? '50% top' : '80% top',
+        start: isMobile ? '30% top' : '55% top',
+        end: isMobile ? '50% top' : '80% top',
         scrub: 1
       }
     });
@@ -141,8 +140,8 @@
       opacity: 0,
       scrollTrigger: {
         trigger: heroSection,
-        start: isMobileFade ? '40% top' : '75% top',
-        end: isMobileFade ? '60% top' : '95% top',
+        start: isMobile ? '40% top' : '75% top',
+        end: isMobile ? '60% top' : '95% top',
         scrub: 1
       }
     });
@@ -153,13 +152,13 @@
   // ========================================
   const scrollHint = document.getElementById('scrollHint');
   if (scrollHint) {
-    window.addEventListener('scroll', () => {
+    function hideScrollHint() {
       if (window.scrollY > 100) {
         scrollHint.classList.add('hidden');
-      } else {
-        scrollHint.classList.remove('hidden');
+        window.removeEventListener('scroll', hideScrollHint);
       }
-    }, { passive: true });
+    }
+    window.addEventListener('scroll', hideScrollHint, { passive: true });
   }
 
   // ========================================
@@ -413,6 +412,16 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
+      function showError() {
+        btn.textContent = 'Error — Try Again';
+        btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+        }, 3000);
+      }
+
       fetch(contactForm.action, {
         method: 'POST',
         body: new FormData(contactForm),
@@ -424,24 +433,10 @@
           const successEl = document.getElementById('formSuccess');
           if (successEl) successEl.style.display = 'block';
         } else {
-          btn.textContent = 'Error — Try Again';
-          btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-          }, 3000);
+          showError();
         }
       })
-      .catch(() => {
-        btn.textContent = 'Error — Try Again';
-        btn.style.background = 'linear-gradient(135deg, #dc2626, #ef4444)';
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-        }, 3000);
-      });
+      .catch(showError);
     });
   }
 
@@ -493,10 +488,7 @@
       }
 
       function drawParticles() {
-        if (!heroVisible) {
-          particleAnimId = requestAnimationFrame(drawParticles);
-          return;
-        }
+        if (!heroVisible) return;
 
         pCtx.clearRect(0, 0, pW, pH);
 
@@ -541,7 +533,7 @@
         particleAnimId = requestAnimationFrame(drawParticles);
       }
 
-      // Hide particles once scrolled past hero
+      // Hide particles once scrolled past hero, restart RAF on return
       ScrollTrigger.create({
         trigger: '.hero',
         start: 'top top',
@@ -553,6 +545,7 @@
         onEnterBack: () => {
           heroVisible = true;
           particleCanvas.style.opacity = '0.3';
+          drawParticles();
         }
       });
 
