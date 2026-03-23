@@ -1983,14 +1983,17 @@ body:hover .cursor-ring {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(5, 5, 5, 0.98);
-    backdrop-filter: blur(24px);
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    background: #050505;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     z-index: 10000;
     padding-top: var(--nav-height);
+    overflow: hidden;
   }
 
   .nav-links.open {
