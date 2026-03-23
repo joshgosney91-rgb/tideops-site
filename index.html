@@ -35,6 +35,274 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    /* --- Secondary CTA Link --- */
+    .cta-secondary-link {
+      display: block;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 400;
+      transition: color 0.3s, opacity 0.3s;
+      text-decoration: none;
+      letter-spacing: 0.2px;
+    }
+    .cta-secondary-link:hover {
+      color: rgba(255,255,255,1);
+    }
+    .cta-secondary-link .arrow {
+      display: inline-block;
+      transition: transform 0.25s;
+      margin-left: 3px;
+    }
+    .cta-secondary-link:hover .arrow {
+      transform: translateX(4px);
+    }
+
+    /* --- Tools / Integration Bar --- */
+    .tools-section {
+      padding: 4rem 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .tools-heading {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      margin-bottom: 1.75rem;
+    }
+    .tools-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.25rem 0.5rem;
+      opacity: 0.55;
+    }
+    .tools-bar .tool-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #5B6673;
+      letter-spacing: 0.3px;
+      padding: 0 0.5rem;
+      white-space: nowrap;
+    }
+    .tools-bar .tool-dot {
+      color: #3a4249;
+      font-size: 0.65rem;
+    }
+
+    /* --- Why TideOps / How We're Different --- */
+    .different-section {
+      background: var(--bg-elevated);
+    }
+    .different-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .different-item {
+      padding: 2.5rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+    .different-item:hover {
+      border-color: rgba(37, 99, 235, 0.2);
+      transform: translateY(-4px);
+    }
+    .different-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.1);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .different-item h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.3px;
+    }
+    .different-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* --- Team Section --- */
+    .team-section {
+      background: var(--bg);
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .team-card {
+      position: relative;
+      background: var(--glass-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      transition: var(--transition);
+      overflow: hidden;
+      text-align: center;
+    }
+    .team-card:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(37, 99, 235, 0.25);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+    }
+    .team-card .card-glow {
+      position: absolute;
+      top: -1px; left: -1px; right: -1px; bottom: -1px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(37,99,235,0.2), transparent, rgba(124,58,237,0.15));
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .team-card:hover .card-glow { opacity: 1; }
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--accent);
+    }
+    .team-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.3px;
+    }
+    .team-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .team-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+    }
+    .team-closing {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    /* --- FAQ Section --- */
+    .faq-section {
+      background: var(--bg-elevated);
+    }
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child {
+      border-top: 1px solid var(--border);
+    }
+    .faq-item summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      list-style: none;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      transition: color 0.25s;
+      gap: 1rem;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--accent-light); }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.35s var(--ease-out), border-color 0.25s;
+    }
+    .faq-item[open] .faq-chevron {
+      transform: rotate(180deg);
+      border-color: var(--accent);
+    }
+    .faq-item[open] summary { color: var(--accent-light); }
+    .faq-answer {
+      padding: 0 0 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      line-height: 1.75;
+      animation: faqOpen 0.3s var(--ease-out);
+      max-width: 680px;
+    }
+    @keyframes faqOpen {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Responsive additions --- */
+    @media (max-width: 768px) {
+      .different-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .team-card {
+        padding: 2rem 1.75rem;
+      }
+      .tools-bar { gap: 0.15rem 0.4rem; }
+      .tools-bar .tool-name { font-size: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .different-item,
+      .team-card { padding: 1.75rem 1.25rem; }
+      .faq-item summary { font-size: 0.97rem; }
+    }
+  </style>
+
   <!-- JSON-LD: LocalBusiness -->
   <script type="application/ld+json">
   {
@@ -44,6 +312,7 @@
     "description": "Custom AI automation and consulting for small businesses. We install AI assistants, workflow automation, and smart systems that save time and reduce manual work.",
     "url": "https://tideops.io",
     "email": "hello@tideops.io",
+    "telephone": "+19042939336",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Jacksonville",
@@ -90,7 +359,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "AI Assistants",
-            "description": "Custom AI tools for emails, lead follow-up, customer communication, and repetitive admin tasks."
+            "description": "Your leads get a response in under 60 seconds. Customer questions answered 24/7. Follow-ups sent automatically."
           }
         },
         {
@@ -98,7 +367,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Workflow Automation",
-            "description": "Connect your software, streamline processes, and automate the tasks that slow you down."
+            "description": "Estimates, invoices, and proposals generated automatically. Your tools talk to each other. Manual data entry disappears."
           }
         },
         {
@@ -106,7 +375,7 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Custom AI Systems",
-            "description": "Tailored AI and automation built around the way your business already operates."
+            "description": "Client portals, booking systems, internal dashboards — built around how your business actually runs."
           }
         }
       ]
@@ -138,18 +407,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What is AI automation for small business?",
+        "name": "Do I need to understand AI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "AI automation for small business uses artificial intelligence to handle repetitive tasks like lead follow-up, data entry, scheduling, and customer communication — saving business owners 40+ hours per month."
+          "text": "Not at all. We handle everything — the strategy, the build, and the maintenance. You just use it."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does it take to set up AI automation?",
+        "name": "How long until I see results?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "TideOps typically has the first automation live within 14 days. We audit your workflow, build a custom solution, and install it into your existing operations."
+          "text": "Most clients have their first automation live within 14 days. Some simple setups are done in a week."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if it doesn't work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We iterate until it does. Our job isn't done until the system is saving you real time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will this replace my team?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We make your team faster and free them up to focus on growth instead of busywork."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Projects start at $500. Every business is different, so we scope things out on a free strategy call first."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is AI automation for small business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI automation for small business uses artificial intelligence to handle repetitive tasks like lead follow-up, data entry, scheduling, and customer communication — saving business owners 40+ hours per month."
         }
       },
       {
@@ -195,6 +496,7 @@
       <h1 class="hero-title">We Install AI Into Your Business</h1>
       <p class="hero-subtitle">Custom AI and automation systems that save time, reduce manual work, and make your business run smarter.</p>
       <a href="contact.html" class="cta-button hero-cta">Book Your Strategy Call</a>
+      <a href="contact.html" class="cta-secondary-link">Or get a free AI audit <span class="arrow">→</span></a>
     </div>
     <div class="scroll-hint" id="scrollHint">
       <span>Scroll</span>
@@ -256,7 +558,7 @@
             </svg>
           </div>
           <h3>AI Assistants</h3>
-          <p>Custom AI tools for emails, lead follow-up, customer communication, and repetitive admin tasks.</p>
+          <p>Your leads get a response in under 60 seconds. Customer questions answered 24/7. Follow-ups sent automatically. No more missed opportunities.</p>
           <div class="card-glow"></div>
         </div>
         <div class="glass-card animate-fade-up">
@@ -267,7 +569,7 @@
             </svg>
           </div>
           <h3>Workflow Automation</h3>
-          <p>We connect your software, streamline processes, and automate the tasks that slow you down.</p>
+          <p>Estimates, invoices, and proposals generated automatically. Your tools talk to each other. Manual data entry disappears.</p>
           <div class="card-glow"></div>
         </div>
         <div class="glass-card animate-fade-up">
@@ -278,12 +580,34 @@
             </svg>
           </div>
           <h3>Custom Systems</h3>
-          <p>Tailored AI and automation built around the way your business already operates.</p>
+          <p>Client portals, booking systems, internal dashboards — built around how your business actually runs. Not another app to learn.</p>
           <div class="card-glow"></div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- TOOLS / INTEGRATION BAR -->
+  <div class="tools-section">
+    <div class="container">
+      <p class="tools-heading">Integrates With Your Existing Tools</p>
+      <div class="tools-bar">
+        <span class="tool-name">Google Workspace</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">Slack</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">HubSpot</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">QuickBooks</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">Calendly</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">Zapier</span>
+        <span class="tool-dot">•</span>
+        <span class="tool-name">Mailchimp</span>
+      </div>
+    </div>
+  </div>
 
   <!-- HOW IT WORKS -->
   <section class="section how-section" id="how-it-works">
@@ -308,6 +632,37 @@
           <div class="step-line"></div>
           <h3>Install</h3>
           <p>We implement, test, and make sure it works smoothly in your day-to-day operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE'RE DIFFERENT -->
+  <section class="section different-section" id="why-tideops">
+    <div class="container">
+      <span class="section-label animate-fade-up">Why TideOps</span>
+      <h2 class="section-title animate-fade-up">White Glove Service, Not <span class="gradient-text">Another Software Login</span></h2>
+      <div class="different-grid">
+        <div class="different-item animate-fade-up">
+          <div class="different-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>We Build It For You</h3>
+          <p>No DIY platforms. No tutorials to watch. We design, build, and install everything into your business.</p>
+        </div>
+        <div class="different-item animate-fade-up">
+          <div class="different-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>We Maintain It</h3>
+          <p>Systems break. Tools update. We handle all of it so you never have to think about the tech.</p>
+        </div>
+        <div class="different-item animate-fade-up">
+          <div class="different-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <h3>We Actually Understand Business</h3>
+          <p>We've run businesses ourselves. Every system we build solves a real problem, not a theoretical one.</p>
         </div>
       </div>
     </div>
@@ -404,6 +759,120 @@
     </div>
   </section>
 
+  <!-- TEAM / FOUNDERS -->
+  <section class="section team-section" id="team">
+    <div class="container">
+      <span class="section-label animate-fade-up">Who We Are</span>
+      <h2 class="section-title animate-fade-up">Built by Operators, <span class="gradient-text">Not Just Developers</span></h2>
+      <div class="team-grid">
+
+        <!-- Josh Gosney -->
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <h3>Josh Gosney</h3>
+          <p class="team-role">Operations &amp; Strategy</p>
+          <p>Background in real estate operations and business automation. Focused on turning operational chaos into scalable systems.</p>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Sten Muchow -->
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <h3>Sten Muchow</h3>
+          <p class="team-role">Client Success &amp; Delivery</p>
+          <p>Background in operations management and client relationships. Ensures every system we deploy actually gets used and delivers results.</p>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Marco Varlesi -->
+        <div class="team-card animate-fade-up">
+          <div class="team-avatar">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
+            </svg>
+          </div>
+          <h3>Marco Varlesi</h3>
+          <p class="team-role">Technical Architecture</p>
+          <p>Background in systems building and technical implementation. Architects the automations and integrations that power every client engagement.</p>
+          <div class="card-glow"></div>
+        </div>
+
+      </div>
+      <p class="team-closing animate-fade-up">
+        "We've spent years running businesses — not just building software. That's why TideOps solutions actually work in the real world."
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <span class="section-label animate-fade-up">Common Questions</span>
+      <h2 class="section-title animate-fade-up" style="max-width:600px;">Everything You Need to Know</h2>
+      <div class="faq-list animate-fade-up">
+
+        <details class="faq-item">
+          <summary>
+            Do I need to understand AI?
+            <span class="faq-chevron">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Not at all. We handle everything — the strategy, the build, and the maintenance. You just use it.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            How long until I see results?
+            <span class="faq-chevron">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Most clients have their first automation live within 14 days. Some simple setups are done in a week.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            What if it doesn't work?
+            <span class="faq-chevron">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+            </span>
+          </summary>
+          <p class="faq-answer">We iterate until it does. Our job isn't done until the system is saving you real time.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            Will this replace my team?
+            <span class="faq-chevron">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+            </span>
+          </summary>
+          <p class="faq-answer">No. We make your team faster and free them up to focus on growth instead of busywork.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>
+            What does it cost?
+            <span class="faq-chevron">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
+            </span>
+          </summary>
+          <p class="faq-answer">Projects start at $500. Every business is different, so we scope things out on a free strategy call first.</p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
   <!-- CTA SECTION -->
   <section class="section cta-section" id="cta">
     <div class="cta-video-bg">
@@ -417,6 +886,7 @@
       <h2 class="cta-headline animate-fade-up">See Where AI Can Save<br>Your Business Time</h2>
       <p class="cta-sub animate-fade-up">Get a free strategy call. We'll map out exactly where AI and automation can make the biggest impact.</p>
       <a href="contact.html" class="cta-button cta-main animate-fade-up">Book Your Strategy Call</a>
+      <a href="contact.html" class="cta-secondary-link animate-fade-up">Or get a free AI audit <span class="arrow">→</span></a>
     </div>
   </section>
 
@@ -435,10 +905,12 @@
       </div>
       <div class="footer-contact">
         <a href="mailto:hello@tideops.io">hello@tideops.io</a>
+        <a href="tel:+19042939336" style="display:block; margin-top:0.4rem;">(904) 293-9336</a>
+        <p style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-dim);">Jacksonville, FL</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 TideOps. All rights reserved.</p>
+      <p>&copy; 2026 TideOps LLC. All rights reserved.</p>
     </div>
   </footer>
 
