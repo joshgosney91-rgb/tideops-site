@@ -186,7 +186,7 @@ body:hover .cursor-ring {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 10001;
   padding: 0 3rem;
   height: var(--nav-height);
   display: flex;
@@ -1979,16 +1979,18 @@ body:hover .cursor-ring {
   .nav-links {
     display: none;
     position: fixed;
-    top: var(--nav-height);
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(5, 5, 5, 0.97);
+    background: rgba(5, 5, 5, 0.98);
     backdrop-filter: blur(24px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    z-index: 10000;
+    padding-top: var(--nav-height);
   }
 
   .nav-links.open {
