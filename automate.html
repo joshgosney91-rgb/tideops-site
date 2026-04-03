@@ -202,6 +202,63 @@
       line-height: 1.7;
     }
 
+    /* --- See What This Looks Like --- */
+    .workflow-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+    .workflow-inner {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .workflow-subtext {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .workflow-steps {
+      list-style: none;
+      counter-reset: wf;
+      padding: 0;
+      margin: 0;
+    }
+    .workflow-steps li {
+      counter-increment: wf;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .workflow-steps li:last-child { border-bottom: none; }
+    .workflow-steps li::before {
+      content: counter(wf);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px; height: 32px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .workflow-note {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-style: italic;
+      margin-top: 2rem;
+    }
+
     /* --- How It Works --- */
     .process-section {
       background: var(--bg-elevated);
@@ -527,7 +584,7 @@
       <a href="blog/index.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="#schedule" class="cta-button nav-cta">Get My Free Review</a>
+    <a href="#schedule" class="cta-button nav-cta">Get My Automation Plan</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -540,8 +597,8 @@
       <h1 class="landing-hero-title animate-fade-up">Stop Losing Time to Work <span class="gradient-text">Your Business Has Outgrown</span></h1>
       <p class="landing-hero-subtitle animate-fade-up">TideOps builds custom automation systems that handle lead follow-up, scheduling, inboxes, and admin work, then installs them into your existing workflow. Done for you. Not another tool to figure out.</p>
       <div class="landing-hero-ctas animate-fade-up">
-        <a href="#schedule" class="cta-button hero-cta">Get My Free Automation Review</a>
-        <a href="#automate" class="cta-secondary-link">See What We Automate <span class="arrow">&#8595;</span></a>
+        <a href="#schedule" class="cta-button hero-cta">Get My Automation Plan</a>
+        <a href="#automate" class="cta-secondary-link">See What We Can Automate <span class="arrow">&#8595;</span></a>
       </div>
     </div>
   </section>
@@ -552,15 +609,15 @@
       <div class="trust-strip-inner animate-fade-up">
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          Custom-built around your workflow
+          Built around the way your business already runs
         </div>
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          Installed and managed for you
+          Installed for you, not handed off to your team
         </div>
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Faster follow-up, fewer dropped balls
+          Less admin, faster follow-up, fewer dropped balls
         </div>
       </div>
     </div>
@@ -591,7 +648,7 @@
             </svg>
           </div>
           <h3>Lead Follow-Up</h3>
-          <p>New leads get a response in under 60 seconds. Automated sequences keep every opportunity moving forward while your team focuses on closing.</p>
+          <p>New leads can be responded to almost instantly with the right workflow in place. Automated sequences keep every opportunity moving forward while your team focuses on closing.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -655,6 +712,25 @@
           <div class="card-glow"></div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SEE WHAT THIS LOOKS LIKE ===== -->
+  <section class="section workflow-section">
+    <div class="container">
+      <span class="section-label animate-fade-up" style="display:block; text-align:center;">See What This Looks Like</span>
+      <p class="workflow-subtext animate-fade-up">Here's a simple example of how one automation can remove repetitive work without changing how your business operates.</p>
+      <div class="workflow-inner">
+        <ol class="workflow-steps animate-fade-up">
+          <li>A new lead comes in through your website, ads, or inbox</li>
+          <li>The system responds immediately with the right first message</li>
+          <li>The lead is qualified based on your criteria</li>
+          <li>Qualified leads are pushed into your CRM or booking flow</li>
+          <li>Your team gets the context they need without chasing details</li>
+          <li>You get a clean summary of what happened and what needs attention</li>
+        </ol>
+        <p class="workflow-note animate-fade-up">Every workflow is customized to the way your business already operates.</p>
       </div>
     </div>
   </section>
@@ -811,7 +887,7 @@
         <div class="founder-info">
           <h3>Joshua Gosney</h3>
           <p class="founder-role">Founder, TideOps</p>
-          <p>Most business owners I talk to aren't looking for more software. They're looking for someone to take the repetitive stuff off their plate and make it run on its own. That's what TideOps does. I work directly with each client to understand how their business operates, then build and install systems that fit, so they can stop managing busywork and get back to the work that matters.</p>
+          <p>Most business owners do not need more software. They need fewer bottlenecks, fewer missed handoffs, and less repetitive work pulling attention away from revenue. TideOps is built to solve that in a practical way by designing automation around the workflow you already use, then installing it for you so it actually gets adopted.</p>
         </div>
       </div>
     </div>
@@ -847,8 +923,8 @@
     <div class="cta-glow"></div>
     <div class="container">
       <h2 class="cta-headline animate-fade-up">Ready to See What <span class="gradient-text">We Can Automate for You?</span></h2>
-      <p class="cta-sub animate-fade-up">Book a free call and we'll identify the repetitive work in your business that can be automated first, along with the fastest path to getting it running.</p>
-      <a href="contact.html" class="cta-button cta-main animate-fade-up">Book My Free Automation Call</a>
+      <p class="cta-sub animate-fade-up">We'll look at where time is being lost, what tasks are being repeated, and where automation can help first. After a short call, you'll leave with a clearer picture of what can be automated and the fastest path to putting it in place.</p>
+      <a href="contact.html" class="cta-button cta-main animate-fade-up">Get My Automation Plan</a>
 
       <!-- What happens next -->
       <div class="next-steps animate-fade-up">
