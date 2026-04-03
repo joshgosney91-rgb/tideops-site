@@ -578,6 +578,59 @@
         transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       }
     }
+
+    /* --- Mobile-Only Sticky CTA Bar --- */
+    .sticky-mobile-cta {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      .sticky-mobile-cta {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 9000;
+        padding: 0.85rem 1.25rem;
+        padding-bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px));
+        background: rgba(5, 5, 5, 0.92);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
+        opacity: 0;
+        transform: translateY(100%);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+      .sticky-mobile-cta.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .sticky-mobile-cta .sticky-cta-btn {
+        display: inline-block;
+        width: 100%;
+        max-width: 380px;
+        padding: 0.9rem 1.5rem;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        color: #fff;
+        background: var(--accent);
+        border: none;
+        border-radius: 12px;
+        text-decoration: none;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+    @media (max-width: 768px) and (prefers-reduced-motion: reduce) {
+      .sticky-mobile-cta {
+        transition: none;
+      }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -1049,6 +1102,11 @@
     </div>
   </footer>
 
+  <!-- Mobile-Only Sticky CTA -->
+  <div class="sticky-mobile-cta" id="stickyMobileCta" aria-hidden="true">
+    <a href="#schedule" class="sticky-cta-btn">Get My Free Automation Review</a>
+  </div>
+
   <!-- Custom Cursor -->
   <div class="cursor-dot" id="cursorDot"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -1151,6 +1209,44 @@
         }
       );
     });
+  </script>
+  <script>
+    // Mobile sticky CTA: show after hero, hide when final CTA is in view
+    (function() {
+      var bar = document.getElementById('stickyMobileCta');
+      if (!bar) return;
+      var hero = document.querySelector('.landing-hero');
+      var ctaSection = document.getElementById('schedule');
+      if (!hero || !ctaSection) return;
+
+      var isVisible = false;
+      function update() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var ctaTop = ctaSection.getBoundingClientRect().top;
+        var viewH = window.innerHeight;
+        // Show: hero scrolled past, CTA section not yet in viewport
+        var shouldShow = heroBottom < 0 && ctaTop > viewH * 0.85;
+        if (shouldShow !== isVisible) {
+          isVisible = shouldShow;
+          if (shouldShow) {
+            bar.classList.add('is-visible');
+            bar.setAttribute('aria-hidden', 'false');
+          } else {
+            bar.classList.remove('is-visible');
+            bar.setAttribute('aria-hidden', 'true');
+          }
+        }
+      }
+      // Throttle scroll for performance
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() { update(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+      update();
+    })();
   </script>
 </body>
 </html>
