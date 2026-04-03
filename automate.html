@@ -547,6 +547,37 @@
       .why-card { padding: 1.75rem 1.25rem; }
       .founder-card { padding: 1.75rem 1.25rem; }
     }
+    /* --- Scroll Reveal (page-specific overrides) --- */
+    @media (prefers-reduced-motion: reduce) {
+      .animate-fade-up,
+      .glass-card,
+      .process-step,
+      .deliverable-item,
+      .why-card,
+      .workflow-steps li,
+      .bestfit-item,
+      .trust-strip-item {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* --- Subtle hover feedback (desktop) --- */
+    @media (hover: hover) {
+      .cta-button {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.2);
+      }
+      .automate-card,
+      .why-card,
+      .deliverable-item {
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -1025,5 +1056,101 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="main.js"></script>
+  <script>
+    // Page-specific: lighter scroll-reveal overrides for /automate
+    // Runs after main.js loads, overrides heavy animations with subtler values
+    window.addEventListener('load', function() {
+      // Respect reduced-motion
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+      // Kill existing ScrollTrigger instances on this page's elements and re-animate
+      ScrollTrigger.getAll().forEach(function(st) { st.kill(); });
+
+      // Hero content — fade in on load (no scroll needed)
+      gsap.fromTo('.landing-hero-inner > *',
+        { y: 12, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out', delay: 0.1 }
+      );
+
+      // Trust strip items — slight stagger
+      gsap.fromTo('.trust-strip-item',
+        { y: 10, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'power2.out',
+          scrollTrigger: { trigger: '.trust-strip', start: 'top 90%' }
+        }
+      );
+
+      // Generic fade-up elements (section labels, titles, paragraphs)
+      gsap.utils.toArray('.animate-fade-up').forEach(function(el) {
+        // Skip hero children (already animated above)
+        if (el.closest('.landing-hero')) return;
+        gsap.fromTo(el,
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Automate cards — light stagger
+      gsap.utils.toArray('.automate-card').forEach(function(card, i) {
+        gsap.fromTo(card,
+          { y: 16, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, delay: i * 0.07, ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 92%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Workflow steps — sequential reveal
+      gsap.utils.toArray('.workflow-steps li').forEach(function(li, i) {
+        gsap.fromTo(li,
+          { y: 10, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, delay: i * 0.06, ease: 'power2.out',
+            scrollTrigger: { trigger: '.workflow-steps', start: 'top 88%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Process steps (How It Works)
+      gsap.utils.toArray('.process-step').forEach(function(step, i) {
+        gsap.fromTo(step,
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, delay: i * 0.08, ease: 'power2.out',
+            scrollTrigger: { trigger: step, start: 'top 92%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Deliverable items (What You Get)
+      gsap.utils.toArray('.deliverable-item').forEach(function(item, i) {
+        gsap.fromTo(item,
+          { y: 12, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.4, delay: i * 0.06, ease: 'power2.out',
+            scrollTrigger: { trigger: item, start: 'top 92%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // Why cards
+      gsap.utils.toArray('.why-card').forEach(function(card, i) {
+        gsap.fromTo(card,
+          { y: 14, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.45, delay: i * 0.07, ease: 'power2.out',
+            scrollTrigger: { trigger: card, start: 'top 92%', toggleActions: 'play none none none' }
+          }
+        );
+      });
+
+      // CTA section
+      gsap.fromTo('.cta-section .cta-headline, .cta-section .cta-sub, .cta-section .cta-main, .cta-section .next-steps, .cta-section .inline-form-wrapper',
+        { y: 14, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, stagger: 0.08, ease: 'power2.out',
+          scrollTrigger: { trigger: '.cta-section', start: 'top 85%', toggleActions: 'play none none none' }
+        }
+      );
+    });
+  </script>
 </body>
 </html>
