@@ -97,6 +97,41 @@
     }
     .cta-secondary-link:hover .arrow { transform: translateX(4px); }
 
+    /* --- Trust Strip --- */
+    .trust-strip {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .trust-strip-inner {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .trust-strip-item {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .trust-strip-icon {
+      width: 20px; height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .trust-strip-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+
     /* --- What We Do (compact) --- */
     .whatwedo-section {
       background: var(--bg-elevated);
@@ -343,22 +378,42 @@
   <!-- ===== HERO ===== -->
   <section class="landing-hero">
     <div class="landing-hero-inner">
-      <span class="section-label animate-fade-up" style="display:inline-block;">Nice to meet you</span>
-      <h1 class="landing-hero-title animate-fade-up">We Build Custom Automation So You Can <span class="gradient-text">Stop Doing It Manually</span></h1>
-      <p class="landing-hero-subtitle animate-fade-up">TideOps designs and installs AI-powered systems that handle your repetitive work — lead follow-up, scheduling, inbox management, and more. You focus on running your business.</p>
+      <span class="section-label animate-fade-up" style="display:inline-block;">Good to meet you</span>
+      <h1 class="landing-hero-title animate-fade-up">Automate the Work <span class="gradient-text">Slowing Your Business Down</span></h1>
+      <p class="landing-hero-subtitle animate-fade-up">TideOps builds custom AI systems that handle follow-up, scheduling, inboxes, admin work, and the other repetitive tasks eating up your time.</p>
       <div class="landing-hero-ctas animate-fade-up">
-        <a href="#schedule" class="cta-button hero-cta">Schedule a Call</a>
+        <a href="#schedule" class="cta-button hero-cta">Get My Automation Review</a>
         <a href="#automate" class="cta-secondary-link">See what we automate <span class="arrow">↓</span></a>
       </div>
     </div>
   </section>
+
+  <!-- ===== TRUST STRIP ===== -->
+  <div class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner animate-fade-up">
+        <div class="trust-strip-item">
+          <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Custom-built for your workflow
+        </div>
+        <div class="trust-strip-item">
+          <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          White-glove implementation
+        </div>
+        <div class="trust-strip-item">
+          <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Faster response, less manual work
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ===== WHAT TIDEOPS DOES ===== -->
   <div class="whatwedo-section">
     <div class="container">
       <div class="whatwedo-inner animate-fade-up">
         <span class="section-label">What We Do</span>
-        <p style="margin-top: 1rem;">We identify the tasks eating up your team's time — then build custom systems that handle them automatically. No generic software. No DIY setup. We design it, build it, and install it into your business so it just works.</p>
+        <p style="margin-top: 1rem;">We find the tasks draining your team's time and build systems that run them automatically. No off-the-shelf software. No DIY setup. We design it, build it, and install it — so it works from day one.</p>
       </div>
     </div>
   </div>
@@ -378,7 +433,7 @@
             </svg>
           </div>
           <h3>Lead Follow-Up</h3>
-          <p>New leads get a response in under 60 seconds. Follow-up sequences run automatically so no opportunity slips through the cracks.</p>
+          <p>New leads get a response in under 60 seconds — not tomorrow, not next week. Automated sequences keep every opportunity moving forward.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -390,7 +445,7 @@
             </svg>
           </div>
           <h3>Inbox Triage</h3>
-          <p>Incoming messages sorted, prioritized, and routed to the right person. Important emails get flagged. Noise gets filtered.</p>
+          <p>Incoming messages sorted, prioritized, and routed — automatically. The important stuff surfaces. Everything else stays out of the way.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -401,8 +456,8 @@
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
             </svg>
           </div>
-          <h3>Daily Task Summaries</h3>
-          <p>Your team starts every day knowing exactly what needs attention. Automated briefings pulled from your tools, delivered on schedule.</p>
+          <h3>Daily Briefings</h3>
+          <p>Every morning, your team gets a clear rundown of what needs attention — pulled from your tools, delivered before anyone asks.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -413,8 +468,8 @@
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
             </svg>
           </div>
-          <h3>Appointment Coordination</h3>
-          <p>Scheduling, confirmations, and reminders handled automatically. No more back-and-forth emails to find a time that works.</p>
+          <h3>Scheduling &amp; Reminders</h3>
+          <p>Bookings, confirmations, and reminders handled end-to-end. No back-and-forth. No no-shows.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -426,7 +481,7 @@
             </svg>
           </div>
           <h3>Client Communication</h3>
-          <p>Status updates, onboarding sequences, and check-ins sent at the right time. Clients stay informed without your team lifting a finger.</p>
+          <p>Onboarding steps, status updates, and check-ins go out at the right time — every time. Your clients stay in the loop without your team chasing them down.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -438,7 +493,7 @@
             </svg>
           </div>
           <h3>Document Prep</h3>
-          <p>Proposals, estimates, and approval docs generated from your data and ready to send. Less formatting, more closing.</p>
+          <p>Proposals, estimates, and approval docs assembled from your data and ready to send. You close — we handle the paperwork.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -457,40 +512,40 @@
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <h3>Less Manual Work</h3>
-          <p>Stop spending hours on tasks that should take minutes. We automate the repetitive stuff so your team can focus.</p>
+          <h3>Hours Back, Every Week</h3>
+          <p>The tasks eating two, three, five hours a week? Gone. Your team gets that time back for work that actually matters.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h3>Faster Response Times</h3>
-          <p>Leads and clients get answers in seconds, not hours. Speed wins deals.</p>
+          <h3>Instant Response Times</h3>
+          <p>Leads and clients hear back in seconds, not hours. The businesses that respond first win — and now that's you.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3>Better Consistency</h3>
-          <p>Every follow-up sent. Every task tracked. Every client communicated with. Nothing falls through the cracks.</p>
+          <h3>Nothing Slips Through</h3>
+          <p>Every follow-up sent. Every task tracked. Every client kept in the loop. Consistency stops being something you have to think about.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
-          <h3>More Time for Revenue</h3>
-          <p>When admin work runs itself, your team spends more time on the work that actually grows the business.</p>
+          <h3>More Time on Revenue</h3>
+          <p>When the admin runs itself, your team spends more hours on the work that grows the business — not the work that keeps it running.</p>
         </div>
 
         <div class="benefit-card animate-fade-up" style="grid-column: span 1;">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
-          <h3>Custom-Built, Not Off-the-Shelf</h3>
-          <p>We build around your tools and your process. No generic software to learn. No workarounds.</p>
+          <h3>Designed Around You</h3>
+          <p>We build around your tools and your process — not the other way around. No new software to learn. No workarounds.</p>
         </div>
 
       </div>
@@ -508,7 +563,7 @@
         <div class="founder-info">
           <h3>Joshua Gosney</h3>
           <p class="founder-role">Founder, TideOps</p>
-          <p>I started TideOps because I kept seeing the same problem — smart business owners buried in busywork that machines should handle. We build the systems that free you up to focus on what you do best.</p>
+          <p>We don't hand you software and hope you figure it out. I started TideOps to give business owners something better — custom-built systems designed around how your business already runs, installed and managed so you never touch the technical side.</p>
         </div>
       </div>
     </div>
@@ -518,14 +573,14 @@
   <section class="section cta-section" id="schedule">
     <div class="cta-glow"></div>
     <div class="container">
-      <h2 class="cta-headline animate-fade-up">Let's Map Out What<br><span class="gradient-text">We Can Automate For You</span></h2>
-      <p class="cta-sub animate-fade-up">Book a free strategy call, or request a custom automation review. We'll show you exactly where AI can save your business time.</p>
-      <a href="contact.html" class="cta-button cta-main animate-fade-up">Schedule Your Call</a>
+      <h2 class="cta-headline animate-fade-up">Ready to See What<br><span class="gradient-text">We Can Automate For You?</span></h2>
+      <p class="cta-sub animate-fade-up">Book a free call and we'll map out exactly which tasks in your business can be automated — and how fast we can get it running.</p>
+      <a href="contact.html" class="cta-button cta-main animate-fade-up">Book My Automation Call</a>
 
       <!-- Inline Form -->
       <div class="inline-form-wrapper animate-fade-up">
         <div class="contact-form-wrapper" style="margin-top:0;">
-          <p style="text-align:center; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-muted);">Or request a custom automation review</p>
+          <p style="text-align:center; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-muted);">Or tell us what you need — we'll send a custom review</p>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/maqpdgnd" method="POST">
             <div class="form-group">
               <label for="name">Name</label>
@@ -551,8 +606,8 @@
             <div class="success-icon">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 10 10.5 15.5 8 13"/></svg>
             </div>
-            <h3 class="success-title">Got it.</h3>
-            <p class="success-text">We'll review your business and get back to you within 24 hours with a custom automation plan.</p>
+            <h3 class="success-title">We're on it.</h3>
+            <p class="success-text">Expect a personalized automation review from Josh within 24 hours.</p>
           </div>
         </div>
       </div>
