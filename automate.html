@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>See What We Can Automate — TideOps | Custom AI Automation</title>
-  <meta name="description" content="TideOps builds custom AI automation for small businesses. Lead follow-up, inbox triage, daily summaries — we build it, you use it. Book a free strategy call.">
+  <title>Custom AI Automation for Small Businesses — TideOps</title>
+  <meta name="description" content="TideOps builds custom AI automation for small businesses. Lead follow-up, inbox triage, scheduling, client communication — we build it, install it, you use it.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://tideops.io/automate.html">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="See What We Can Automate — TideOps">
-  <meta property="og:description" content="Custom AI automation systems that save time, reduce manual work, and make your business run smarter.">
+  <meta property="og:title" content="Custom AI Automation for Small Businesses — TideOps">
+  <meta property="og:description" content="We build custom AI systems that handle follow-up, scheduling, inboxes, and admin work — so your team can focus on revenue.">
   <meta property="og:image" content="https://tideops.io/assets/images/og-image.png">
   <meta property="og:url" content="https://tideops.io/automate.html">
   <meta property="og:type" content="website">
@@ -32,7 +32,7 @@
        /automate — QR Landing Page Styles
        ======================================== */
 
-    /* --- Landing Hero (no scroll animation) --- */
+    /* --- Landing Hero --- */
     .landing-hero {
       position: relative;
       min-height: 100vh;
@@ -67,12 +67,20 @@
       color: #fff;
     }
     .landing-hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2vw, 1.15rem);
       color: var(--text-muted);
-      max-width: 580px;
+      max-width: 600px;
       margin: 0 auto 2.5rem;
       font-weight: 400;
       line-height: 1.7;
+    }
+    .hero-positioning {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.5px;
     }
     .landing-hero-ctas {
       display: flex;
@@ -96,6 +104,10 @@
       margin-left: 3px;
     }
     .cta-secondary-link:hover .arrow { transform: translateX(4px); }
+
+    /* --- Nav override for landing page --- */
+    .nav-landing .nav-links { display: none !important; }
+    .nav-landing .nav-toggle { display: none !important; }
 
     /* --- Trust Strip --- */
     .trust-strip {
@@ -124,13 +136,6 @@
       color: var(--accent);
       flex-shrink: 0;
     }
-    @media (max-width: 768px) {
-      .trust-strip-inner {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
-    }
 
     /* --- What We Do (compact) --- */
     .whatwedo-section {
@@ -148,6 +153,41 @@
       color: var(--text-muted);
       font-size: 1.1rem;
       line-height: 1.8;
+    }
+
+    /* --- Proof Examples Strip --- */
+    .proof-strip {
+      background: var(--bg-elevated);
+      padding: 0 0 5rem;
+    }
+    .proof-strip-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .proof-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1.25rem 1rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .proof-item-icon {
+      width: 18px; height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     /* --- Automation Examples Grid --- */
@@ -249,9 +289,37 @@
       line-height: 1.7;
     }
 
+    /* --- What This Usually Improves --- */
+    .improves-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+    .improves-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 2rem auto 0;
+    }
+    .improves-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+    .improves-item-icon {
+      width: 32px; height: 32px;
+      color: var(--accent);
+      margin: 0 auto 0.75rem;
+    }
+    .improves-item p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
     /* --- Founder Section --- */
     .founder-section {
-      background: var(--bg-elevated);
+      background: var(--bg);
     }
     .founder-card {
       display: flex;
@@ -298,6 +366,75 @@
       line-height: 1.7;
     }
 
+    /* --- Best Fit Section --- */
+    .bestfit-section {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .bestfit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 860px;
+      margin: 2rem auto 0;
+    }
+    .bestfit-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1.25rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 500;
+    }
+    .bestfit-icon {
+      width: 18px; height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* --- Example Automation Flow --- */
+    .flow-section {
+      background: var(--bg-elevated);
+      border-top: 1px solid var(--border);
+    }
+    .flow-steps {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      flex-wrap: wrap;
+    }
+    .flow-step {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.25rem;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: #fff;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .flow-step-icon {
+      width: 18px; height: 18px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .flow-arrow {
+      color: rgba(255,255,255,0.2);
+      font-size: 1.1rem;
+      padding: 0 0.5rem;
+      flex-shrink: 0;
+    }
+
     /* --- Inline Form (inside CTA) --- */
     .inline-form-wrapper {
       max-width: 520px;
@@ -309,14 +446,25 @@
     @media (max-width: 1024px) {
       .automate-grid { grid-template-columns: repeat(2, 1fr); }
       .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .bestfit-grid { grid-template-columns: repeat(2, 1fr); }
+      .improves-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 768px) {
       .landing-hero {
         min-height: auto;
         padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
       }
+      .trust-strip-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
       .automate-grid { grid-template-columns: 1fr; gap: 1.25rem; }
       .benefits-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+      .proof-grid { grid-template-columns: 1fr; }
+      .bestfit-grid { grid-template-columns: 1fr; }
+      .improves-grid { grid-template-columns: repeat(2, 1fr); }
       .founder-card {
         flex-direction: column;
         text-align: center;
@@ -324,13 +472,24 @@
         gap: 1.5rem;
       }
       .whatwedo-section { padding: 4rem 0; }
+      .proof-strip { padding-bottom: 3rem; }
       .inline-form-wrapper { margin-top: 2rem; }
+      .flow-steps {
+        flex-direction: column;
+        gap: 0;
+      }
+      .flow-arrow {
+        transform: rotate(90deg);
+        padding: 0.25rem 0;
+      }
+      .flow-step { width: 100%; justify-content: center; }
     }
     @media (max-width: 480px) {
       .landing-hero-title { font-size: 1.8rem; }
       .automate-card { padding: 1.75rem 1.25rem; }
       .benefit-card { padding: 1.75rem 1.25rem; }
       .founder-card { padding: 1.75rem 1.25rem; }
+      .improves-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -339,7 +498,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "See What We Can Automate — TideOps",
+    "name": "Custom AI Automation for Small Businesses — TideOps",
     "description": "TideOps builds custom AI automation for small businesses.",
     "url": "https://tideops.io/automate.html",
     "provider": {
@@ -359,8 +518,8 @@
     <span class="loader-text">TideOps</span>
   </div>
 
-  <!-- NAV -->
-  <nav class="nav nav-scrolled-always" id="nav">
+  <!-- NAV (simplified for landing page) -->
+  <nav class="nav nav-scrolled-always nav-landing" id="nav">
     <a href="index.html" class="nav-logo">TideOps</a>
     <div class="nav-links" id="navLinks">
       <a href="services.html">Services</a>
@@ -369,7 +528,7 @@
       <a href="blog/index.html">Blog</a>
       <a href="contact.html">Contact</a>
     </div>
-    <a href="contact.html" class="cta-button nav-cta">Book a Call</a>
+    <a href="#schedule" class="cta-button nav-cta">Get My Free Review</a>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -378,12 +537,12 @@
   <!-- ===== HERO ===== -->
   <section class="landing-hero">
     <div class="landing-hero-inner">
-      <span class="section-label animate-fade-up" style="display:inline-block;">Good to meet you</span>
-      <h1 class="landing-hero-title animate-fade-up">Automate the Work <span class="gradient-text">Slowing Your Business Down</span></h1>
-      <p class="landing-hero-subtitle animate-fade-up">TideOps builds custom AI systems that handle follow-up, scheduling, inboxes, admin work, and the other repetitive tasks eating up your time.</p>
+      <span class="section-label animate-fade-up" style="display:inline-block;">Custom AI Automation for Small Businesses</span>
+      <h1 class="landing-hero-title animate-fade-up">Automate the Repetitive Work <span class="gradient-text">Slowing Your Business Down</span></h1>
+      <p class="landing-hero-subtitle animate-fade-up">We build custom AI systems that handle lead follow-up, scheduling, inboxes, client communication, and admin work — so you and your team can spend more time on revenue-generating work.</p>
       <div class="landing-hero-ctas animate-fade-up">
-        <a href="#schedule" class="cta-button hero-cta">Get My Automation Review</a>
-        <a href="#automate" class="cta-secondary-link">See what we automate <span class="arrow">↓</span></a>
+        <a href="#schedule" class="cta-button hero-cta">Get My Free Automation Review</a>
+        <a href="#automate" class="cta-secondary-link">See What We Can Automate <span class="arrow">&#8595;</span></a>
       </div>
     </div>
   </section>
@@ -394,15 +553,15 @@
       <div class="trust-strip-inner animate-fade-up">
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          Custom-built for your workflow
+          Built around your existing workflow
         </div>
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          White-glove implementation
+          Installed for you, not handed off
         </div>
         <div class="trust-strip-item">
           <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Faster response, less manual work
+          Faster follow-up, less manual work
         </div>
       </div>
     </div>
@@ -413,7 +572,34 @@
     <div class="container">
       <div class="whatwedo-inner animate-fade-up">
         <span class="section-label">What We Do</span>
-        <p style="margin-top: 1rem;">We find the tasks draining your team's time and build systems that run them automatically. No off-the-shelf software. No DIY setup. We design it, build it, and install it — so it works from day one.</p>
+        <p style="margin-top: 1rem;">We identify the repetitive work draining your team's time, then build custom systems to handle it automatically. No off-the-shelf software. No DIY setup. We design it, build it, and install it so it works inside your business from day one.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WHAT THIS CAN LOOK LIKE (proof strip) ===== -->
+  <div class="proof-strip">
+    <div class="container">
+      <div class="proof-strip-heading animate-fade-up">
+        <span class="section-label">What This Can Look Like</span>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-item animate-fade-up">
+          <svg class="proof-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Respond to new leads in under 60 seconds
+        </div>
+        <div class="proof-item animate-fade-up">
+          <svg class="proof-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Automatically sort and prioritize incoming emails
+        </div>
+        <div class="proof-item animate-fade-up">
+          <svg class="proof-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Send reminders, updates, and follow-ups without manual work
+        </div>
+        <div class="proof-item animate-fade-up">
+          <svg class="proof-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Generate proposals, estimates, and approval docs faster
+        </div>
       </div>
     </div>
   </div>
@@ -422,7 +608,7 @@
   <section class="section" id="automate" style="background: var(--bg);">
     <div class="container">
       <span class="section-label animate-fade-up">What We Automate</span>
-      <h2 class="section-title animate-fade-up">The Work You Shouldn't Be <span class="gradient-text">Doing By Hand</span></h2>
+      <h2 class="section-title animate-fade-up">The Work Your Team Shouldn't Be <span class="gradient-text">Doing By Hand</span></h2>
       <div class="automate-grid">
 
         <div class="automate-card glass-card animate-fade-up">
@@ -433,7 +619,7 @@
             </svg>
           </div>
           <h3>Lead Follow-Up</h3>
-          <p>New leads get a response in under 60 seconds — not tomorrow, not next week. Automated sequences keep every opportunity moving forward.</p>
+          <p>New leads get a response in under 60 seconds. Automated follow-up keeps opportunities moving while your team focuses on closing, not chasing.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -445,7 +631,7 @@
             </svg>
           </div>
           <h3>Inbox Triage</h3>
-          <p>Incoming messages sorted, prioritized, and routed — automatically. The important stuff surfaces. Everything else stays out of the way.</p>
+          <p>Incoming messages are sorted, prioritized, and routed automatically. Urgent items rise to the top, and routine noise stops distracting your team.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -457,7 +643,7 @@
             </svg>
           </div>
           <h3>Daily Briefings</h3>
-          <p>Every morning, your team gets a clear rundown of what needs attention — pulled from your tools, delivered before anyone asks.</p>
+          <p>Start the day with a clear summary of what needs attention, pulled from your tools and delivered automatically to the right people.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -469,7 +655,7 @@
             </svg>
           </div>
           <h3>Scheduling &amp; Reminders</h3>
-          <p>Bookings, confirmations, and reminders handled end-to-end. No back-and-forth. No no-shows.</p>
+          <p>Bookings, confirmations, and reminders run automatically from start to finish, reducing back-and-forth and helping cut down on no-shows.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -481,7 +667,7 @@
             </svg>
           </div>
           <h3>Client Communication</h3>
-          <p>Onboarding steps, status updates, and check-ins go out at the right time — every time. Your clients stay in the loop without your team chasing them down.</p>
+          <p>Onboarding messages, status updates, and check-ins go out automatically at the right time, so clients stay informed without your team having to chase communication.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -493,7 +679,7 @@
             </svg>
           </div>
           <h3>Document Prep</h3>
-          <p>Proposals, estimates, and approval docs assembled from your data and ready to send. You close — we handle the paperwork.</p>
+          <p>Proposals, estimates, and approval documents are assembled from your data and prepared faster, so your team spends less time on paperwork and more time closing.</p>
           <div class="card-glow"></div>
         </div>
 
@@ -513,15 +699,15 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
           <h3>Hours Back, Every Week</h3>
-          <p>The tasks eating two, three, five hours a week? Gone. Your team gets that time back for work that actually matters.</p>
+          <p>The repetitive work eating hours each week gets removed, so your team can focus on work that actually grows the business.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <h3>Instant Response Times</h3>
-          <p>Leads and clients hear back in seconds, not hours. The businesses that respond first win — and now that's you.</p>
+          <h3>Faster Response Times</h3>
+          <p>Leads and clients get faster responses, helping your business stay responsive without relying on someone being available every second.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
@@ -529,7 +715,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
           <h3>Nothing Slips Through</h3>
-          <p>Every follow-up sent. Every task tracked. Every client kept in the loop. Consistency stops being something you have to think about.</p>
+          <p>Follow-ups happen on time, tasks stay visible, and clients stay informed — without relying on memory or manual checklists.</p>
         </div>
 
         <div class="benefit-card animate-fade-up">
@@ -537,17 +723,42 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
           </div>
           <h3>More Time on Revenue</h3>
-          <p>When the admin runs itself, your team spends more hours on the work that grows the business — not the work that keeps it running.</p>
+          <p>When routine admin is automated, your team can spend more time selling, serving clients, and moving revenue forward.</p>
         </div>
 
-        <div class="benefit-card animate-fade-up" style="grid-column: span 1;">
+        <div class="benefit-card animate-fade-up">
           <div class="benefit-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
           </div>
           <h3>Designed Around You</h3>
-          <p>We build around your tools and your process — not the other way around. No new software to learn. No workarounds.</p>
+          <p>We build around the tools and workflows you already use, so you get the benefit of automation without rebuilding how your business operates.</p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT THIS USUALLY IMPROVES ===== -->
+  <section class="section improves-section">
+    <div class="container">
+      <span class="section-label animate-fade-up" style="display:block; text-align:center;">What This Usually Improves</span>
+      <div class="improves-grid">
+        <div class="improves-item animate-fade-up">
+          <svg class="improves-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <p>Faster lead response</p>
+        </div>
+        <div class="improves-item animate-fade-up">
+          <svg class="improves-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p>Less manual admin</p>
+        </div>
+        <div class="improves-item animate-fade-up">
+          <svg class="improves-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <p>Better consistency</p>
+        </div>
+        <div class="improves-item animate-fade-up">
+          <svg class="improves-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <p>More time for sales and client work</p>
+        </div>
       </div>
     </div>
   </section>
@@ -563,7 +774,65 @@
         <div class="founder-info">
           <h3>Joshua Gosney</h3>
           <p class="founder-role">Founder, TideOps</p>
-          <p>We don't hand you software and hope you figure it out. I started TideOps to give business owners something better — custom-built systems designed around how your business already runs, installed and managed so you never touch the technical side.</p>
+          <p>Most business owners aren't looking for another tool to manage. They're looking for the repetitive work to stop landing on their plate. TideOps exists to build automation that fits the way your business already runs — then install it and manage it for you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BEST FIT ===== -->
+  <section class="section bestfit-section">
+    <div class="container">
+      <span class="section-label animate-fade-up" style="display:block; text-align:center;">Best Fit For</span>
+      <div class="bestfit-grid">
+        <div class="bestfit-item animate-fade-up">
+          <svg class="bestfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Local service businesses
+        </div>
+        <div class="bestfit-item animate-fade-up">
+          <svg class="bestfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          Real estate teams
+        </div>
+        <div class="bestfit-item animate-fade-up">
+          <svg class="bestfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Small businesses buried in admin
+        </div>
+        <div class="bestfit-item animate-fade-up">
+          <svg class="bestfit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Teams needing faster follow-up
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXAMPLE AUTOMATION FLOW ===== -->
+  <section class="section flow-section">
+    <div class="container">
+      <span class="section-label animate-fade-up" style="display:block; text-align:center;">Example Automation</span>
+      <div class="flow-steps animate-fade-up">
+        <div class="flow-step">
+          <svg class="flow-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Lead comes in
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-step">
+          <svg class="flow-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Instant response sent
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-step">
+          <svg class="flow-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Lead gets qualified
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-step">
+          <svg class="flow-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Appointment booked
+        </div>
+        <span class="flow-arrow">&rarr;</span>
+        <div class="flow-step">
+          <svg class="flow-step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/></svg>
+          Owner gets notified
         </div>
       </div>
     </div>
@@ -573,14 +842,15 @@
   <section class="section cta-section" id="schedule">
     <div class="cta-glow"></div>
     <div class="container">
-      <h2 class="cta-headline animate-fade-up">Ready to See What<br><span class="gradient-text">We Can Automate For You?</span></h2>
-      <p class="cta-sub animate-fade-up">Book a free call and we'll map out exactly which tasks in your business can be automated — and how fast we can get it running.</p>
-      <a href="contact.html" class="cta-button cta-main animate-fade-up">Book My Automation Call</a>
+      <h2 class="cta-headline animate-fade-up">Ready to See What <span class="gradient-text">We Can Automate for You?</span></h2>
+      <p class="cta-sub animate-fade-up">Book a free call and we'll identify the repetitive work in your business that can be automated first — along with the fastest path to getting it live.</p>
+      <a href="contact.html" class="cta-button cta-main animate-fade-up">Book My Free Automation Call</a>
+      <span class="hero-positioning animate-fade-up" style="display:block; text-align:center; margin-top:1rem;">We Install AI Into Your Business</span>
 
       <!-- Inline Form -->
       <div class="inline-form-wrapper animate-fade-up">
         <div class="contact-form-wrapper" style="margin-top:0;">
-          <p style="text-align:center; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-muted);">Or tell us what you need — we'll send a custom review</p>
+          <p style="text-align:center; margin-bottom:1.5rem; font-size:0.9rem; color:var(--text-muted);">Prefer not to book yet? Tell us what you need, and we'll send a custom automation review.</p>
           <form class="contact-form" id="contactForm" action="https://formspree.io/f/maqpdgnd" method="POST">
             <div class="form-group">
               <label for="name">Name</label>
@@ -606,8 +876,8 @@
             <div class="success-icon">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 10 10.5 15.5 8 13"/></svg>
             </div>
-            <h3 class="success-title">We're on it.</h3>
-            <p class="success-text">Expect a personalized automation review from Josh within 24 hours.</p>
+            <h3 class="success-title">Got it.</h3>
+            <p class="success-text">Josh will review your submission and send back a personalized automation recommendation within 24 hours.</p>
           </div>
         </div>
       </div>
