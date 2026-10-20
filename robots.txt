@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /assets/frames/
-
 Sitemap: https://tideops.io/sitemap.xml

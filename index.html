@@ -1,925 +1,1033 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Systems for Businesses That Can't Afford Dropped Balls — TideOps | Jacksonville FL</title>
-  <meta name="description" content="TideOps builds AI systems for customer-driven businesses in Jacksonville, FL. Automate follow-up, communication, data entry, reporting, and repetitive operational work so your business runs more reliably.">
-  <meta name="robots" content="index, follow">
-  <meta name="keywords" content="AI systems for business, customer communication automation, CRM automation Jacksonville, business process automation, AI operations systems">
-  <link rel="canonical" href="https://tideops.io/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0C1B22">
+<link rel="canonical" href="https://tideops.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TideOps">
+<meta property="og:title" content="Every business has costs below the waterline.">
+<meta property="og:description" content="TideOps is an AI operations firm in Jacksonville. We find the hours and dollars your business loses to manual work, then put the right fix in place, usually with tools you already pay for.">
+<meta property="og:url" content="https://tideops.io/">
+<meta property="og:image" content="https://tideops.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230C1B22%27/%3E%3Cpath d=%27M5 18c3.7-3.4 7.3-3.4 11 0s7.3 3.4 11 0%27 stroke=%27%23C2187A%27 stroke-width=%272.4%27 fill=%27none%27 stroke-linecap=%27round%27/%3E%3Cpath d=%27M16 5v7%27 stroke=%27%23EEF2EF%27 stroke-width=%272%27 stroke-linecap=%27round%27/%3E%3C/svg%3E">
+<title>TideOps | AI operations assessments for Northeast Florida businesses</title>
+<meta name="description" content="TideOps is an AI operations firm in Jacksonville. We find the hours and dollars your business loses to manual work, then put the right fix in place, usually with tools you already pay for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap">
+<style>
+/* Layout concept: the whole page is ONE nautical chart. A fixed WebGL water surface is the ground of the
+   entire site; wet mud near the waterline dries into chart paper farther from it; the tide comes in and
+   goes out between sections. Content sits on the land and the water that result. */
+:root{
+  --deep:#0C1B22; --paper:#EEF2EF; --ink:#0B1418; --muted:#4E5F65; --shoal:#A9CBD6; --shoal-dim:#6F8E98; --magenta:#C2187A;
+  --fbg:#0C1B22; --ffg:#EEF2EF; --fln:rgba(169,203,214,.2);
+  --f-sans:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --f-water:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --t-mega:clamp(3rem, 1rem + 7.4vw, 8.75rem);
+  --t-poster:clamp(2.5rem, .8rem + 6vw, 7.25rem);
+  --t-xl:clamp(2.25rem, 1.2rem + 4.2vw, 5.5rem);
+  --t-l:clamp(1.6rem, 1.15rem + 1.9vw, 2.9rem);
+  --t-m:clamp(1.2rem, 1.05rem + .55vw, 1.5rem);
+  --t-body:clamp(1rem, .96rem + .2vw, 1.125rem);
+  --gut:clamp(16px, 2.2vw, 32px);
+  --side-l:max(var(--gut), env(safe-area-inset-left, 0px));
+  --side-r:max(var(--gut), env(safe-area-inset-right, 0px));
+  --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--deep)}
+body{background:var(--deep);color:var(--paper);font-family:var(--f-sans);font-size:var(--t-body);line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--magenta);color:#fff}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--magenta);outline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-left:var(--side-l);padding-right:var(--side-r)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut)}
+.mono{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.water{font-family:var(--f-water);font-style:italic;font-weight:400}
+h1,h2,h3{font-weight:600;margin:0;text-wrap:balance}
+p{margin:0}
+.muted{color:var(--fg2)}
+.skip{position:absolute;left:var(--side-l);top:-60px;z-index:100;background:var(--magenta);color:#fff;padding:10px 16px;border-radius:2px;text-decoration:none}
+.skip:focus{top:12px}
+.surf{display:inline-block}
+.mask{display:inline-block;overflow:clip;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI Systems for Businesses That Can't Afford Dropped Balls — TideOps">
-  <meta property="og:description" content="Automate follow-up, communication, data entry, reporting, and repetitive operational work so your business runs more reliably. Based in Jacksonville, FL.">
-  <meta property="og:image" content="https://tideops.io/assets/images/og-image.png">
-  <meta property="og:url" content="https://tideops.io/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="TideOps">
-  <meta property="og:locale" content="en_US">
+/* Local tone: each section knows whether it sits on land (1) or water (0). The GL draws the physics; this sets the ink. */
+[data-water="1"]{--bg:#EEF2EF;--fg:#0B1418;--fg2:#4E5F65;--ln:rgba(11,20,24,.14);--acc:#A5106A;color:var(--fg)}
+[data-water="0"]{--bg:#0C1B22;--fg:#EEF2EF;--fg2:#BFD0D3;--ln:rgba(169,203,214,.2);--acc:#F08FC6;color:var(--fg)}
+main > section,footer{background:var(--bg);position:relative;z-index:1}
+.seam{position:relative}
+html.gl-on main > section,html.gl-on footer,html.gl-on .seam{background:transparent}
+.seam{height:52svh;--bg:transparent;display:flex;align-items:flex-end;justify-content:flex-end;padding:0 var(--side-r) 9svh var(--side-l)}
+.seam--band{height:38svh}
+html:not(.gl-on) .seam--to-water{background:linear-gradient(180deg,#EEF2EF 0%,#EEF2EF 48%,#0C1B22 52%,#0C1B22 100%)}
+html:not(.gl-on) .seam--to-land{background:linear-gradient(180deg,#0C1B22 0%,#0C1B22 48%,#EEF2EF 52%,#EEF2EF 100%)}
+.seam p{font-size:clamp(1.05rem, .95rem + .4vw, 1.3rem);max-width:24rem;text-align:left;line-height:1.4;padding:8px 12px;border-radius:2px}
+.seam--to-land p{background:rgba(238,242,239,.92);color:var(--ink)}
+.seam--to-water p{background:rgba(12,27,34,.88);color:var(--paper)}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Systems for Businesses That Can't Afford Dropped Balls — TideOps">
-  <meta name="twitter:description" content="Automate follow-up, communication, data entry, reporting, and repetitive operational work so your business runs more reliably.">
-  <meta name="twitter:image" content="https://tideops.io/assets/images/og-image.png">
+/* The chart: one fixed canvas under everything */
+#gl{position:fixed;top:0;left:0;width:100vw;height:100vh;height:100lvh;z-index:0;display:block;pointer-events:none}
+.vhp{position:fixed;top:0;left:0;width:0;height:100vh;height:100lvh;pointer-events:none;visibility:hidden}
+html:not(.gl-on) #gl{display:none}
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+/* ---- Buttons: a magenta tide that floods from the bottom ---- */
+.btn{position:relative;isolation:isolate;overflow:clip;display:inline-flex;align-items:center;gap:.6em;min-height:52px;padding:0 26px;border-radius:2px;font-weight:600;font-size:1rem;text-decoration:none;border:1.5px solid currentColor;cursor:pointer;transition:color .45s var(--ease),transform .25s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--fill,var(--magenta));transform:translateY(101%);transition:transform .6s var(--ease)}
+.btn--solid{background:var(--magenta);border-color:var(--magenta);color:#fff;--fill:var(--ink)}
+.btn--ghost{color:var(--fg);border-color:var(--ln);--fill:var(--fg)}
+.btn .arr{display:inline-block;transition:transform .5s var(--ease)}
+.btn .arr--r{font-family:var(--f-mono)}
+@media (hover:hover){
+  .btn:hover::before{transform:translateY(0)}
+  .btn--ghost:hover{color:var(--bg)}
+  .btn:hover .arr{transform:translateY(4px)}
+  .btn:hover .arr--r{transform:translateX(5px)}
+}
+.btn:focus-visible::before{transform:translateY(0)}
+.btn--ghost:focus-visible{color:var(--bg)}
+.btn:active{transform:scale(.98)}
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+/* ---- Nav links: an underline that draws like a waterline ---- */
+.draw{text-decoration:none;background:linear-gradient(currentColor 0 0) left 100% / 0% 1px no-repeat;padding-bottom:3px;transition:background-size .5s var(--ease)}
+@media (hover:hover){.draw:hover{background-size:100% 1px}}
+.draw:focus-visible{background-size:100% 1px}
+.ilink{text-decoration:none;background:linear-gradient(var(--magenta) 0 0) left 100% / 100% 1px no-repeat;transition:background-size .4s var(--ease)}
+@media (hover:hover){.ilink:hover{background-size:100% .35em}}
 
-  <link rel="stylesheet" href="style.css">
+/* ---- Rows (soundings): one hover treatment for every list row ---- */
+.row{transition:transform .5s var(--ease)}
+.row .pip{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--magenta);transform:scale(.7);opacity:.7;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+@media (hover:hover){
+  .row:hover{transform:translateX(10px)}
+  .row:hover .pip{transform:scale(1.25);opacity:1}
+}
 
-  <style>
-    /* --- Secondary CTA Link --- */
-    .cta-secondary-link {
-      display: block;
-      margin-top: 1.25rem;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
-      font-weight: 400;
-      transition: color 0.3s, opacity 0.3s;
-      text-decoration: none;
-      letter-spacing: 0.2px;
-    }
-    .cta-secondary-link:hover {
-      color: rgba(255,255,255,1);
-    }
-    .cta-secondary-link .arrow {
-      display: inline-block;
-      transition: transform 0.25s;
-      margin-left: 3px;
-    }
-    .cta-secondary-link:hover .arrow {
-      transform: translateX(4px);
-    }
+/* ---- Fixed frame: nav top, station corners bottom ---- */
+.frame{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);z-index:50;padding-block:18px;color:var(--ffg);transition:transform .7s var(--ease),color .9s var(--ease),background-color .6s var(--ease)}
+html.frame-away .frame{transform:translateY(-130%)}
+html.scrolled .frame{background:color-mix(in srgb, var(--fbg) 94%, transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@media (max-width:900px){html.scrolled .frame{background:color-mix(in srgb, var(--fbg) 97%, transparent);backdrop-filter:none;-webkit-backdrop-filter:none}}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:51;background:var(--fbg)}
+.frame .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand svg .ring,.brand svg .tick{stroke:currentColor}
+.brand b{font-weight:700;font-size:1.25rem;letter-spacing:-.02em;font-stretch:88%}
+.frame ul{list-style:none;margin:0;padding:0;display:flex;gap:28px;align-items:center;font-size:.95rem}
+.frame .btn{min-height:44px;padding:0 18px;font-size:.92rem}
+.frame .btn--ghost{color:var(--ffg);border-color:var(--fln);--fill:var(--ffg)}
+@media (hover:hover){.frame .btn--ghost:hover{color:var(--fbg)}}
+html:not(.past-hero) .frame .btn--solid{background:transparent;border-color:var(--fln);color:var(--ffg);--fill:var(--magenta)}
+.frame .btn--solid{transition:color .45s var(--ease),background-color .6s var(--ease),border-color .6s var(--ease)}
+.menu-li{display:none}
+.menu-btn{min-height:44px;min-width:44px;padding:0 14px;background:transparent;border:1.5px solid var(--fln);border-radius:2px;font-weight:600;cursor:pointer}
+.corner{position:fixed;bottom:18px;z-index:40;color:var(--paper);mix-blend-mode:difference;pointer-events:none;transition:opacity .6s var(--ease)}
+html.past-hero .corner{opacity:0}
+.corner--l{left:var(--side-l)}
+.corner--r{right:var(--side-r);text-align:right}
+.gauge b{display:block;font-family:var(--f-mono);font-weight:500;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.wl{position:fixed;left:0;right:0;top:0;z-index:40;pointer-events:none;will-change:transform;color:var(--paper);text-shadow:0 1px 10px rgba(12,27,34,.8)}
+.wl span{position:absolute;right:var(--side-r);top:10px}
+html:not(.gl-on) .wl{display:none}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--deep);color:var(--paper);padding:calc(env(safe-area-inset-top,0px) + 18px) var(--side-r) 28px var(--side-l);display:flex;flex-direction:column}
+.sheet nav{display:flex;flex-direction:column;height:100%}
+.sheet .menu-close{align-self:flex-end;color:var(--paper);border-color:rgba(238,242,239,.4)}
+.sheet ul{list-style:none;margin:auto 0;padding:0;display:grid;gap:4px}
+.sheet ul a{display:flex;align-items:baseline;gap:14px;font-size:2.5rem;line-height:1.15;font-weight:600;letter-spacing:-.03em;font-stretch:84%;text-decoration:none;padding:8px 0}
+.sheet ul a .mono{color:var(--shoal)}
+.sheet ul li:last-child a{color:#F08FC6}
+.sheet p{color:#BFD0D3}
 
-    /* --- Tools / Integration Bar --- */
-    .tools-section {
-      padding: 4rem 0;
-      background: var(--bg);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-    .tools-heading {
-      text-align: center;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--text-dim);
-      margin-bottom: 1.75rem;
-    }
-    .tools-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 0.25rem 0.5rem;
-      opacity: 0.55;
-    }
-    .tools-bar .tool-name {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: #5B6673;
-      letter-spacing: 0.3px;
-      padding: 0 0.5rem;
-      white-space: nowrap;
-    }
-    .tools-bar .tool-dot {
-      color: #3a4249;
-      font-size: 0.65rem;
-    }
+/* ========== HERO: the tide goes out ========== */
+.hero{position:relative;height:220svh;color:var(--paper);z-index:1}
+.stage{position:sticky;top:0;height:100svh;overflow:clip;background:var(--deep)}
+html.gl-on .stage{background:transparent}
+.flat{position:absolute;inset:0;pointer-events:none}
+.flat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:55% 45%}
+html.gl-on .flat img{visibility:hidden}
+.flat::after{content:"";position:absolute;inset:0;background:
+  linear-gradient(90deg, rgba(12,27,34,.72) 0%, rgba(12,27,34,.4) 42%, rgba(12,27,34,.04) 100%),
+  linear-gradient(180deg, rgba(12,27,34,.5) 0%, rgba(12,27,34,0) 28%)}
+html.gl-on .flat::after{background:linear-gradient(90deg, rgba(12,27,34,.55) 0%, rgba(12,27,34,.25) 42%, rgba(12,27,34,0) 100%),linear-gradient(180deg, rgba(12,27,34,.45) 0%, rgba(12,27,34,0) 30%)}
+.tide{position:absolute;left:0;right:0;top:0;height:100%;will-change:transform;z-index:2}
+html.gl-on .tide{display:none}
+.tide__body{position:absolute;inset:0;background:linear-gradient(180deg, rgba(12,27,34,.82) 0%, rgba(12,27,34,.94) 30%, #0C1B22 100%)}
+.tide__line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--shoal);opacity:.8}
+.soundings{list-style:none;margin:0;padding:0;position:absolute;inset:0;z-index:3}
+.s{position:absolute;left:var(--x);top:var(--y);display:flex;align-items:baseline;gap:12px;max-width:min(380px, 42vw);padding-left:18px}
+.s__depth{font-family:var(--f-mono);font-size:.95rem;color:var(--shoal-dim);transition:color .7s var(--ease);text-shadow:0 1px 12px rgba(12,27,34,.9)}
+.s__depth small{font-size:.68rem;margin-left:2px}
+.s__body{display:grid;gap:2px;clip-path:inset(0 -10% 100% 0);transform:translateY(12px);transition:clip-path .9s var(--ease),transform .9s var(--ease)}
+.s__label{font-family:var(--f-water);font-style:italic;font-size:clamp(1.05rem, .95rem + .5vw, 1.4rem);line-height:1.25;color:var(--paper);text-shadow:0 1px 14px rgba(12,27,34,.95),0 0 2px rgba(12,27,34,.7)}
+.s__dot{position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--magenta);transform:scale(0);transition:transform .6s var(--ease) .2s}
+.s.is-out .s__depth{color:var(--paper)}
+.s.is-out .s__body{clip-path:inset(-10% -10% -20% 0);transform:none}
+.s.is-out .s__dot{transform:scale(1)}
+.hero__copy{position:absolute;left:0;right:0;top:clamp(104px, 15svh, 168px);z-index:4}
+.hero__copy h1{grid-column:1 / span 9;font-size:var(--t-mega);line-height:.92;letter-spacing:-.03em;font-weight:600;font-stretch:84%;margin-left:-.04em}
+.hero__copy .lede{grid-column:1 / span 5;margin-top:28px;font-size:var(--t-m);line-height:1.45;color:#D3DEDD;max-width:34rem}
+.hero__copy .ctas{grid-column:1 / span 8;display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.hero .btn--ghost{color:var(--paper);border-color:rgba(238,242,239,.45);--fill:var(--paper)}
+@media (hover:hover){.hero .btn--ghost:hover{color:var(--deep)}}
+.hint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:5;color:#BFD0D3;display:flex;align-items:center;gap:8px;transition:opacity .5s;white-space:nowrap}
+.hint svg{animation:nudge 2.4s var(--ease) infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.legend{position:absolute;left:var(--side-l);bottom:64px;z-index:5;color:#BFD0D3;max-width:260px}
 
-    /* --- Why TideOps / How We're Different --- */
-    .different-section {
-      background: var(--bg-elevated);
-    }
-    .different-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-    .different-item {
-      padding: 2.5rem;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 16px;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      transition: var(--transition);
-    }
-    .different-item:hover {
-      border-color: rgba(37, 99, 235, 0.2);
-      transform: translateY(-4px);
-    }
-    .different-icon {
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(37, 99, 235, 0.1);
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      color: var(--accent);
-    }
-    .different-item h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      letter-spacing: -0.3px;
-    }
-    .different-item p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
+/* ========== Sections on the chart ========== */
+.label{display:flex;align-items:center;gap:10px;color:var(--fg2);margin-bottom:28px}
+.label::before{content:"";width:22px;height:1px;background:currentColor}
+.label i{width:7px;height:7px;border-radius:50%;background:var(--magenta)}
 
-    /* --- Team Section --- */
-    .team-section {
-      background: var(--bg);
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    .team-card {
-      position: relative;
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 3rem 2.5rem;
-      transition: var(--transition);
-      overflow: hidden;
-      text-align: center;
-    }
-    .team-card:hover {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(37, 99, 235, 0.25);
-      transform: translateY(-8px);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.4);
-    }
-    .team-card .card-glow {
-      position: absolute;
-      top: -1px; left: -1px; right: -1px; bottom: -1px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(37,99,235,0.2), transparent, rgba(124,58,237,0.15));
-      opacity: 0;
-      transition: opacity 0.4s;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .team-card:hover .card-glow { opacity: 1; }
-    .team-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(37, 99, 235, 0.1);
-      border: 1px solid rgba(37, 99, 235, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      color: var(--accent);
-    }
-    .team-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      letter-spacing: -0.3px;
-    }
-    .team-role {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .team-card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.65;
-    }
-    .team-closing {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto;
-      color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.75;
-      font-style: italic;
-    }
+/* Statement: a poster. The ink washes in as the tide pulls off the words. */
+.statement{padding-block:clamp(64px, 8vw, 110px) clamp(48px, 5vw, 72px)}
+.statement p.big{grid-column:1 / span 11;font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-weight:600;font-stretch:84%;margin-left:-.03em}
+.statement .w{display:inline-block;color:var(--fg2);opacity:.14}
+.statement .sub{grid-column:7 / span 6;margin-top:44px;font-size:var(--t-body);line-height:1.6;color:var(--fg2);max-width:34rem}
+.statement .side{grid-column:1 / span 4;margin-top:44px;color:var(--fg2);align-self:start}
+.stat{display:grid;gap:8px;max-width:22rem;font-size:.95rem;line-height:1.5}
+.stat__n{font-family:var(--f-mono);font-weight:500;font-size:clamp(2.6rem, 1.5rem + 3vw, 4.5rem);line-height:.9;letter-spacing:-.05em;color:var(--acc)}
+.stat__src{color:var(--fg2);text-decoration:none;background:linear-gradient(currentColor 0 0) left 100% / 100% 1px no-repeat;width:fit-content}
 
-    /* --- FAQ Section --- */
-    .faq-section {
-      background: var(--bg-elevated);
-    }
-    .faq-list {
-      max-width: 780px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-item:first-child {
-      border-top: 1px solid var(--border);
-    }
-    .faq-item summary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
-      cursor: pointer;
-      list-style: none;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.25s;
-      gap: 1rem;
-      user-select: none;
-    }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary:hover { color: var(--accent-light); }
-    .faq-chevron {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 1px solid var(--glass-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.35s var(--ease-out), border-color 0.25s;
-    }
-    .faq-item[open] .faq-chevron {
-      transform: rotate(180deg);
-      border-color: var(--accent);
-    }
-    .faq-item[open] summary { color: var(--accent-light); }
-    .faq-answer {
-      padding: 0 0 1.5rem;
-      color: var(--text-muted);
-      font-size: 0.97rem;
-      line-height: 1.75;
-      animation: faqOpen 0.3s var(--ease-out);
-      max-width: 680px;
-    }
-    @keyframes faqOpen {
-      from { opacity: 0; transform: translateY(-6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+/* Calculator: a sounding sheet with a tide gauge */
+.calc{padding-block:clamp(48px, 5vw, 72px) clamp(64px, 7vw, 104px)}
+.calc__head{grid-column:1 / span 5;grid-row:1}
+.calc__head h2{font-size:var(--t-l);line-height:1.05;letter-spacing:-.03em;font-stretch:88%}
+.calc__head p{margin-top:20px;color:var(--fg2);max-width:26rem}
+.calc__ui{grid-column:7 / span 3;grid-row:1 / span 2;display:grid;gap:30px;align-content:start}
+.calc__gauge{grid-column:10 / span 3;grid-row:1 / span 2;display:flex;gap:14px;align-items:stretch;justify-content:flex-end}
+.field{display:grid;gap:10px}
+.field__top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.field label{font-weight:600}
+.field output{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--acc);font-weight:500}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:32px;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:linear-gradient(90deg,var(--fg) var(--pct,50%),var(--ln) var(--pct,50%))}
+input[type=range]::-moz-range-track{height:2px;background:var(--ln)}
+input[type=range]::-moz-range-progress{height:2px;background:var(--fg)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-10px;border-radius:50%;background:var(--bg);border:2px solid var(--fg);transition:transform .3s var(--ease),background .3s}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--bg);border:2px solid var(--fg)}
+@media (hover:hover){input[type=range]:hover::-webkit-slider-thumb{transform:scale(1.15)}}
+input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25);background:var(--magenta);border-color:var(--magenta)}
+.result{grid-column:1 / span 5;grid-row:2;margin-top:48px;padding-top:26px;border-top:1.5px solid var(--fg);display:grid;gap:12px;align-self:end}
+.result__num{font-family:var(--f-mono);font-weight:500;font-size:clamp(3rem, 1.4rem + 5vw, 6.5rem);letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.result__row{display:flex;flex-wrap:wrap;gap:8px 24px;color:var(--fg2)}
+.result__row b{color:var(--fg);font-family:var(--f-mono);font-weight:500}
+.result__note{font-size:.95rem;color:var(--fg2);max-width:34rem}
+.result__note .water{color:var(--fg);font-size:1.08rem}
+.tg{position:relative;width:72px;height:auto;min-height:340px;align-self:stretch;border-right:1.5px solid var(--fg);border-bottom:1.5px solid var(--fg);margin-left:52px}
+.tg__fill{position:absolute;left:0;right:0;bottom:0;height:var(--h,20%);background:linear-gradient(180deg, rgba(194,24,122,.35), rgba(194,24,122,.75));transition:height .9s var(--ease)}
+.tg__fill::before{content:"";position:absolute;left:0;right:0;top:0;height:1.5px;background:var(--magenta)}
+.tg__ticks{position:absolute;inset:0;list-style:none;margin:0;padding:0}
+.tg__ticks li{position:absolute;left:0;bottom:var(--y);width:100%;border-top:1px solid var(--ln);display:flex}
+.tg__ticks li span{position:absolute;right:calc(100% + 10px);top:-.65em;white-space:nowrap;color:var(--fg2)}
+.tg__ticks li.maj{border-top-color:var(--fg)}
+.tg__cap{align-self:flex-end;color:var(--fg2);writing-mode:vertical-rl;margin-left:-4px}
+.tg__read{position:absolute;right:calc(100% + 10px);bottom:calc(var(--h,20%) + .4em);color:var(--acc);font-family:var(--f-mono);font-weight:500;font-size:.8rem;transition:bottom .9s var(--ease);white-space:nowrap}
 
-    /* --- Responsive additions --- */
-    @media (max-width: 768px) {
-      .different-grid,
-      .team-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-      }
-      .team-card {
-        padding: 2rem 1.75rem;
-      }
-      .tools-bar { gap: 0.15rem 0.4rem; }
-      .tools-bar .tool-name { font-size: 0.8rem; }
-    }
-    @media (max-width: 480px) {
-      .different-item,
-      .team-card { padding: 1.75rem 1.25rem; }
-      .faq-item summary { font-size: 0.97rem; }
-    }
-  </style>
+/* Two channels, on the water */
+.tracks{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
+.tracks h2{grid-column:1 / span 9;font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-stretch:84%;margin-left:-.03em}
+.tracks .intro{grid-column:10 / span 3;align-self:end;color:var(--fg2)}
+.channels{grid-column:1 / -1;margin-top:clamp(56px, 7vw, 96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-top:1px solid var(--ln)}
+.channel{padding:36px 0 0;display:flex;flex-direction:column;gap:22px;height:100%}
+.channel + .channel{border-left:1px solid var(--ln);padding-left:clamp(24px, 4vw, 64px)}
+.channel:first-child{padding-right:clamp(24px, 4vw, 64px)}
+.channel__tag{display:flex;justify-content:space-between;color:var(--fg2)}
+.channel h3{font-size:var(--t-l);line-height:1.05;letter-spacing:-.03em;font-stretch:88%}
+.channel > p{color:var(--fg2);max-width:30rem}
+.channel__note{color:var(--acc);margin-top:-10px}
+.table{list-style:none;margin:0 0 8px;padding:0;border-top:1px solid var(--ln)}
+.table li{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--ln)}
+.table li span{color:var(--fg2);font-size:.95rem;display:block;margin-top:2px}
+.table li strong{font-weight:600}
+.table li em{font-style:normal;font-family:var(--f-mono);font-size:.9rem;color:var(--acc);white-space:nowrap}
+.table li em .dur{color:var(--fg2);font-size:.8rem;margin-top:0}
+@media (min-width:901px){.table li em .dur{display:inline;margin:0 14px 0 0}}
+.channel .btn{align-self:flex-start;margin-top:auto}
 
-  <!-- JSON-LD: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "TideOps",
-    "description": "Custom AI automation and consulting for small businesses. We install AI assistants, workflow automation, and smart systems that save time and reduce manual work.",
-    "url": "https://tideops.io",
-    "email": "hello@tideops.io",
-    "telephone": "+19042939336",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Jacksonville",
-      "addressRegion": "FL",
-      "addressCountry": "US"
-    },
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 30.3322,
-        "longitude": -81.6557
-      },
-      "geoRadius": "100 mi"
-    },
-    "priceRange": "$$",
-    "image": "https://tideops.io/assets/images/og-image.png"
-  }
-  </script>
+/* Method: sticky report beside the chapters, with a depth track */
+.method{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
+.method__head{grid-column:1 / span 9;margin-bottom:clamp(48px, 6vw, 88px)}
+.method__head h2{font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-stretch:84%;margin-left:-.03em}
+.method__what{margin-top:24px;color:var(--fg2);max-width:36rem}
+.method__report{grid-column:1 / span 6}
+.sticky{position:sticky;top:calc(env(safe-area-inset-top, 0px) + 92px)}
+.doc{position:relative;aspect-ratio:8.5 / 11;max-width:100%;max-height:calc(100svh - 140px);margin-right:auto}
+.page{position:absolute;inset:0;overflow:hidden;background:#fff;color:var(--ink);border:1px solid rgba(11,20,24,.14);box-shadow:0 1px 0 rgba(11,20,24,.04),0 40px 70px -36px rgba(12,27,34,.45);padding:clamp(18px, 2.6vw, 36px);display:flex;flex-direction:column;gap:12px;clip-path:inset(100% 0 0 0);transform:translateY(16px);transition:clip-path 1s var(--ease),transform 1s var(--ease)}
+.page.is-on{clip-path:inset(0 0 0 0);transform:none}
+.page.is-past{clip-path:inset(0 0 0 0);transform:translate(-16px,-12px) rotate(-1.4deg);filter:brightness(.97)}
+.page header{display:flex;justify-content:space-between;gap:4px 12px;flex-wrap:wrap;color:var(--muted);border-bottom:1px solid rgba(11,20,24,.14);padding-bottom:10px}
+.page header span:last-child{margin-left:auto}
+.page h4{margin:4px 0 0;font-size:clamp(1.05rem, .8rem + 1vw, 1.6rem);line-height:1.1;letter-spacing:-.02em}
+.page p{font-size:clamp(.72rem, .62rem + .3vw, .9rem);color:var(--muted);line-height:1.5}
+.page .pfoot{margin-top:auto;display:flex;justify-content:space-between;color:var(--muted);border-top:1px solid rgba(11,20,24,.14);padding-top:8px;font-size:.62rem}
+.page .stamp{display:inline-block;border:1px solid var(--magenta);color:var(--magenta);padding:2px 6px;transform:rotate(-2deg);font-size:.6rem}
+.bars{display:grid;gap:10px;margin-top:6px}
+.bar{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;font-size:clamp(.7rem, .62rem + .25vw, .85rem)}
+.bar i{grid-column:1 / -1;height:6px;background:#E3E9E6;position:relative}
+.bar i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--ink)}
+.bar i.mg::after{background:var(--magenta)}
+.mat{position:relative;flex:1;border-left:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);margin:6px 0 20px 18px;min-height:150px}
+.mat::before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed rgba(11,20,24,.2)}
+.mat::after{content:"";position:absolute;top:50%;left:0;right:0;border-top:1px dashed rgba(11,20,24,.2)}
+.mat .ax{position:absolute;color:var(--muted);font-size:.62rem}
+.mat .ax--y{left:-18px;top:50%;transform:rotate(-90deg) translateX(50%);transform-origin:left top}
+.mat .ax--x{bottom:-18px;left:50%;transform:translateX(-50%)}
+.mat .q{position:absolute;font-size:.6rem;color:var(--muted)}
+.dot{position:absolute;left:var(--x);top:var(--y);width:12px;height:12px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
+.dot.mg{background:var(--magenta)}
+.dot b{position:absolute;left:16px;top:-3px;font-size:.6rem;font-weight:600;white-space:nowrap}
+.mat-legend{display:none;list-style:none;margin:0;padding:0;gap:2px;font-size:.62rem;color:var(--muted);grid-template-columns:1fr 1fr}
+.mat-legend li span{font-family:var(--f-mono);color:var(--ink);margin-right:4px}
+.plan{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:clamp(.7rem, .62rem + .25vw, .86rem)}
+.plan li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:10px;padding:8px 0;border-bottom:1px solid rgba(11,20,24,.14)}
+.plan li span{font-family:var(--f-mono);color:var(--magenta)}
+.doc__tag{position:absolute;left:0;bottom:-34px;color:var(--fg2)}
+.chapters{grid-column:8 / span 5;list-style:none;margin:0;padding:0 0 0 32px;position:relative}
+.track{position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--ln)}
+.track i{position:absolute;left:-5px;top:0;width:11px;height:11px;border-radius:50%;background:var(--magenta);transform:translateY(var(--ty,0))}
+.ch{min-height:66svh;display:flex;flex-direction:column;justify-content:center;gap:16px;padding-block:40px}
+.ch__n{font-family:var(--f-mono);color:var(--acc);font-size:clamp(2rem, 1rem + 3vw, 3.5rem);line-height:1;letter-spacing:-.04em}
+.ch__n small{font-size:.85rem;letter-spacing:.02em;margin-left:12px;vertical-align:middle}
+.ch h3{font-size:var(--t-l);line-height:1.05;letter-spacing:-.03em;font-stretch:88%}
+.ch p{color:var(--fg2);max-width:30rem}
 
-  <!-- JSON-LD: Service -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "AI Automation Consulting",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "TideOps",
-      "url": "https://tideops.io"
-    },
-    "description": "Custom AI assistants, workflow automation, and business automation systems built for small businesses.",
-    "areaServed": {
-      "@type": "City",
-      "name": "Jacksonville",
-      "addressRegion": "FL"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "AI Automation Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "AI Assistants",
-            "description": "Your leads get a response in under 60 seconds. Customer questions answered 24/7. Follow-ups sent automatically."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Workflow Automation",
-            "description": "Estimates, invoices, and proposals generated automatically. Your tools talk to each other. Manual data entry disappears."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Custom AI Systems",
-            "description": "Client portals, booking systems, internal dashboards — built around how your business actually runs."
-          }
-        }
-      ]
-    }
-  }
-  </script>
+/* Honest numbers: four big soundings */
+.rules{padding-block:clamp(72px, 8vw, 120px)}
+.rules h2{grid-column:1 / span 7;align-self:end;font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-stretch:84%;margin-left:-.03em}
+.rules .intro{grid-column:1 / span 5;margin-top:28px;color:var(--fg2)}
+.rules ol{grid-column:1 / -1;list-style:none;margin:clamp(48px, 6vw, 88px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px var(--gut)}
+@media (max-width:1100px){.rules ol{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rule{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-content:start;border-top:1px solid var(--ln);padding-top:22px}
+.rule__n{font-family:var(--f-mono);font-weight:500;font-size:clamp(3rem, 1.5rem + 4vw, 5.5rem);line-height:.85;letter-spacing:-.05em;color:var(--acc);margin-bottom:10px}
+.rule h3{font-size:var(--t-m);letter-spacing:-.015em;margin-top:.1em}
+.rule p{color:var(--fg2);max-width:28rem}
 
-  <!-- JSON-LD: BreadcrumbList -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://tideops.io/"
-      }
-    ]
-  }
-  </script>
+/* Team */
+.team{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
+.team h2{grid-column:1 / span 8;font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-stretch:84%;margin-left:-.03em}
+.team .intro{grid-column:10 / span 3;align-self:end;color:var(--fg2)}
+.people{grid-column:1 / -1;margin-top:clamp(48px, 6vw, 88px);border-top:1.5px solid var(--fg)}
+.person{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:14px;align-items:start;padding:clamp(28px, 3.4vw, 48px) 0;border-bottom:1px solid var(--ln)}
+.person__n{grid-column:1 / span 1;color:var(--acc);padding-top:.6em}
+.person__id{grid-column:2 / span 5;min-width:0}
+.person h3{font-size:var(--t-xl);line-height:.98;letter-spacing:-.04em;font-stretch:84%}
+.person .role{color:var(--acc);font-weight:600;font-size:.95rem;margin-top:12px}
+.person .bio{grid-column:8 / span 5;color:var(--fg2);max-width:34rem;padding-top:.5em}
 
-  <!-- JSON-LD: FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do I need to understand AI?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not at all. We handle everything — the strategy, the build, and the maintenance. You just use it."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How long until I see results?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most clients have their first automation live within 14 days. Some simple setups are done in a week."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if it doesn't work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We iterate until it does. Our job isn't done until the system is saving you real time."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Will this replace my team?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No. We make your team faster and free them up to focus on growth instead of busywork."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What does it cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Projects start at $500. Every business is different, so we scope things out on a free strategy call first."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is AI automation for small business?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "AI automation for small business uses artificial intelligence to handle repetitive tasks like lead follow-up, data entry, scheduling, and customer communication — saving business owners 40+ hours per month."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does TideOps serve businesses outside Jacksonville?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. While TideOps is based in Jacksonville, FL, we work with small businesses across the United States through remote consulting and implementation."
-        }
-      }
-    ]
-  }
-  </script>
+/* FAQ */
+.faq{padding-block:clamp(72px, 8vw, 120px)}
+.faq h2{grid-column:1 / span 4;font-size:var(--t-l);line-height:1.05;letter-spacing:-.03em;font-stretch:88%}
+.faq .list{grid-column:5 / span 8;border-top:1.5px solid var(--fg)}
+details{border-bottom:1px solid var(--ln)}
+summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) 20px;gap:16px;align-items:center;padding:24px 0;font-size:var(--t-m);font-weight:600;letter-spacing:-.015em}
+summary::-webkit-details-marker{display:none}
+summary .q{color:var(--acc);font-weight:500}
+summary .pm{width:18px;height:18px;position:relative;justify-self:end}
+summary .pm::before,summary .pm::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:currentColor;transition:transform .5s var(--ease)}
+summary .pm::after{transform:rotate(90deg)}
+details[open] summary .pm::after{transform:rotate(0)}
+details p{padding:0 0 26px 60px;color:var(--fg);opacity:.86;max-width:44rem}
+
+/* Intake, on deep water */
+.start{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
+.start__head{grid-column:1 / span 5}
+.start h2{font-size:var(--t-xl);line-height:1;letter-spacing:-.04em;font-stretch:84%}
+.start .intro{margin-top:24px;color:var(--fg2);max-width:28rem}
+.start .promise{margin:28px 0 0;color:var(--acc)}
+.start form{grid-column:7 / span 6;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px var(--gut)}
+.f{display:grid;gap:8px}
+.f--wide{grid-column:1 / -1}
+.f label{font-size:.9rem;font-weight:600}
+.f label span{font-weight:400;color:var(--fg2)}
+.f input,.f select,.f textarea{width:100%;min-height:50px;background:transparent;color:var(--fg);border:0;border-bottom:1.5px solid var(--ln);border-radius:0;padding:10px 0;font:inherit;transition:border-color .3s}
+.f select{appearance:none;background:linear-gradient(45deg,transparent 50%,var(--fg2) 50%) right 6px center / 7px 7px no-repeat,linear-gradient(-45deg,transparent 50%,var(--fg2) 50%) right 0 center / 7px 7px no-repeat}
+.f select option{color:var(--ink)}
+.f textarea{resize:none;min-height:96px}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--magenta)}
+.f input:focus-visible,.f select:focus-visible,.f textarea:focus-visible{outline:2px solid var(--magenta);outline-offset:4px}
+.form__foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:8px}
+.form__foot p{color:var(--fg2);font-size:.92rem}
+.form__note{grid-column:1 / -1;color:var(--acc);font-size:.95rem}
+
+/* Footer finale */
+footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
+.foot__word{display:flex;font-size:clamp(4.2rem, 27.5vw, 24.5rem);line-height:.82;letter-spacing:-.015em;font-weight:700;font-stretch:80%;margin:0 0 24px;padding-bottom:.14em;white-space:nowrap}
+.foot__word .mask{padding-bottom:.16em;margin-bottom:-.16em}
+.foot__row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:40px;padding-top:24px;padding-bottom:40px;border-top:1px solid var(--ln);color:var(--fg2)}
+.foot__row div{display:grid;gap:6px}
+.foot__row div > span:nth-child(2){color:var(--fg)}
+.foot__row a{color:var(--fg)}
+
+/* Phones */
+@media (max-width: 900px){
+  .menu-li{display:block}
+  .frame ul li:not(.menu-li){display:none}
+  .frame ul{gap:10px}
+  .corner,.legend,.hint{display:none}
+  .seam{height:44svh;padding-bottom:7svh}
+  .seam--band{height:30svh}
+  .hero{height:200svh}
+  .hero__copy{top:92px}
+  .hero__copy .lede{font-size:1.05rem;margin-top:18px}
+  .hero__copy .ctas{margin-top:22px}
+  .hero__copy .btn--ghost{display:none}
+  .s{left:var(--side-l);max-width:calc(100% - var(--side-l) - var(--side-r));flex-direction:column;align-items:flex-start;gap:3px;padding-left:0}
+  .s__label{font-size:1rem;max-width:76vw}
+  .s__dot{display:none}
+  .s.is-out .s__depth{color:#F08FC6}
+  .wl span{top:auto;bottom:10px}
+  .s:nth-child(1){top:53%} .s:nth-child(2){top:60.5%} .s:nth-child(3){top:68%} .s:nth-child(4){top:75.5%} .s:nth-child(5){top:83%}
+  .grid > *{grid-column:1 / -1 !important}
+  .statement .side{margin-top:32px}
+  .statement .sub{margin-top:28px}
+  .label{margin-bottom:18px}
+  .calc__head,.calc__ui,.calc__gauge,.result{grid-row:auto !important}
+  .calc__head{margin-bottom:36px}
+  .calc__ui{order:2}
+  .result{order:3;margin-top:36px}
+  .calc__gauge{order:4;justify-content:flex-start;margin-top:44px}
+  .tg{height:240px;min-height:0}
+  .tracks .intro,.team .intro,.rules .intro{margin-top:24px}
+  .channel + .channel{border-left:0;padding-left:0;border-top:1px solid var(--ln);margin-top:40px}
+  .channel:first-child{padding-right:0}
+  .method__report{display:contents}
+  .method .sticky{grid-column:1 / -1;position:static;background:none;padding:0;margin:0 0 40px}
+  .method .doc{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;aspect-ratio:auto;max-height:none;width:auto;margin:0 calc(-1 * var(--side-r)) 0 calc(-1 * var(--side-l));padding:0 var(--side-l) 12px;scrollbar-width:none}
+  .method .doc::-webkit-scrollbar{display:none}
+  .page{position:relative;inset:auto;flex:0 0 74vw;max-width:300px;aspect-ratio:8.5 / 11;scroll-snap-align:start;clip-path:none !important;transform:none !important;filter:none !important;transition:none;gap:10px}
+  .doc__tag{position:static;display:block;margin-top:4px;white-space:normal}
+  .page > p:not(.mono){display:none}
+  .page .pfoot{display:none}
+  .bars .bar:nth-child(n+4){display:none}
+  .plan{gap:2px}
+  .plan li{padding:5px 0;font-size:.66rem;line-height:1.35}
+  .mat{min-height:0;margin-bottom:22px}
+  .mat .q{display:none}
+  .dot b{display:none}
+  .dot::after{content:attr(data-n);position:absolute;left:14px;top:-3px;font:500 .6rem var(--f-mono);color:var(--ink)}
+  .mat-legend{display:grid !important}
+  .chapters{position:relative;z-index:1;padding-left:20px}
+  .track i{display:none}
+  .ch{min-height:0;justify-content:flex-start;padding-block:22px 34px;gap:12px}
+  .rules ol{grid-template-columns:minmax(0,1fr)}
+  .start form{grid-template-columns:minmax(0,1fr);margin-top:48px}
+  .faq .list{margin-top:32px}
+  .faq{padding-bottom:clamp(96px, 14vw, 140px)}
+  .person{grid-template-columns:minmax(0,1fr);row-gap:10px;padding:28px 0}
+  .person__n,.person__id,.person .bio{grid-column:1 / -1 !important}
+  .person__n{padding-top:0}
+  .person .bio{padding-top:4px}
+  summary{grid-template-columns:36px minmax(0,1fr) 20px}
+  details p{padding-left:52px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation:none !important}
+  .hero{height:auto}
+  .stage{position:relative;height:100svh}
+  .statement .w{opacity:1;color:inherit}
+}
+</style>
 </head>
 <body>
 
-  <!-- LOADING SCREEN -->
-  <div class="loader" aria-hidden="true">
-    <span class="loader-text">TideOps</span>
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">TideOps</a>
-    <div class="nav-links" id="navLinks">
-      <a href="services.html">Services</a>
-      <a href="case-studies.html">Case Studies</a>
-      <a href="about.html">About</a>
-      <a href="blog/index.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </div>
-    <a href="contact.html" class="cta-button nav-cta">Book a Call</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
+<a class="skip" href="#main">Skip to content</a>
+<div class="vhp" id="vhp" aria-hidden="true"></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="sheet" id="sheet" hidden>
+  <nav aria-label="Menu">
+    <button class="menu-btn menu-close" id="menuClose" type="button">Close</button>
+    <ul>
+      <li><a href="#method"><span class="mono">01</span>How it works</a></li>
+      <li><a href="#tracks"><span class="mono">02</span>Who it's for</a></li>
+      <li><a href="#calc"><span class="mono">03</span>Price your problem</a></li>
+      <li><a href="#team"><span class="mono">04</span>Team</a></li>
+      <li><a href="#start"><span class="mono">05</span>Free assessment</a></li>
+    </ul>
+    <p class="mono">hello@tideops.io · (904) 293-9336</p>
   </nav>
+</div>
 
-  <!-- HERO — Scroll-Driven Frame Animation -->
-  <section class="hero" id="hero">
-    <canvas id="hero-canvas"></canvas>
-    <div class="hero-overlay"></div>
-    <canvas id="particle-canvas"></canvas>
-    <div class="hero-content">
-      <h1 class="hero-title">AI systems for businesses that can’t afford dropped balls.</h1>
-      <p class="hero-subtitle">TideOps helps customer-driven businesses automate follow-up, communication, data entry, reporting, and repetitive operational work — so the business runs more reliably.</p>
-      <a href="contact.html" class="cta-button hero-cta">Book Your Strategy Call</a>
-      <a href="contact.html" class="cta-secondary-link">Or get a free AI audit <span class="arrow">→</span></a>
+<div class="frame" id="frame">
+  <nav class="wrap" aria-label="Main">
+    <a class="brand" href="#top" aria-label="TideOps home">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true"><circle class="ring" cx="15" cy="15" r="13.5" stroke-width="1.5"/><path d="M5 17c3.3-3 6.7-3 10 0s6.7 3 10 0" stroke="#C2187A" stroke-width="1.8" stroke-linecap="round"/><path class="tick" d="M15 3v8" stroke-width="1.5"/></svg>
+      <b>TideOps</b>
+    </a>
+    <ul>
+      <li><a class="draw" href="#method">How it works</a></li>
+      <li><a class="draw" href="#tracks">Who it's for</a></li>
+      <li><a class="draw" href="#team">Team</a></li>
+      <li class="menu-li"><button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
+      <li><a class="btn btn--solid" href="#start">Free assessment</a></li>
+    </ul>
+  </nav>
+</div>
+<p class="corner corner--l mono">Jacksonville, Florida<br>30.33° N, 81.66° W</p>
+<p class="corner corner--r mono gauge" aria-live="off">Tide gauge<b id="gaugeVal">+4.2 ft</b><span id="gaugeState">High water</span></p>
+<div class="wl" id="wl" aria-hidden="true"><span class="mono">WATERLINE</span></div>
+
+<header class="hero" id="top" data-water="0" aria-label="Introduction">
+  <div class="stage" id="stage">
+    <div class="flat" id="flat" aria-hidden="true">
+      <img id="marsh" src="assets/marsh.jpg" alt="" width="1344" height="672">
     </div>
-    <div class="scroll-hint" id="scrollHint">
-      <span>Scroll</span>
-      <svg width="20" height="30" viewBox="0 0 20 30" fill="none">
-        <rect x="1" y="1" width="18" height="28" rx="9" stroke="white" stroke-opacity="0.5" stroke-width="1.5"/>
-        <circle class="scroll-dot" cx="10" cy="8" r="2.5" fill="white" fill-opacity="0.7"/>
-      </svg>
+
+    <ul class="soundings" id="soundings" aria-label="Examples of hidden costs we look for">
+      <li class="s" style="--x:62%;--y:30%"><span class="s__depth">6.5<small>h/wk</small></span><span class="s__body"><i class="s__dot"></i><span class="s__label">Estimates rebuilt by hand for every bid</span></span></li>
+      <li class="s" style="--x:73%;--y:42%"><span class="s__depth">4.0<small>h/wk</small></span><span class="s__body"><i class="s__dot"></i><span class="s__label">The same job typed into three systems</span></span></li>
+      <li class="s" style="--x:58%;--y:54%"><span class="s__depth">3.5<small>h/wk</small></span><span class="s__body"><i class="s__dot"></i><span class="s__label">New leads waiting a day for a reply</span></span></li>
+      <li class="s" style="--x:70%;--y:65%"><span class="s__depth">5.0<small>h/wk</small></span><span class="s__body"><i class="s__dot"></i><span class="s__label">The Friday report, assembled from scratch</span></span></li>
+      <li class="s" style="--x:60%;--y:76%"><span class="s__depth">2.5<small>h/wk</small></span><span class="s__body"><i class="s__dot"></i><span class="s__label">Work that stops when one person is out</span></span></li>
+    </ul>
+
+    <div class="tide" id="tide" aria-hidden="true"><div class="tide__body"></div><div class="tide__line"></div></div>
+
+    <div class="hero__copy">
+      <div class="wrap grid">
+        <h1 id="h1">Every business has costs below the waterline.</h1>
+        <p class="lede" data-intro>TideOps is an AI operations firm in Jacksonville. We find the hours and dollars your business loses to manual work, then put the right fix in place, usually with tools you already pay for.</p>
+        <div class="ctas" data-intro>
+          <a class="btn btn--solid" href="#start">Get a free assessment <span class="arr" aria-hidden="true">↓</span></a>
+          <a class="btn btn--ghost" href="#calc">Price your own problem</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="legend mono">Examples, in hours per week. Not client data.</p>
+    <p class="hint mono" id="hint"><svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true"><path d="M6 1v11M1.5 8 6 12.5 10.5 8" stroke="currentColor" stroke-width="1.4"/></svg>Scroll to lower the tide</p>
+  </div>
+</header>
+
+<main id="main">
+  <div class="seam seam--band seam--to-land" aria-hidden="true"></div>
+
+  <section class="statement" data-water="1" aria-labelledby="st-h">
+    <div class="wrap grid">
+      <p id="st-h" class="big" data-wash>Most companies don't need more software. They need what they already pay for to actually work.</p>
+      <p class="side stat"><b class="stat__n">61%</b><span>of a U.S. office worker's week goes to status checks, chasing information and doing the same task twice, not the job itself.</span><a class="mono stat__src" href="https://asana.com/resources/anatomy-of-work-infographic" target="_blank" rel="noopener">Source: Asana, Anatomy of Work Index 2021, 13,000+ workers surveyed</a></p>
+      <p class="sub" data-rise>An assessment from TideOps follows the real work, from the first customer call to the final invoice, and shows exactly where time and money leak out. Usually the fix is a tool you can buy today, set up properly. When nothing fits, we build it.</p>
     </div>
   </section>
 
-  <!-- PROBLEM SECTION — Video Background -->
-  <section class="section problem-section" id="problem">
-    <div class="video-bg-container">
-      <video autoplay muted loop playsinline class="video-bg" poster="assets/images/desk-fallback.jpg" aria-label="Cluttered desk representing manual business processes">
-        <source src="assets/videos/desk-transform.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay"></div>
+  <section class="calc" id="calc" data-water="1" aria-labelledby="calc-h">
+    <div class="wrap grid">
+      <div class="calc__head">
+        <p class="label mono"><i></i>Try it on one task</p>
+        <h2 id="calc-h" data-surface>Price your own problem.</h2>
+        <p data-rise>Pick one task your team repeats every week. Move the sliders to match it. The math is yours, not ours.</p>
+      </div>
+      <div class="calc__ui">
+        <div class="field">
+          <div class="field__top"><label for="c-people">People who do this task</label><output for="c-people" id="o-people">4</output></div>
+          <input id="c-people" type="range" min="1" max="40" step="1" value="4">
+        </div>
+        <div class="field">
+          <div class="field__top"><label for="c-hours">Hours each spends on it per week</label><output for="c-hours" id="o-hours">3</output></div>
+          <input id="c-hours" type="range" min="0.5" max="20" step="0.5" value="3">
+        </div>
+        <div class="field">
+          <div class="field__top"><label for="c-rate">Loaded cost per hour</label><output for="c-rate" id="o-rate">$38</output></div>
+          <input id="c-rate" type="range" min="15" max="150" step="1" value="38">
+          <p class="muted" style="font-size:.85rem">Pay plus taxes and benefits.</p>
+        </div>
+      </div>
+      <div class="calc__gauge" aria-hidden="true">
+        <div class="tg" id="tg">
+          <ul class="tg__ticks">
+            <li class="maj" style="--y:0%"><span class="mono">$1k</span></li>
+            <li style="--y:16.6%"></li>
+            <li class="maj" style="--y:33.3%"><span class="mono">$10k</span></li>
+            <li style="--y:50%"></li>
+            <li class="maj" style="--y:66.6%"><span class="mono">$100k</span></li>
+            <li style="--y:83.3%"></li>
+            <li class="maj" style="--y:100%"><span class="mono">$1M</span></li>
+          </ul>
+          <div class="tg__fill" id="tgFill"></div>
+          <span class="tg__read" id="tgRead">$22.8k</span>
+        </div>
+        <span class="tg__cap mono">Annual cost of one task</span>
+      </div>
+      <div class="result" aria-live="polite">
+        <p class="mono muted">This one task costs you about</p>
+        <p class="result__num" id="r-year">$22,800</p>
+        <p class="result__row"><span>per year · <b id="r-hours">600</b> hours</span><span>about <b id="r-fte">0.3</b> of a full-time person</span></p>
+        <p class="result__note"><span class="water">That's capacity, not cash.</span> It turns into real savings only when overtime, a planned hire or a tool you pay for goes away. A full assessment shows which of those apply to you.</p>
+      </div>
     </div>
-    <div class="container">
-      <span class="section-label animate-fade-up">The Problem</span>
-      <h2 class="section-title animate-fade-up">The problem isn’t effort. It’s consistency.</h2>
-      <div class="problem-grid">
-        <div class="problem-item animate-fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <h3>Too Much Manual Work</h3>
-          <p>Reporting, admin, status updates, handoffs, and repetitive tasks eat up time that should be spent on growth and customer relationships.</p>
+  </section>
+
+  <div class="seam seam--to-water" aria-hidden="true"></div>
+
+  <section class="tracks" id="tracks" data-water="0" aria-labelledby="tr-h">
+    <div class="wrap grid">
+      <h2 id="tr-h" data-surface>Two ways in, sized to your business.</h2>
+      <p class="intro" data-rise>Start with one problem. Expand only when the first fix pays for itself.</p>
+      <div class="channels">
+        <div class="channel">
+          <p class="channel__tag mono"><span>Path 1</span><span>Owner-led</span></p>
+          <h3 data-surface>Owner-led businesses</h3>
+          <p>You run the place and you're the bottleneck. You want hours back without becoming a tech person.</p>
+          <ul class="table">
+            <li class="row"><i class="pip"></i><div><strong>Free assessment</strong><span>15 minutes, your biggest bottleneck, one fix</span></div><em><span class="dur">15 min</span>Free</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Full assessment</strong><span>45-minute interview, full report, review call</span></div><em><span class="dur">45 min</span>$999</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Done-for-you setup</strong><span>We put the fixes you choose in place</span></div><em><span class="dur">Days</span>Custom quote</em></li>
+          </ul>
+          <a class="btn btn--ghost" href="#start">Start free</a>
         </div>
-        <div class="problem-item animate-fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          </div>
-          <h3>Follow-Up Breakdowns</h3>
-          <p>Leads go cold. Customers wait too long. Opportunities disappear because follow-up depends on someone remembering to do it.</p>
-        </div>
-        <div class="problem-item animate-fade-up">
-          <div class="problem-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <h3>Data Never Lands Cleanly</h3>
-          <p>CRM records are incomplete, notes live in random places, and important information gets lost between calls, texts, forms, and spreadsheets.</p>
+        <div class="channel">
+          <p class="channel__tag mono"><span>Path 2</span><span>Larger companies</span></p>
+          <h3 data-surface>Companies with managers between you and the work</h3><p class="channel__note mono">Usually 25+ employees or $5M+ in revenue</p>
+          <p>Several teams, real labor costs, and nobody in-house who owns AI. You want an outsourced AI department, not another vendor.</p>
+          <ul class="table">
+            <li class="row"><i class="pip"></i><div><strong>In-depth assessment</strong><span>Leadership and staff interviews, document review, leadership readout</span></div><em><span class="dur">2 to 3 wks</span>Custom quote</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Working demo</strong><span>Your most expensive problem, solved on your own data</span></div><em>Included</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Outsourced AI department</strong><span>Monthly builds, staff training, savings tracked on your numbers</span></div><em><span class="dur">Ongoing</span>Monthly retainer</em></li>
+          </ul>
+          <a class="btn btn--solid" href="#start">Book a scoping call</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section services-section" id="services">
-    <div class="container">
-      <span class="section-label animate-fade-up">What We Do</span>
-      <h2 class="section-title animate-fade-up">We make customer-facing operations <span class="gradient-text">more reliable</span></h2>
-      <div class="cards-container">
-        <div class="glass-card animate-fade-up">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <defs><linearGradient id="iconGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2563eb"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
-              <path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93V22h-1.5V9.93C9.4 9.58 8 7.95 8 6a4 4 0 0 1 4-4z"/><circle cx="12" cy="6" r="1.5"/><path d="M5 14h14"/><path d="M5 18h14"/>
-            </svg>
+  <div class="seam seam--to-land" aria-hidden="true"></div>
+
+  <section class="method" id="method" data-water="1" aria-labelledby="me-h">
+    <div class="wrap grid">
+      <div class="method__head">
+        <p class="label mono"><i></i>How an assessment works</p>
+        <h2 id="me-h" data-surface>From the first interview to the fix.</h2><p class="method__what" data-rise>You get a written report with your top five opportunities, each with a cost range and the assumptions behind it, and a 30-day plan for the first fixes.</p>
+      </div>
+      <div class="method__report">
+        <div class="sticky">
+          <div class="doc" id="doc" aria-label="Sample assessment report for a fictional company">
+            <article class="page is-on" data-page="0">
+              <header class="mono"><span>Harbor Line Builders · Assessment</span><span>p. 1 of 4</span></header>
+              <p class="mono"><span class="stamp">Illustrative · fictional company</span></p>
+              <h4>Executive overview</h4>
+              <p>Office staff spend an estimated 31 to 42 hours a week on work that existing tools can take over. Three of five opportunities need no new software.</p>
+              <div class="bars">
+                <div class="bar"><span>Estimating</span><span class="mono">11 to 14 h</span><i class="mg" style="--w:78%"></i></div>
+                <div class="bar"><span>Scheduling and dispatch</span><span class="mono">8 to 10 h</span><i style="--w:58%"></i></div>
+                <div class="bar"><span>Change orders</span><span class="mono">6 to 9 h</span><i style="--w:46%"></i></div>
+                <div class="bar"><span>Owner reporting</span><span class="mono">4 to 6 h</span><i style="--w:32%"></i></div>
+                <div class="bar"><span>Lead follow-up</span><span class="mono">2 to 3 h</span><i style="--w:18%"></i></div>
+              </div>
+              <div class="pfoot mono"><span>Prepared by TideOps · Jacksonville, FL</span><span>Ranges, with assumptions listed</span></div>
+            </article>
+            <article class="page" data-page="1">
+              <header class="mono"><span>Findings</span><span>p. 2 of 4</span></header>
+              <h4>Where the hours go</h4>
+              <p>Each estimate is rebuilt from a blank spreadsheet. Field notes are retyped into the office system at the end of every day. Change orders wait on one person's approval.</p>
+              <div class="bars">
+                <div class="bar"><span>Retyped data</span><span class="mono">high</span><i class="mg" style="--w:84%"></i></div>
+                <div class="bar"><span>Single-person approvals</span><span class="mono">medium</span><i style="--w:56%"></i></div>
+                <div class="bar"><span>Unused software features</span><span class="mono">medium</span><i style="--w:50%"></i></div>
+                <div class="bar"><span>Leads waiting for a reply</span><span class="mono">medium</span><i style="--w:44%"></i></div>
+                <div class="bar"><span>Manual owner reports</span><span class="mono">low</span><i style="--w:26%"></i></div>
+              </div>
+              <p>Not counted as savings: time freed on tasks where no cost goes away. Listed separately.</p>
+              <div class="pfoot mono"><span>Sources: 6 interviews, 14 documents</span><span>Confidence: medium</span></div>
+            </article>
+            <article class="page" data-page="2">
+              <header class="mono"><span>Prioritization</span><span>p. 3 of 4</span></header>
+              <h4>Impact against effort</h4>
+              <div class="mat">
+                <span class="ax ax--y mono">Impact</span><span class="ax ax--x mono">Effort</span>
+                <span class="q mono" style="left:8px;top:6px">Quick wins</span>
+                <span class="q mono" style="right:8px;top:6px">Major projects</span>
+                <span class="dot mg" data-n="1" style="--x:20%;--y:18%"><b>Estimate templates</b></span>
+                <span class="dot" data-n="2" style="--x:34%;--y:34%"><b>Field app sync</b></span>
+                <span class="dot" data-n="3" style="--x:66%;--y:24%"><b>Pricing tool</b></span>
+                <span class="dot" data-n="4" style="--x:28%;--y:68%"><b>Report automation</b></span>
+                <span class="dot" data-n="5" style="--x:74%;--y:78%"><b>ERP migration (skip)</b></span>
+              </div>
+              <ol class="mat-legend"><li><span>1</span>Estimate templates</li><li><span>2</span>Field app sync</li><li><span>3</span>Pricing tool</li><li><span>4</span>Report automation</li><li><span>5</span>ERP migration (skip)</li></ol>
+              <div class="pfoot mono"><span>Magenta: do first</span><span>Scored by 3 reviewers</span></div>
+            </article>
+            <article class="page" data-page="3">
+              <header class="mono"><span>Plan</span><span>p. 4 of 4</span></header>
+              <h4>The first four days</h4>
+              <ol class="plan">
+                <li><span>Day 1</span>Turn on the estimating templates already in the current software</li>
+                <li><span>Day 2</span>Connect the field app to the office system so notes arrive once</li>
+                <li><span>Day 3</span>Send leads an instant reply with the next open slot</li>
+                <li><span>Day 4</span>Build the Friday owner report from live data</li>
+              </ol>
+              <p>Then: a working demo of the pricing tool on five real past jobs.</p>
+              <div class="pfoot mono"><span>Owner: TideOps</span><span>Review call: day 10</span></div>
+            </article>
+            <p class="doc__tag mono">Sample report, fictional company</p>
           </div>
-          <h3>Communication Systems</h3>
-          <p>AI receptionists, instant follow-up, text-back workflows, intake handling, and customer response systems that keep conversations moving.</p>
-          <div class="card-glow"></div>
         </div>
-        <div class="glass-card animate-fade-up">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad2)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <defs><linearGradient id="iconGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2563eb"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
-              <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/>
-            </svg>
-          </div>
-          <h3>Execution Systems</h3>
-          <p>Automated task routing, CRM updates, lead tracking, and process automation that reduce human drop-off and keep work moving.</p>
-          <div class="card-glow"></div>
-        </div>
-        <div class="glass-card animate-fade-up">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#iconGrad3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <defs><linearGradient id="iconGrad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#2563eb"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient></defs>
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h4m-4 3h6"/>
-            </svg>
-          </div>
-          <h3>Reporting Systems</h3>
-          <p>Recurring reports, summaries, dashboards, and operational visibility that keep your team aligned and your data usable.</p>
-          <div class="card-glow"></div>
-        </div>
+      </div>
+      <ol class="chapters" id="chapters">
+        <span class="track" aria-hidden="true"><i id="trackDot"></i></span>
+        <li class="ch" data-ch="0"><span class="ch__n">01<small>Interview</small></span><h3 data-surface>We talk to the people doing the work.</h3><p data-rise>The owner first, then the team: a short survey of the software everyone uses, and 30-minute interviews. We always ask before recording.</p></li>
+        <li class="ch" data-ch="1"><span class="ch__n">02<small>Map</small></span><h3 data-surface>We follow the work, not the org chart.</h3><p data-rise>Real documents like past estimates, reports and forms show where the same information gets handled twice and where jobs wait.</p></li>
+        <li class="ch" data-ch="2"><span class="ch__n">03<small>Rank</small></span><h3 data-surface>Every opportunity, ranked by what it's worth.</h3><p data-rise>Each finding is scored on impact and effort, with a cost range and the assumptions behind it. You see what to do first and what to skip.</p></li>
+        <li class="ch" data-ch="3"><span class="ch__n">04<small>Fix</small></span><h3 data-surface>Quick wins in days, then the big one.</h3><p data-rise>We put the first fixes in place, train your team, and build a working demo of the most expensive problem on your own data.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="rules" data-water="1" aria-labelledby="ru-h">
+    <div class="wrap grid">
+      <h2 id="ru-h" data-surface>Numbers your CFO will believe.</h2>
+      <p class="intro" data-rise>Plenty of AI pitches promise fifty times your money back. We'd rather hand you a number that holds up when someone checks it.</p>
+      <ol>
+        <li class="rule"><span class="rule__n mono">01</span><h3>Hours aren't cash</h3><p>Time freed up counts as savings only when a real cost goes away: overtime, a planned hire, a subscription you cancel.</p></li>
+        <li class="rule"><span class="rule__n mono">02</span><h3>Ranges, with assumptions</h3><p>Every estimate shows what it's based on, so you can check it yourself.</p></li>
+        <li class="rule"><span class="rule__n mono">03</span><h3>Unknowns stay unknown</h3><p>If we don't have the data, the report says so. We don't fill gaps with industry averages.</p></li>
+        <li class="rule"><span class="rule__n mono">04</span><h3>Sometimes the answer is no</h3><p>If AI isn't the right fix, or something cheaper already exists, we tell you.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="team" id="team" data-water="1" aria-labelledby="te-h">
+    <div class="wrap grid">
+      <h2 id="te-h" data-surface>Local operators first, technologists second.</h2>
+      <p class="intro" data-rise>Three co-founders in Northeast Florida: more than four decades of running construction and homebuilding operations between us, and a software developer to keep the technology honest.</p>
+      <div class="people">
+        <article class="person" data-rise><p class="person__n mono">01</p><div class="person__id"><h3>Josh Gosney</h3><p class="role">Co-Founder and Managing Partner</p></div><p class="bio">Eleven years in residential homebuilding, land acquisition and new home sales in Northeast Florida, which is where he learned how operational and financial problems actually show up in a growing business. He sets TideOps' direction and decides what the firm says yes to. His test for any recommendation is simple: technology should serve the business, not the other way around.</p></article>
+        <article class="person" data-rise><p class="person__n mono">02</p><div class="person__id"><h3>Sten Muchow</h3><p class="role">Co-Founder and Director of Business Strategy</p></div><p class="bio">A software developer by background, which gives him a technology-informed read on what a fix will actually take. He leads strategy and partnerships, maps how work really moves through a client's organization, and keeps refining the process we use to find and fix inefficiencies. His job is the bridge between a business problem and a fix that holds up.</p></article>
+        <article class="person" data-rise><p class="person__n mono">03</p><div class="person__id"><h3>Marco Varlesi</h3><p class="role">Co-Founder and Director of Operations Advisory</p></div><p class="bio">Thirty-five years owning and running a construction business. He knows firsthand what it takes to manage people, money and time in a company that has to deliver every week, and he brings that owner's view to every recommendation. His role is to make sure what we propose works in the field, not just in a demo.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- TOOLS / INTEGRATION BAR -->
-  <div class="tools-section">
-    <div class="container">
-      <p class="tools-heading">Integrates With Your Existing Tools</p>
-      <div class="tools-bar">
-        <span class="tool-name">Google Workspace</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">Slack</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">HubSpot</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">QuickBooks</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">Calendly</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">Zapier</span>
-        <span class="tool-dot">•</span>
-        <span class="tool-name">Mailchimp</span>
+  <section class="faq" data-water="1" aria-labelledby="fq-h">
+    <div class="wrap grid">
+      <h2 id="fq-h" data-surface>Straight answers.</h2>
+      <div class="list">
+        <details><summary><span class="q mono">Q.1</span>Do we need to know anything about AI?<span class="pm" aria-hidden="true"></span></summary><p>No. You know your business; we work out where AI fits and handle the setup.</p></details>
+        <details><summary><span class="q mono">Q.2</span>Will you try to sell us custom software?<span class="pm" aria-hidden="true"></span></summary><p>Only when nothing on the market does the job. Most fixes are tools you can buy today, set up around how your team actually works.</p></details>
+        <details><summary><span class="q mono">Q.3</span>What happens to our information?<span class="pm" aria-hidden="true"></span></summary><p>It's used only for your assessment and never shared. We'll sign an NDA if you'd like, and we always ask before recording a conversation.</p></details>
+        <details><summary><span class="q mono">Q.4</span>Do we keep the assessment if we don't hire you?<span class="pm" aria-hidden="true"></span></summary><p>Yes. The findings and the plan are yours, whatever you decide.</p></details>
+        <details><summary><span class="q mono">Q.5</span>What does it cost?<span class="pm" aria-hidden="true"></span></summary><p>The first 15 minutes are free. A full assessment for an owner-led business is $999. For larger companies the in-depth assessment is quoted after a scoping call, and the ongoing work is a monthly retainer.</p></details>
+        <details><summary><span class="q mono">Q.6</span>How fast do we see something?<span class="pm" aria-hidden="true"></span></summary><p>The quick wins go in within days of the review call. The working demo on your own data follows, and you see the hours come back before any larger project starts.</p></details>
       </div>
+    </div>
+  </section>
+
+  <div class="seam seam--to-water" aria-hidden="true"></div>
+
+  <section class="start" id="start" data-water="0" aria-labelledby="sa-h">
+    <div class="wrap grid">
+      <div class="start__head">
+        <p class="label mono"><i></i>Free assessment</p>
+        <h2 id="sa-h" data-surface>Start with your biggest bottleneck.</h2>
+        <p class="intro" data-rise>Tell us a little about your business. We'll reply within one business day to set up 15 minutes, and you'll leave with one specific fix whether or not you ever hire us.</p>
+        <p class="promise mono" data-rise>Two minutes. No pitch. Your numbers stay yours.</p>
+      </div>
+      <form id="intake" novalidate><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="f"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+        <div class="f"><label for="f-role">Your role</label><input id="f-role" name="role" type="text" autocomplete="organization-title"></div>
+        <div class="f"><label for="f-size">Employees</label><select id="f-size" name="size"><option>1 to 10</option><option>11 to 50</option><option>51 to 200</option><option>200+</option></select></div>
+        <div class="f"><label for="f-rev">Annual revenue</label><select id="f-rev" name="revenue"><option>Under $1M</option><option>$1M to $5M</option><option>$5M to $20M</option><option>$20M to $50M</option><option>$50M+</option><option>Prefer not to say</option></select></div>
+        <div class="f f--wide"><label for="f-pain">What slows your business down most?</label><textarea id="f-pain" name="bottleneck" rows="3"></textarea></div>
+        <div class="f f--wide"><label for="f-tools">Software your team uses most <span>(optional)</span></label><input id="f-tools" name="software" type="text"></div>
+        <div class="form__foot"><p>Or call <span class="mono">(904) 293-9336</span></p><button class="btn btn--solid" type="submit">Request my free assessment <span class="arr arr--r" aria-hidden="true">→</span></button></div>
+        <p class="form__note" id="formNote" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="chart" data-water="0">
+  <div class="wrap">
+    <p class="foot__word" id="footWord" aria-hidden="true"><span class="mask"><span class="surf">T</span></span><span class="mask"><span class="surf">i</span></span><span class="mask"><span class="surf">d</span></span><span class="mask"><span class="surf">e</span></span><span class="mask"><span class="surf">O</span></span><span class="mask"><span class="surf">p</span></span><span class="mask"><span class="surf">s</span></span></p>
+    <div class="foot__row">
+      <div><span class="mono">Contact</span><span>hello@tideops.io</span><span class="mono">(904) 293-9336</span></div>
+      <div><span class="mono">Station</span><span>Jacksonville, Florida</span><span class="mono">30.33° N, 81.66° W</span></div>
+      <div><span class="mono">TideOps LLC</span><span>© 2026</span><a class="ilink" href="#top">Back to top</a></div>
     </div>
   </div>
+</footer>
 
-  <!-- HOW IT WORKS -->
-  <section class="section how-section" id="how-it-works">
-    <div class="container">
-      <span class="section-label animate-fade-up">The Process</span>
-      <h2 class="section-title animate-fade-up">From Manual Work to <span class="gradient-text">Smarter Systems</span></h2>
-      <div class="steps-container">
-        <div class="step animate-fade-up">
-          <div class="step-number">01</div>
-          <div class="step-line"></div>
-          <h3>Audit</h3>
-          <p>We review your workflow, identify bottlenecks, and find the highest-impact opportunities.</p>
-        </div>
-        <div class="step animate-fade-up">
-          <div class="step-number">02</div>
-          <div class="step-line"></div>
-          <h3>Build</h3>
-          <p>We design and build a custom solution tailored to your business, tools, and team.</p>
-        </div>
-        <div class="step animate-fade-up">
-          <div class="step-number">03</div>
-          <div class="step-line"></div>
-          <h3>Install</h3>
-          <p>We implement, test, and make sure it works smoothly in your day-to-day operations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasG = typeof window.gsap !== 'undefined';
+  var touch = window.matchMedia('(hover: none)').matches;
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+  var narrow = function(){return window.innerWidth<900};
+  var root=document.documentElement;
 
-  <!-- HOW WE'RE DIFFERENT -->
-  <section class="section different-section" id="why-tideops">
-    <div class="container">
-      <span class="section-label animate-fade-up">Why TideOps</span>
-      <h2 class="section-title animate-fade-up">White-glove systems, built to <span class="gradient-text">actually get used</span></h2>
-      <div class="different-grid">
-        <div class="different-item animate-fade-up">
-          <div class="different-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-          </div>
-          <h3>We Build It For You</h3>
-          <p>No DIY platforms. No tutorials to watch. We design, build, and install everything into your business.</p>
-        </div>
-        <div class="different-item animate-fade-up">
-          <div class="different-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>We Reduce Human Drop-Off</h3>
-          <p>Your business should not depend on memory, perfect discipline, or someone remembering to update the CRM at the end of the day.</p>
-        </div>
-        <div class="different-item animate-fade-up">
-          <div class="different-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg>
-          </div>
-          <h3>We Maintain It</h3>
-          <p>We don’t just launch systems and disappear. We monitor, refine, and maintain them so they keep working in the real world.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  /* ---------- Frame tone: what sits under the top bar ---------- */
+  var FT={ '1':{'--fbg':'#EEF2EF','--ffg':'#0B1418','--fln':'rgba(11,20,24,0.14)'}, '0':{'--fbg':'#0C1B22','--ffg':'#EEF2EF','--fln':'rgba(169,203,214,0.2)'} };
+  var curF='';
+  function setFrame(w){ if(w===curF) return; curF=w; var t=FT[w]; if(hasG&&!reduce){gsap.to(root,{duration:.9,ease:'expo.out',overwrite:'auto','--fbg':t['--fbg'],'--ffg':t['--ffg']});root.style.setProperty('--fln',t['--fln']);} else {for(var k in t)root.style.setProperty(k,t[k]);} }
+  setFrame('0');
 
-  <!-- RESULTS / TRANSFORMATION — Video Background -->
-  <section class="section results-section" id="results">
-    <div class="video-bg-container">
-      <video autoplay muted loop playsinline class="video-bg" poster="assets/images/storefront-fallback.jpg" aria-label="Modern storefront representing business transformation with AI">
-        <source src="assets/videos/storefront.mp4" type="video/mp4">
-      </video>
-      <div class="video-overlay"></div>
-    </div>
-    <div class="container">
-      <span class="section-label animate-fade-up">What To Expect</span>
-      <h2 class="section-title animate-fade-up">Better Systems, <span class="gradient-text">Not More Software</span></h2>
-      <div class="stats-grid">
-        <div class="stat-card animate-fade-up">
-          <div class="stat-number"><span class="counter" data-target="40">0</span><span class="stat-suffix">+</span></div>
-          <p class="stat-label">Hours saved per month, per client</p>
-        </div>
-        <div class="stat-card animate-fade-up">
-          <div class="stat-number"><span class="counter" data-target="14">0</span><span class="stat-suffix"></span></div>
-          <p class="stat-label">Days or less to first automation live</p>
-        </div>
-        <div class="stat-card animate-fade-up">
-          <div class="stat-number"><span class="counter" data-target="24">0</span><span class="stat-suffix">/7</span></div>
-          <p class="stat-label">Your systems work while you sleep</p>
-        </div>
-        <div class="stat-card animate-fade-up">
-          <div class="stat-number"><span class="counter" data-target="3">0</span><span class="stat-suffix">x</span></div>
-          <p class="stat-label">Typical ROI within the first quarter</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  /* ---------- Split words ---------- */
+  function splitWords(el){var words=el.textContent.trim().split(/\s+/);el.textContent='';words.forEach(function(w,i){var m=document.createElement('span');m.className='mask';var s=document.createElement('span');s.className='surf';s.textContent=w;m.appendChild(s);el.appendChild(m);if(i<words.length-1)el.appendChild(document.createTextNode(' '));});return $$('.surf',el);}
+  function splitPlain(el,cls){var words=el.textContent.trim().split(/\s+/);el.textContent='';words.forEach(function(w,i){var s=document.createElement('span');s.className=cls;s.textContent=w;el.appendChild(s);if(i<words.length-1)el.appendChild(document.createTextNode(' '));});return $$('.'+cls,el);}
+  var h1=$('#h1'), h1Words=(hasG&&!reduce)?splitWords(h1):[];
+  var washWords=(hasG&&!reduce)?splitPlain($('[data-wash]'),'w'):[];
 
-  <!-- WHO IT'S FOR -->
-  <section class="section audience-section" id="who-its-for">
-    <div class="container">
-      <span class="section-label animate-fade-up">Who We Help</span>
-      <h2 class="section-title animate-fade-up">Built for <span class="gradient-text">customer-driven businesses</span></h2>
-      <div class="audience-grid">
-        <div class="audience-card animate-fade-up">
-          <div class="audience-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <h3>Contractors &amp; Trades</h3>
-          <p>Keep calls answered, leads captured, and back-office work moving without dropped handoffs.</p>
-        </div>
-        <div class="audience-card animate-fade-up">
-          <div class="audience-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
-          </div>
-          <h3>Service Businesses</h3>
-          <p>Manage intake, appointments, communication, and follow-up more consistently.</p>
-        </div>
-        <div class="audience-card animate-fade-up">
-          <div class="audience-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Med Spas &amp; Clinics</h3>
-          <p>Respond faster, reduce front-desk drag, and keep customer communication tighter.</p>
-        </div>
-        <div class="audience-card animate-fade-up">
-          <div class="audience-icon">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <h3>Professional Services</h3>
-          <p>Improve client follow-through, reporting, and information flow without adding more admin work.</p>
-        </div>
-      </div>
-      <div class="ready-signs animate-fade-up">
-        <h3 class="ready-title">Signs You're Ready</h3>
-        <div class="ready-list">
-          <div class="ready-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>You're doing the same tasks manually every day</span>
-          </div>
-          <div class="ready-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Leads, customers, or internal handoffs are falling through the cracks</span>
-          </div>
-          <div class="ready-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>Your team spends more time on admin than growth</span>
-          </div>
-          <div class="ready-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-            <span>You need more reliable execution, but not more software to babysit</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  /* ---------- Calculator and tide gauge ---------- */
+  var cp=$('#c-people'), ch=$('#c-hours'), cr=$('#c-rate'), tgFill=$('#tgFill'), tgRead=$('#tgRead');
+  function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+  function short(n){return n>=1e6?'$'+(n/1e6).toFixed(2)+'M':n>=1e3?'$'+(n/1e3).toFixed(n<1e4?1:0)+'k':'$'+Math.round(n)}
+  function pct(el){el.style.setProperty('--pct', ((el.value-el.min)/(el.max-el.min)*100)+'%')}
+  function calc(){
+    var p=+cp.value, h=+ch.value, r=+cr.value, weeks=50;
+    var hours=p*h*weeks, cost=hours*r, fte=hours/2000;
+    $('#o-people').textContent=p; $('#o-hours').textContent=h; $('#o-rate').textContent='$'+r;
+    $('#r-year').textContent=fmt(cost); $('#r-hours').textContent=Math.round(hours).toLocaleString('en-US');
+    $('#r-fte').textContent=fte<0.1?fte.toFixed(2):fte.toFixed(1);
+    [cp,ch,cr].forEach(pct);
+    var lvl=Math.max(0,Math.min(1,(Math.log10(Math.max(cost,1000))-3)/3));
+    tgFill.style.setProperty('--h',(lvl*100).toFixed(2)+'%'); tgRead.style.setProperty('--h',(lvl*100).toFixed(2)+'%'); tgRead.textContent=short(cost);
+  }
+  [cp,ch,cr].forEach(function(el){el.addEventListener('input',calc)}); calc();
 
-  <!-- TEAM / FOUNDERS -->
-  <section class="section team-section" id="team">
-    <div class="container">
-      <span class="section-label animate-fade-up">Who We Are</span>
-      <h2 class="section-title animate-fade-up">Built by Operators, <span class="gradient-text">Not Just Developers</span></h2>
-      <div class="team-grid">
+  /* ---------- Form (preview only) ---------- */
+  var form=$('#intake'), note=$('#formNote'), sendBtn=form.querySelector('button[type=submit]'), sendLabel=sendBtn.firstChild;
+  function say(msg,isHtml){ note.hidden=false; if(isHtml){note.innerHTML=msg}else{note.textContent=msg} }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(form._honey && form._honey.value) return;
+    var name=form.name.value.trim(), email=form.email.value.trim();
+    if(!name){ say('Please add your name so we know who to reply to.'); form.name.focus(); return; }
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say('Please add a work email so we can reply.'); form.email.focus(); return; }
+    var company=form.company.value.trim();
+    var data={name:name,email:email,company:company,role:form.role.value.trim(),employees:form.size.value,revenue:form.revenue.value,bottleneck:form.bottleneck.value.trim(),software:form.software.value.trim(),
+      _subject:'Free assessment request: '+name+(company?' at '+company:''),_replyto:email,_template:'table',_captcha:'false'};
+    sendBtn.disabled=true; var was=sendLabel.textContent; sendLabel.textContent='Sending ';
+    var ctrl=('AbortController' in window)?new AbortController():null; var tmr=ctrl&&setTimeout(function(){ctrl.abort()},15000);
+    fetch('https://formsubmit.co/ajax/hello@tideops.io',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
+      .then(function(r){return r.json()})
+      .then(function(j){ if(j&&(j.success===true||j.success==='true')){ form.reset(); say('Thanks, '+name.split(' ')[0]+'. We will reply within one business day to set up your 15 minutes.'); sendLabel.textContent='Sent '; } else { throw new Error((j&&j.message)||'send failed'); } })
+      .catch(function(){ say('That didn\'t go through. Email us at <a href="mailto:hello@tideops.io">hello@tideops.io</a> or call (904) 293-9336.', true); sendBtn.disabled=false; sendLabel.textContent=was; })
+      .then(function(){ if(tmr) clearTimeout(tmr); });
+  });
 
-        <!-- Josh Gosney -->
-        <div class="team-card animate-fade-up">
-          <div class="team-avatar">
-            <img src="assets/josh-headshot.jpg" alt="Josh Gosney" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
-          </div>
-          <h3>Josh Gosney</h3>
-          <p class="team-role">Operations &amp; Strategy</p>
-          <p>Background in real estate operations and business automation. Focused on turning operational chaos into scalable systems.</p>
-          <div class="card-glow"></div>
-        </div>
+  /* ---------- Menu sheet (phones) ---------- */
+  var mb=$('#menuBtn'), sheet=$('#sheet'), mc=$('#menuClose');
+  function setMenu(open){sheet.hidden=!open;mb.setAttribute('aria-expanded',open);root.style.overflow=open?'hidden':'';if(open){mc.focus()}else{mb.focus()}}
+  mb.addEventListener('click',function(){setMenu(true)});
+  mc.addEventListener('click',function(){setMenu(false)});
+  $$('#sheet a').forEach(function(a){a.addEventListener('click',function(){sheet.hidden=true;mb.setAttribute('aria-expanded','false');root.style.overflow='';})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sheet.hidden)setMenu(false)});
 
-        <!-- Sten Muchow -->
-        <div class="team-card animate-fade-up">
-          <div class="team-avatar">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
-            </svg>
-          </div>
-          <h3>Sten Muchow</h3>
-          <p class="team-role">Client Success &amp; Delivery</p>
-          <p>Background in operations management and client relationships. Ensures every system we deploy actually gets used and delivers results.</p>
-          <div class="card-glow"></div>
-        </div>
+  /* ---------- The chart: coastlines on the page ----------
+     Region 0 (top of the hero) is the exposed flat. Each coast crossed flips land and water. */
+  var hero=$('.hero'), stage=$('#stage'), vhp=$('#vhp'), tide=$('#tide'), wlEl=$('#wl'), items=$$('.s'), gv=$('#gaugeVal'), gs=$('#gaugeState'), hint=$('#hint'), marsh=$('#marsh');
+  var seams=$$('.seam');
+  var state={p:0, intro:0, mx:0.5, my:0.5, tmx:0.5, tmy:0.5};
+  var vh=(vhp&&vhp.offsetHeight)||window.innerHeight, heroH=0, heroPin=1, coasts=[], itemY=[], lastGv='', lastGs='', lastHint=-1, lastWl=-1;
+  function target(p){var n=narrow();var top=n?0.51:0.15, bottom=n?0.9:0.85;return top+(bottom-top)*p}
+  function pageTop(el){var r=el.getBoundingClientRect();return r.top+window.scrollY}
+  function layout(){
+    vh=(vhp&&vhp.offsetHeight)||window.innerHeight; heroH=hero.offsetHeight; heroPin=Math.max(1,heroH-stage.offsetHeight);
+    coasts=seams.map(function(sm){return pageTop(sm)+sm.offsetHeight*0.5});
+    itemY=items.map(function(li){return li.offsetTop+li.offsetHeight*0.5});
+  }
+  layout(); window.addEventListener('resize',layout); window.addEventListener('load',layout); setTimeout(layout,600); setTimeout(layout,2500);
+  /* anything that changes the page's height (an FAQ opening, fonts arriving) moves the coastlines too */
+  $$('details').forEach(function(dt){dt.addEventListener('toggle',function(){layout(); if(window.ScrollTrigger) ScrollTrigger.refresh();})});
+  if('ResizeObserver' in window){ var roT=0; new ResizeObserver(function(){ clearTimeout(roT); roT=setTimeout(layout,60); }).observe(document.body); }
 
-        <!-- Marco Varlesi -->
-        <div class="team-card animate-fade-up">
-          <div class="team-avatar">
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
-            </svg>
-          </div>
-          <h3>Marco Varlesi</h3>
-          <p class="team-role">Technical Architecture</p>
-          <p>Background in systems building and technical implementation. Architects the automations and integrations that power every client engagement.</p>
-          <div class="card-glow"></div>
-        </div>
+  function coastsNow(sy, drift){
+    var p=Math.max(0,Math.min(1,sy/heroPin)); state.p=p;
+    var c1 = sy<=heroPin ? target(p)*state.intro + 0.02*(1-state.intro) : (heroPin + target(1)*vh - sy)/vh;
+    var all=[c1].concat(coasts.map(function(y){return (y-sy)/vh})).map(function(c){return c+drift});
+    var vis=[], above=0, bar=70/vh, barCount=0;
+    all.forEach(function(c){ if(c<bar) barCount++; if(c<-0.3) above++; else if(c<1.3) vis.push(c); });
+    vis.sort(function(a,b){return a-b});
+    return {c:[vis.length?vis[0]:9, vis.length>1?vis[1]:9], waterTop:above%2, inHero:sy<=heroPin, first:c1+drift, frame:(barCount===0||barCount%2===1)?'0':'1'};
+  }
+  function applyDOM(cs){
+    if(cs.inHero){
+      var wl=cs.first*vh;
+      tide.style.transform='translate3d(0,'+wl.toFixed(1)+'px,0)';
+      items.forEach(function(li,i){var out=itemY[i]<wl-6; if(li.classList.contains('is-out')!==out) li.classList.toggle('is-out',out)});
+      var ft=4.2-state.p*4.7;
+      var gvt=(ft>=0?'+':'−')+Math.abs(ft).toFixed(1)+' ft'; if(gvt!==lastGv){gv.textContent=gvt;lastGv=gvt;}
+      var gst=state.p<0.08?'High water':state.p>0.92?'Low tide':'Falling'; if(gst!==lastGs){gs.textContent=gst;lastGs=gst;}
+      var ho=state.p>0.05?0:1; if(ho!==lastHint){hint.style.opacity=ho;lastHint=ho;}
+      if(!root.classList.contains('gl-on')) marsh.style.transform='scale('+(1.12-0.1*state.p).toFixed(4)+')';
+    }
+    var c=cs.first;
+    if(c>0.02&&c<0.98){if(lastWl!==1){wlEl.style.opacity=1;lastWl=1;}wlEl.style.transform='translate3d(0,'+(c*vh).toFixed(1)+'px,0)';} else if(lastWl!==0){wlEl.style.opacity=0;lastWl=0;}
+  }
 
-      </div>
-      <p class="team-closing animate-fade-up">
-        "We've spent years running businesses — not just building software. That's why TideOps solutions actually work in the real world."
-      </p>
-    </div>
-  </section>
+  /* ---------- WebGL: one water surface for the whole page ---------- */
+  var GL=null;
+  function initGL(){
+    var cv=$('#gl'); var gl=cv.getContext('webgl',{alpha:false,antialias:false,depth:false,stencil:false,powerPreference:'high-performance'});
+    if(!gl) return null;
+    var vs='attribute vec2 a;varying vec2 v;void main(){v=a*0.5+0.5;gl_Position=vec4(a,0.,1.);}';
+    var fs='#ifdef GL_FRAGMENT_PRECISION_HIGH\nprecision highp float;\n#else\nprecision mediump float;\n#endif\nvarying vec2 v;uniform sampler2D uTex;uniform vec2 uRes,uMouse,uCoast;uniform float uTime,uWaterTop,uDry,uScrollY,uTexD;'+
+    'void main(){'+
+    'vec2 uv=v;float y=1.-uv.y;float t=uTime;float asp=uRes.x/uRes.y;'+
+    'float wave=sin(uv.x*9.*asp+t*.9)*.0035+sin(uv.x*23.*asp-t*1.7)*.0015+sin(uv.x*4.*asp+t*.4)*.004;'+
+    'float shore=sin(uv.x*2.3*asp+1.7)*.011+sin(uv.x*5.1*asp-.4)*.005;'+
+    'float c1=uCoast.x+wave+shore;float c2=uCoast.y+wave*.8-shore;'+
+    'float n=step(c1,y)+step(c2,y);float water=mod(n+uWaterTop,2.);'+
+    'float dist=min(abs(y-c1),abs(y-c2))*uRes.y;'+
+    'vec2 px=gl_FragCoord.xy;'+
+    'vec2 tuv=vec2(px.x/uTexD,px.y/(uTexD*.5));'+
+    'vec2 dd=vec2(sin(uv.y*40.+t*1.3)*.0035+sin(uv.y*13.-t*.7)*.004,sin(uv.x*35.*asp+t*1.1)*.003);'+
+    'vec2 m=(uMouse-.5)*vec2(asp,1.);vec2 q=(uv-.5)*vec2(asp,1.);float r=distance(q,m);'+
+    'dd+=vec2(sin(r*46.-t*5.)*exp(-r*7.)*.006);'+
+    'float depth=clamp(dist/(uRes.y*.45),0.,1.);'+
+    'vec3 col=texture2D(uTex,tuv+dd*water*(.5+depth)*.6).rgb;col=mix(col,vec3(dot(col,vec3(.299,.587,.114))),.22)*vec3(.93,.97,1.04);'+
+    'vec3 deep=vec3(.047,.106,.133);vec3 shoal=vec3(.663,.796,.839);vec3 paper=vec3(.933,.949,.937);'+
+    'float dryScale=mix(4.0,(uRes.x<uRes.y?.15:.22),uDry)*uRes.y;float dry=1.-exp(-dist/dryScale);'+
+    'float pmin=mix(0.,.22,uDry);vec3 land=mix(col,paper,mix(pmin,.965,dry));'+
+    'float gx=step(mod(px.x,160.),1.);float gy=step(mod(px.y-uScrollY,160.),1.);land-=max(gx,gy)*dry*.075*uDry;'+
+    'float cl=1.-smoothstep(0.,1./64.,abs(fract(dist/64.)-.5));land-=cl*exp(-dist/(uRes.y*.55))*.16*uDry;'+
+    'vec3 wat=mix(col*vec3(.68,.82,.9),deep,.52+depth*.42);'+
+    'float g=sin(uv.x*120.*asp+uv.y*80.+t*2.)*sin(uv.y*140.-t*1.4+uv.x*30.);wat+=shoal*pow(max(g,0.),22.)*.09*(1.-depth*.6);'+
+    'wat+=shoal*cl*exp(-dist/(uRes.y*.45))*.08;'+
+    'vec3 o=mix(land,wat,water);'+
+    'float line=1.-smoothstep(0.,1.6,dist);float glow=exp(-dist/18.)*.24*water;'+
+    'o=mix(o,shoal,clamp(line*.9+glow,0.,1.));'+
+    'gl_FragColor=vec4(o,1.);}';
+    function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){return null}return s}
+    var V=sh(gl.VERTEX_SHADER,vs), F=sh(gl.FRAGMENT_SHADER,fs); if(!V||!F) return null;
+    var pr=gl.createProgram();gl.attachShader(pr,V);gl.attachShader(pr,F);gl.linkProgram(pr);if(!gl.getProgramParameter(pr,gl.LINK_STATUS))return null;gl.useProgram(pr);
+    var buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);
+    var loc=gl.getAttribLocation(pr,'a');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    var tex=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,tex);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.MIRRORED_REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.MIRRORED_REPEAT);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
+    var U={}; ['uTex','uRes','uMouse','uCoast','uTime','uWaterTop','uDry','uScrollY','uTexD'].forEach(function(n){U[n]=gl.getUniformLocation(pr,n)});
+    var ready=false, hi=false, maxTex=gl.getParameter(gl.MAX_TEXTURE_SIZE)||2048;
+    function upload(){
+      if(ready) return; if(!(marsh.complete&&marsh.naturalWidth)) return;
+      /* fast first paint: the small fallback image, stretched into a power-of-two 2:1 canvas */
+      var c=document.createElement('canvas');c.width=2048;c.height=1024;var x=c.getContext('2d');x.drawImage(marsh,0,0,2048,1024);
+      gl.bindTexture(gl.TEXTURE_2D,tex); gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,c);
+      ready=true; root.classList.add('gl-on'); layout(); loadHi();
+    }
+    function loadHi(){
+      /* then the sharp texture: 4K on large screens that can take it, 2K otherwise (both already 2:1 power-of-two) */
+      var big=!narrow() && maxTex>=4096 && window.innerWidth*(window.devicePixelRatio||1)>1600;
+      var im=new Image(); im.decoding='async';
+      im.onload=function(){ if(hi) return; hi=true; gl.bindTexture(gl.TEXTURE_2D,tex); gl.texImage2D(gl.TEXTURE_2D,0,gl.RGB,gl.RGB,gl.UNSIGNED_BYTE,im); };
+      im.src=big?'assets/marsh-4k.jpg':'assets/marsh-2k.jpg';
+    }
+    upload(); marsh.addEventListener('load',upload);
+    var W=0,Hh=0;
+    var dprCap=narrow()?1.25:1.5;
+    function resize(){var dpr=Math.min(window.devicePixelRatio||1, dprCap);var cw=cv.clientWidth||window.innerWidth, chh=cv.clientHeight||window.innerHeight;var w=Math.round(cw*dpr),h=Math.round(chh*dpr);if(w!==W||h!==Hh){W=w;Hh=h;cv.width=w;cv.height=h;gl.viewport(0,0,w,h);gl.uniform2f(U.uRes,w,h);gl.uniform1f(U.uTexD,h*2.);}}
+    resize(); window.addEventListener('resize',resize);
+    gl.uniform1i(U.uTex,0);
+    return {render:function(cs,time,mx,my,dry,sy){if(!ready){upload();return}resize();gl.uniform2f(U.uCoast,cs.c[0],cs.c[1]);gl.uniform1f(U.uWaterTop,cs.waterTop);gl.uniform1f(U.uTime,time%(20*Math.PI));gl.uniform2f(U.uMouse,mx,1-my);gl.uniform1f(U.uDry,dry);gl.uniform1f(U.uScrollY,sy*(W/(cv.clientWidth||window.innerWidth)));gl.drawArrays(gl.TRIANGLES,0,3)},
+      lower:function(){ if(dprCap>1){dprCap=1;resize();return true} return false },
+      stop:function(){ root.classList.remove('gl-on'); try{gl.getExtension('WEBGL_lose_context').loseContext()}catch(e){} }};
+  }
 
-  <!-- FAQ -->
-  <section class="section faq-section" id="faq">
-    <div class="container">
-      <span class="section-label animate-fade-up">Common Questions</span>
-      <h2 class="section-title animate-fade-up" style="max-width:600px;">Everything You Need to Know</h2>
-      <div class="faq-list animate-fade-up">
+  if(reduce || !hasG){
+    root.classList.add('rm');
+    state.intro=1; state.p=1;
+    var f1=target(narrow()?0.95:1);
+    applyDOM({c:[f1,9],waterTop:0,inHero:true,first:f1,frame:'0'});
+    if('IntersectionObserver' in window){
+      var ioF=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)setFrame(e.target.dataset.water)})},{rootMargin:'-1% 0px -92% 0px'});
+      $$('[data-water]').forEach(function(s){ioF.observe(s)});
+    }
+    window.addEventListener('scroll',function(){root.classList.toggle('scrolled',window.scrollY>40);root.classList.toggle('past-hero',window.scrollY>heroH*0.5)},{passive:true});
+  } else {
+    gsap.registerPlugin(ScrollTrigger);
+    var lenis=null;
+    if(window.Lenis){
+      lenis=new Lenis({lerp:0.09, smoothWheel:true});
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(t){lenis.raf(t*1000)});
+      gsap.ticker.lagSmoothing(0);
+      $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');var t=id.length>1&&document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{duration:1.5});}})});
+    }
+    try{ GL=initGL(); }catch(err){ GL=null; }
+    if(!touch){ window.addEventListener('pointermove',function(e){state.tmx=e.clientX/window.innerWidth;state.tmy=e.clientY/window.innerHeight},{passive:true}); }
 
-        <details class="faq-item">
-          <summary>
-            Do I need to understand AI?
-            <span class="faq-chevron">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
-            </span>
-          </summary>
-          <p class="faq-answer">Not at all. We handle everything — the strategy, the build, and the maintenance. You just use it.</p>
-        </details>
+    /* Intro: the water settles into place while the headline surfaces */
+    var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+    tl.to(state,{intro:1, duration:2.2, ease:'power2.out'},0)
+      .from(h1Words,{yPercent:110, duration:1.3, stagger:0.045},0.15)
+      .from('[data-intro]',{y:22, opacity:0, duration:1.1, stagger:0.1},0.7)
+      .from('.corner, .legend, .hint, #wl span',{opacity:0, duration:1, stagger:0.06},1.0);
 
-        <details class="faq-item">
-          <summary>
-            How long until I see results?
-            <span class="faq-chevron">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
-            </span>
-          </summary>
-          <p class="faq-answer">Most clients have their first automation live within 14 days. Some simple setups are done in a week.</p>
-        </details>
+    var frames=0, slow=0, vslow=0, t0=0, noGuard=/noguard/.test(location.search);
+    /* ?debug shows a small readout so a phone can report what it's actually doing */
+    var dbg=null, dbgN=0, dbgT=0; if(/debug/.test(location.search)){ dbg=document.createElement('div'); dbg.style.cssText='position:fixed;left:8px;top:50%;z-index:99;background:#000;color:#0f0;font:12px/1.4 monospace;padding:6px 8px;pointer-events:none'; document.body.appendChild(dbg); }
+    gsap.ticker.add(function(time){
+      var k=1-Math.pow(0.9, gsap.ticker.deltaRatio());
+      state.mx+=(state.tmx-state.mx)*k*0.6; state.my+=(state.tmy-state.my)*k*0.6;
+      var sy=window.scrollY;
+      var drift=(Math.sin(time*0.9)*5+Math.sin(time*0.37)*3)/vh;
+      var cs=coastsNow(sy,drift);
+      applyDOM(cs);
+      setFrame(cs.frame);
+      root.classList.toggle('past-hero', sy>heroPin+0.35*vh);
+      var dry=Math.max(0,Math.min(1,(sy-(heroPin+0.5*vh))/(0.5*vh)));
+      if(dbg){ dbgN++; if(time-dbgT>0.5){ dbg.textContent='gl:'+(GL&&root.classList.contains('gl-on')?'on':'off')+' fps:'+Math.round(dbgN/(time-dbgT))+' canvas:'+$('#gl').width+'x'+$('#gl').height+' vh:'+vh+' inner:'+window.innerHeight+' slow:'+slow+'/'+vslow; dbgN=0; dbgT=time; } }
+      if(GL){
+        GL.render(cs,time,state.mx,state.my,dry,sy);
+        if(!noGuard && !document.hidden){
+          /* Guard against real stutter only. A steady 30 fps (Low Power Mode, in-app viewers) is a display cap,
+             not a slow GPU, so frames are judged against absolute budgets well above that: 37 ms and 50 ms. */
+          if(!t0) t0=time;
+          if(time-t0>2.5){ var dt=gsap.ticker.deltaRatio(60); frames++; if(dt>2.2) slow++; if(dt>3.0) vslow++; }
+          if(frames===240){ if(vslow>120){ if(!GL.lower()){ GL.stop(); GL=null; } } else if(slow>150){ GL.lower(); } slow=0; vslow=0; }
+          if(frames===600 && GL){ if(vslow>200){ GL.stop(); GL=null; } }
+        }
+      }
+    });
 
-        <details class="faq-item">
-          <summary>
-            What if it doesn't work?
-            <span class="faq-chevron">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
-            </span>
-          </summary>
-          <p class="faq-answer">We iterate until it does. Our job isn't done until the system is saving you real time.</p>
-        </details>
+    /* Frame steps aside on the way down, returns on the way up */
+    var lastY=0;
+    ScrollTrigger.create({start:0, end:'max', onUpdate:function(self){var y=self.scroll();if(Math.abs(y-lastY)<4)return;root.classList.toggle('frame-away', y>160 && y>lastY && sheet.hidden);root.classList.toggle('scrolled', y>40);lastY=y;}});
 
-        <details class="faq-item">
-          <summary>
-            Will this replace my team?
-            <span class="faq-chevron">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
-            </span>
-          </summary>
-          <p class="faq-answer">No. We make your team faster and free them up to focus on growth instead of busywork.</p>
-        </details>
+    /* Statement: the ink washes into the words as the reader scrolls */
+    if(washWords.length){
+      gsap.to(washWords,{opacity:1, color:'var(--fg)', stagger:0.06, ease:'none', scrollTrigger:{trigger:'.statement', start:'top 75%', end:'top 20%', scrub:0.6}});
+    }
+    /* Reveals: headings surface out of the water; body copy rises */
+    $$('[data-surface]').forEach(function(el){
+      gsap.from(el,{clipPath:'inset(100% 0 0 0)', y:36, duration:1.4, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 86%'}});
+    });
+    $$('[data-rise]').forEach(function(el){
+      gsap.from(el,{y:24, opacity:0, duration:1.1, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 90%'}});
+    });
+    $$('.table li, .rule, details').forEach(function(el){
+      gsap.from(el,{y:18, opacity:0, duration:.9, ease:'expo.out', scrollTrigger:{trigger:el, start:'top 92%'}});
+    });
+    gsap.from('#tg, .calc__ui .field, .result',{y:24, opacity:0, duration:1.1, ease:'expo.out', stagger:.08, scrollTrigger:{trigger:'.calc', start:'top 75%'}});
+    gsap.to('#trackDot',{'--ty':function(){return ($('#chapters').offsetHeight-11)+'px'}, ease:'none', scrollTrigger:{trigger:'#chapters', start:'top 50%', end:'bottom 50%', scrub:0.4, invalidateOnRefresh:true}});
+    gsap.from('#footWord .surf',{yPercent:110, duration:1.3, stagger:0.06, ease:'expo.out', scrollTrigger:{trigger:'footer', start:'top 80%'}});
+    ScrollTrigger.addEventListener('refresh', layout);
+  }
 
-        <details class="faq-item">
-          <summary>
-            What does it cost?
-            <span class="faq-chevron">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2 4 6 8 10 4"/></svg>
-            </span>
-          </summary>
-          <p class="faq-answer">Projects start at $500. Every business is different, so we scope things out on a free strategy call first.</p>
-        </details>
+  /* ---------- Method: chapters turn the report pages ---------- */
+  var pages=$$('.page'), chs=$$('.ch');
+  function showPage(i){pages.forEach(function(pg,k){pg.classList.toggle('is-on',k===i);pg.classList.toggle('is-past',k<i);});}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){showPage(+e.target.dataset.ch)}})},{rootMargin: narrow() ? '-62% 0px -30% 0px' : '-45% 0px -45% 0px'});
+    chs.forEach(function(c){io.observe(c)});
+  }
+})();
+</script>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="section cta-section" id="cta">
-    <div class="cta-video-bg">
-      <video autoplay muted loop playsinline aria-label="Abstract wave animation for call to action">
-        <source src="assets/videos/wave-cta.mp4" type="video/mp4">
-      </video>
-      <div class="cta-video-overlay"></div>
-    </div>
-    <div class="cta-glow"></div>
-    <div class="container">
-      <h2 class="cta-headline animate-fade-up">See Where AI Can Save<br>Your Business Time</h2>
-      <p class="cta-sub animate-fade-up">Get a free strategy call. We'll map out exactly where AI and automation can make the biggest impact.</p>
-      <a href="contact.html" class="cta-button cta-main animate-fade-up">Book Your Strategy Call</a>
-      <a href="contact.html" class="cta-secondary-link animate-fade-up">Or get a free AI audit <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">TideOps</a>
-        <p class="footer-tagline">AI systems for businesses that can’t afford dropped balls</p>
-      </div>
-      <div class="footer-links">
-        <a href="services.html">Services</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="about.html">About</a>
-        <a href="blog/index.html">Blog</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div class="footer-contact">
-        <a href="mailto:hello@tideops.io">hello@tideops.io</a>
-        <a href="tel:+19042939336" style="display:block; margin-top:0.4rem;">(904) 293-9336</a>
-        <p style="margin-top:0.4rem; font-size:0.85rem; color:var(--text-dim);">Jacksonville, FL</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 TideOps LLC. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script defer src="main.js"></script>
 </body>
 </html>
