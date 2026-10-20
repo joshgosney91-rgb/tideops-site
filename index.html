@@ -374,6 +374,10 @@ details p{padding:0 0 26px 60px;color:var(--fg);opacity:.86;max-width:44rem}
 .form__foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:8px}
 .form__foot p{color:var(--fg2);font-size:.92rem}
 .form__note{grid-column:1 / -1;color:var(--acc);font-size:.95rem}
+.form__note a{color:inherit}
+.book{margin-top:36px;padding-top:28px;border-top:1px solid var(--ln);display:grid;gap:14px;justify-items:start}
+.book__or{color:var(--fg2)}
+.book__note{color:var(--fg2);font-size:.92rem;max-width:26rem}
 
 /* Footer finale */
 footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
@@ -758,6 +762,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
         <h2 id="sa-h" data-surface>Start with your biggest bottleneck.</h2>
         <p class="intro" data-rise>Five questions, about three minutes. We read every one, and we'll reply within one business day to set up your 15 minutes. You'll leave that call with one specific fix to try, whether or not you ever hire us.</p>
         <p class="promise mono" data-rise>Three minutes. No pitch. Your numbers stay yours.</p>
+        <div class="book" data-rise><p class="book__or mono">Or skip the form</p><a class="btn btn--ghost" href="https://calendly.com/jgosney-tideops/30min" target="_blank" rel="noopener">Book your 15 minutes now <span class="arr arr--r" aria-hidden="true">→</span></a><p class="book__note">Pick a time that suits you. We will ask the five questions on the call instead.</p></div>
       </div>
       <form id="intake" novalidate><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
@@ -854,7 +859,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     var ctrl=('AbortController' in window)?new AbortController():null; var tmr=ctrl&&setTimeout(function(){ctrl.abort()},15000);
     fetch('https://formsubmit.co/ajax/hello@tideops.io',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
       .then(function(r){return r.json()})
-      .then(function(j){ if(j&&(j.success===true||j.success==='true')){ form.reset(); say('Thanks, '+name.split(' ')[0]+'. We will reply within one business day to set up your 15 minutes.'); sendLabel.textContent='Sent '; } else { throw new Error((j&&j.message)||'send failed'); } })
+      .then(function(j){ if(j&&(j.success===true||j.success==='true')){ form.reset(); say('Thanks, '+name.split(' ')[0]+'. We will reply within one business day to set up your 15 minutes. Want it sooner? <a href="https://calendly.com/jgosney-tideops/30min" target="_blank" rel="noopener">Pick a time now</a>.', true); sendLabel.textContent='Sent '; } else { throw new Error((j&&j.message)||'send failed'); } })
       .catch(function(){ say('That didn\'t go through. Email us at <a href="mailto:hello@tideops.io">hello@tideops.io</a> or call (904) 293-9336.', true); sendBtn.disabled=false; sendLabel.textContent=was; })
       .then(function(){ if(tmr) clearTimeout(tmr); });
   });
