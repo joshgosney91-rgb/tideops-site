@@ -357,13 +357,19 @@ details p{padding:0 0 26px 60px;color:var(--fg);opacity:.86;max-width:44rem}
 .start form{grid-column:7 / span 6;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px var(--gut)}
 .f{display:grid;gap:8px}
 .f--wide{grid-column:1 / -1}
+.f--choice{border:0;padding:0;margin:0;min-width:0}
+.f--choice legend{font-size:.9rem;font-weight:600;padding:0;margin-bottom:12px}
+.choices{display:flex;flex-wrap:wrap;gap:10px}
+.choices label{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ln);border-radius:2px;padding:10px 14px;cursor:pointer;font-weight:500;transition:border-color .3s,background-color .3s}
+.choices label:has(input:checked){border-color:var(--magenta);background:rgba(194,24,122,.12)}
+.choices input{accent-color:var(--magenta);margin:0;width:16px;height:16px;min-height:0;border:0;padding:0}
 .f label{font-size:.9rem;font-weight:600}
 .f label span{font-weight:400;color:var(--fg2)}
-.f input,.f select,.f textarea{width:100%;min-height:50px;background:transparent;color:var(--fg);border:0;border-bottom:1.5px solid var(--ln);border-radius:0;padding:10px 0;font:inherit;transition:border-color .3s}
+.f input:not([type=radio]),.f select,.f textarea{width:100%;min-height:50px;background:transparent;color:var(--fg);border:0;border-bottom:1.5px solid var(--ln);border-radius:0;padding:10px 0;font:inherit;transition:border-color .3s}
 .f select{appearance:none;background:linear-gradient(45deg,transparent 50%,var(--fg2) 50%) right 6px center / 7px 7px no-repeat,linear-gradient(-45deg,transparent 50%,var(--fg2) 50%) right 0 center / 7px 7px no-repeat}
 .f select option{color:var(--ink)}
 .f textarea{resize:none;min-height:96px}
-.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--magenta)}
+.f input:not([type=radio]):focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--magenta)}
 .f input:focus-visible,.f select:focus-visible,.f textarea:focus-visible{outline:2px solid var(--magenta);outline-offset:4px}
 .form__foot{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;margin-top:8px}
 .form__foot p{color:var(--fg2);font-size:.92rem}
@@ -750,14 +756,22 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
       <div class="start__head">
         <p class="label mono"><i></i>Free 15-minute consultation</p>
         <h2 id="sa-h" data-surface>Start with your biggest bottleneck.</h2>
-        <p class="intro" data-rise>Four questions. We'll reply within one business day to set up 15 minutes, and you'll leave with one specific fix to try whether or not you ever hire us.</p>
-        <p class="promise mono" data-rise>Two minutes. No pitch. Your numbers stay yours.</p>
+        <p class="intro" data-rise>Five questions, about three minutes. We read every one, and we'll reply within one business day to set up your 15 minutes. You'll leave that call with one specific fix to try, whether or not you ever hire us.</p>
+        <p class="promise mono" data-rise>Three minutes. No pitch. Your numbers stay yours.</p>
       </div>
       <form id="intake" novalidate><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
-        <div class="f"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="f-company">Company <span>(optional)</span></label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
-        <div class="f f--wide"><label for="f-pain">What slows your business down most?</label><textarea id="f-pain" name="bottleneck" rows="3"></textarea></div>
+        <div class="f"><label for="f-email">Business email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="f"><label for="f-phone">Business phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+        <div class="f"><label for="f-company">Business name</label><input id="f-company" name="company" type="text" autocomplete="organization" required></div>
+        <div class="f"><label for="f-size">People in the business</label><select id="f-size" name="employees"><option>1 to 5</option><option>6 to 15</option><option>16 to 40</option><option>41 to 100</option><option>More than 100</option></select></div>
+        <div class="f"><label for="f-rev">Annual revenue <span>(optional)</span></label><select id="f-rev" name="revenue"><option>Prefer not to say</option><option>Under $1M</option><option>$1M to $5M</option><option>$5M to $20M</option><option>$20M to $50M</option><option>$50M+</option></select></div>
+        <fieldset class="f f--wide f--choice"><legend>If one thing in your business could be fixed in the next 30 days, should it make you more money, give you back hours, or make your customers happier?</legend>
+          <div class="choices"><label><input type="radio" name="outcome" value="More money" required> More money</label><label><input type="radio" name="outcome" value="Hours back"> Hours back</label><label><input type="radio" name="outcome" value="Happier customers"> Happier customers</label></div></fieldset>
+        <div class="f f--wide"><label for="f-task">What's the task you or your team repeat most often every week?</label><textarea id="f-task" name="repeated_task" rows="2" required></textarea></div>
+        <div class="f f--wide"><label for="f-pain">Where do things most often slow down, get stuck, or fall through the cracks?</label><textarea id="f-pain" name="bottleneck" rows="2" required></textarea></div>
+        <div class="f f--wide"><label for="f-hours">How many hours a week does that eat, and who's doing it?</label><textarea id="f-hours" name="hours_and_who" rows="2" required></textarea></div>
+        <div class="f f--wide"><label for="f-change">If that one thing ran itself, what would change for you?</label><textarea id="f-change" name="what_would_change" rows="2"></textarea></div>
         <div class="form__foot"><p>Or call <span class="mono">(904) 293-9336</span></p><button class="btn btn--solid" type="submit">Request my free consultation <span class="arr arr--r" aria-hidden="true">→</span></button></div>
         <p class="form__note" id="formNote" role="status" aria-live="polite" hidden></p>
       </form>
@@ -829,8 +843,13 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     if(!name){ say('Please add your name so we know who to reply to.'); form.name.focus(); return; }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say('Please add a work email so we can reply.'); form.email.focus(); return; }
     var company=form.company.value.trim();
-    var data={name:name,email:email,company:company,bottleneck:form.bottleneck.value.trim(),
-      _subject:'Free consultation request: '+name+(company?' at '+company:''),_replyto:email,_template:'table',_captcha:'false'};
+    var task=form.repeated_task.value.trim(), pain=form.bottleneck.value.trim(), hrs=form.hours_and_who.value.trim();
+    var oc=form.querySelector('input[name=outcome]:checked');
+    if(!company){ say('Please add your business name.'); form.company.focus(); return; }
+    if(!oc){ say('Pick the outcome that matters most, so we know what to look at first.'); return; }
+    if(!task||!pain||!hrs){ say('The three questions about the task, where it gets stuck, and the hours are the ones we need to make the 15 minutes useful.'); (task?(pain?form.hours_and_who:form.bottleneck):form.repeated_task).focus(); return; }
+    var data={name:name,email:email,phone:form.phone.value.trim(),company:company,employees:form.employees.value,revenue:form.revenue.value,outcome:oc.value,repeated_task:task,bottleneck:pain,hours_and_who:hrs,what_would_change:form.what_would_change.value.trim(),
+      _subject:'Free consultation request: '+name+' at '+company,_replyto:email,_template:'table',_captcha:'false'};
     sendBtn.disabled=true; var was=sendLabel.textContent; sendLabel.textContent='Sending ';
     var ctrl=('AbortController' in window)?new AbortController():null; var tmr=ctrl&&setTimeout(function(){ctrl.abort()},15000);
     fetch('https://formsubmit.co/ajax/hello@tideops.io',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
