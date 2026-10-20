@@ -238,7 +238,7 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25);background:
 .tracks{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
 .tracks h2{grid-column:1 / span 9;font-size:var(--t-poster);line-height:.96;letter-spacing:-.04em;font-stretch:84%;margin-left:-.03em}
 .tracks .intro{grid-column:10 / span 3;align-self:end;color:var(--fg2)}
-.channels{grid-column:1 / -1;margin-top:clamp(56px, 7vw, 96px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-top:1px solid var(--ln)}
+.channels{grid-column:1 / -1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));border-top:1px solid var(--ln)}
 .channel{padding:36px 0 0;display:flex;flex-direction:column;gap:22px;height:100%}
 .channel + .channel{border-left:1px solid var(--ln);padding-left:clamp(24px, 4vw, 64px)}
 .channel:first-child{padding-right:clamp(24px, 4vw, 64px)}
@@ -254,6 +254,15 @@ input[type=range]:active::-webkit-slider-thumb{transform:scale(1.25);background:
 .table li em .dur{color:var(--fg2);font-size:.8rem;margin-top:0}
 @media (min-width:901px){.table li em .dur{display:inline;margin:0 14px 0 0}}
 .channel .btn{align-self:flex-start;margin-top:auto}
+
+.ladder{grid-column:1 / -1;list-style:none;margin:clamp(40px, 5vw, 64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px var(--gut);border-top:1px solid var(--ln);padding-top:28px}
+.ladder li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start}
+.ladder__n{color:var(--acc);font-size:1.6rem;font-weight:500;line-height:1}
+.ladder strong{display:block;font-weight:600;margin-bottom:6px}
+.ladder p{color:var(--fg2);font-size:.95rem;line-height:1.5}
+.channels{margin-top:clamp(40px, 5vw, 64px)}
+@media (max-width:1100px){.ladder{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.ladder{grid-template-columns:minmax(0,1fr);gap:22px}}
 
 /* Method: sticky report beside the chapters, with a depth track */
 .method{padding-block:clamp(72px, 8vw, 120px) clamp(80px, 9vw, 130px)}
@@ -368,6 +377,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
 .foot__row div{display:grid;gap:6px}
 .foot__row div > span:nth-child(2){color:var(--fg)}
 .foot__row a{color:var(--fg)}
+.foot__row a + a{margin-top:2px}
 
 /* Phones */
 @media (max-width: 900px){
@@ -387,7 +397,8 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
   .s__dot{display:none}
   .s.is-out .s__depth{color:#F08FC6}
   .wl span{top:auto;bottom:10px}
-  .s:nth-child(1){top:53%} .s:nth-child(2){top:60.5%} .s:nth-child(3){top:68%} .s:nth-child(4){top:75.5%} .s:nth-child(5){top:83%}
+  .soundings{top:var(--sTop,52%);bottom:0}
+  .s:nth-child(1){top:3%} .s:nth-child(2){top:21%} .s:nth-child(3){top:39%} .s:nth-child(4){top:57%} .s:nth-child(5){top:75%}
   .grid > *{grid-column:1 / -1 !important}
   .statement .side{margin-top:32px}
   .statement .sub{margin-top:28px}
@@ -431,6 +442,13 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
   summary{grid-template-columns:36px minmax(0,1fr) 20px}
   details p{padding-left:52px}
 }
+@media (max-width:900px) and (max-height:720px){
+  .hero__copy{top:72px}
+  .hero__copy h1{font-size:2.6rem}
+  .hero__copy .lede{font-size:.95rem;margin-top:12px}
+  .hero__copy .ctas{margin-top:16px}
+  .s__label{font-size:.9rem}
+}
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{transition-duration:.01ms !important;animation:none !important}
   .hero{height:auto}
@@ -452,7 +470,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
       <li><a href="#tracks"><span class="mono">02</span>Who it's for</a></li>
       <li><a href="#calc"><span class="mono">03</span>Price your problem</a></li>
       <li><a href="#team"><span class="mono">04</span>Team</a></li>
-      <li><a href="#start"><span class="mono">05</span>Free assessment</a></li>
+      <li><a href="#start"><span class="mono">05</span>Free consultation</a></li>
     </ul>
     <p class="mono">hello@tideops.io · (904) 293-9336</p>
   </nav>
@@ -469,7 +487,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
       <li><a class="draw" href="#tracks">Who it's for</a></li>
       <li><a class="draw" href="#team">Team</a></li>
       <li class="menu-li"><button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="sheet">Menu</button></li>
-      <li><a class="btn btn--solid" href="#start">Free assessment</a></li>
+      <li><a class="btn btn--solid" href="#start">Free consultation</a></li>
     </ul>
   </nav>
 </div>
@@ -496,9 +514,9 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     <div class="hero__copy">
       <div class="wrap grid">
         <h1 id="h1">Every business has costs below the waterline.</h1>
-        <p class="lede" data-intro>TideOps is an AI operations firm in Jacksonville. We find the hours and dollars your business loses to manual work, then put the right fix in place, usually with tools you already pay for.</p>
+        <p class="lede" data-intro>TideOps is an AI operations firm in Jacksonville, run by people who built construction and homebuilding companies. We find the hours and dollars your business loses to manual work, then put the right fix in place.</p>
         <div class="ctas" data-intro>
-          <a class="btn btn--solid" href="#start">Get a free assessment <span class="arr" aria-hidden="true">↓</span></a>
+          <a class="btn btn--solid" href="#start">Book a free consultation <span class="arr" aria-hidden="true">↓</span></a>
           <a class="btn btn--ghost" href="#calc">Price your own problem</a>
         </div>
       </div>
@@ -562,7 +580,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
         <p class="mono muted">This one task costs you about</p>
         <p class="result__num" id="r-year">$22,800</p>
         <p class="result__row"><span>per year · <b id="r-hours">600</b> hours</span><span>about <b id="r-fte">0.3</b> of a full-time person</span></p>
-        <p class="result__note"><span class="water">That's capacity, not cash.</span> It turns into real savings only when overtime, a planned hire or a tool you pay for goes away. A full assessment shows which of those apply to you.</p>
+        <p class="result__note"><span class="water">That's capacity, not cash.</span> It turns into real savings only when overtime, a planned hire or a tool you pay for goes away. A full assessment shows which of those apply to you, and how much of this number you can actually recover. <a class="ilink" href="#start">Start with the free 15 minutes.</a></p>
       </div>
     </div>
   </section>
@@ -573,14 +591,20 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     <div class="wrap grid">
       <h2 id="tr-h" data-surface>Two ways in, sized to your business.</h2>
       <p class="intro" data-rise>Start with one problem. Expand only when the first fix pays for itself.</p>
+      <ol class="ladder" aria-label="What you walk away with at each step">
+        <li data-rise><span class="ladder__n mono">1</span><div><strong>Free consultation</strong><p>Fifteen minutes on your biggest bottleneck. You leave with one specific thing to try. No report, no obligation.</p></div></li>
+        <li data-rise><span class="ladder__n mono">2</span><div><strong>Assessment, $999</strong><p>A 45-minute recorded interview with you plus the documents you choose to share. You get a written report with your top five opportunities, each with a cost range and the assumptions behind it, and a 30-day plan. You own it. Nothing gets built.</p></div></li>
+        <li data-rise><span class="ladder__n mono">3</span><div><strong>Setup, quoted per job</strong><p>If you want us to put fixes in place, we price each one and you pick. Or take the plan and do it yourself.</p></div></li>
+        <li data-rise><span class="ladder__n mono">4</span><div><strong>For larger companies: in-depth assessment, then a monthly retainer</strong><p>Leadership and staff interviews, a short software survey, document review, a working demo of your most expensive problem, and a leadership readout. Quoted after a scoping call. The retainer keeps it going: monthly builds, training and tracking.</p></div></li>
+      </ol>
       <div class="channels">
         <div class="channel">
           <p class="channel__tag mono"><span>Path 1</span><span>Owner-led</span></p>
           <h3 data-surface>Owner-led businesses</h3>
           <p>You run the place and you're the bottleneck. You want hours back without becoming a tech person.</p>
           <ul class="table">
-            <li class="row"><i class="pip"></i><div><strong>Free assessment</strong><span>15 minutes, your biggest bottleneck, one fix</span></div><em><span class="dur">15 min</span>Free</em></li>
-            <li class="row"><i class="pip"></i><div><strong>Full assessment</strong><span>45-minute interview, full report, review call</span></div><em><span class="dur">45 min</span>$999</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Free consultation</strong><span>15 minutes, your biggest bottleneck, one fix to try</span></div><em><span class="dur">15 min</span>Free</em></li>
+            <li class="row"><i class="pip"></i><div><strong>Assessment</strong><span>45-minute interview, written report, ranked plan, review call</span></div><em><span class="dur">45 min</span>$999</em></li>
             <li class="row"><i class="pip"></i><div><strong>Done-for-you setup</strong><span>We put the fixes you choose in place</span></div><em><span class="dur">Days</span>Custom quote</em></li>
           </ul>
           <a class="btn btn--ghost" href="#start">Start free</a>
@@ -606,14 +630,14 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     <div class="wrap grid">
       <div class="method__head">
         <p class="label mono"><i></i>How an assessment works</p>
-        <h2 id="me-h" data-surface>From the first interview to the fix.</h2><p class="method__what" data-rise>You get a written report with your top five opportunities, each with a cost range and the assumptions behind it, and a 30-day plan for the first fixes.</p>
+        <h2 id="me-h" data-surface>From the first interview to the fix.</h2><p class="method__what" data-rise>This is the in-depth version, the one larger companies buy. The $999 assessment follows the same four steps with one interview, you, and the documents you choose to share.</p>
       </div>
       <div class="method__report">
         <div class="sticky">
           <div class="doc" id="doc" aria-label="Sample assessment report for a fictional company">
             <article class="page is-on" data-page="0">
               <header class="mono"><span>Harbor Line Builders · Assessment</span><span>p. 1 of 4</span></header>
-              <p class="mono"><span class="stamp">Illustrative · fictional company</span></p>
+              <p class="mono"><span class="stamp">Illustrative · fictional company · in-depth assessment</span></p>
               <h4>Executive overview</h4>
               <p>Office staff spend an estimated 31 to 42 hours a week on work that existing tools can take over. Three of five opportunities need no new software.</p>
               <div class="bars">
@@ -667,7 +691,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
               <p>Then: a working demo of the pricing tool on five real past jobs.</p>
               <div class="pfoot mono"><span>Owner: TideOps</span><span>Review call: day 10</span></div>
             </article>
-            <p class="doc__tag mono">Sample report, fictional company</p>
+            <p class="doc__tag mono">Sample pages from an in-depth assessment, fictional company. The $999 assessment covers one interview and the owner's documents.</p>
           </div>
         </div>
       </div>
@@ -676,7 +700,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
         <li class="ch" data-ch="0"><span class="ch__n">01<small>Interview</small></span><h3 data-surface>We talk to the people doing the work.</h3><p data-rise>The owner first, then the team: a short survey of the software everyone uses, and 30-minute interviews. We always ask before recording.</p></li>
         <li class="ch" data-ch="1"><span class="ch__n">02<small>Map</small></span><h3 data-surface>We follow the work, not the org chart.</h3><p data-rise>Real documents like past estimates, reports and forms show where the same information gets handled twice and where jobs wait.</p></li>
         <li class="ch" data-ch="2"><span class="ch__n">03<small>Rank</small></span><h3 data-surface>Every opportunity, ranked by what it's worth.</h3><p data-rise>Each finding is scored on impact and effort, with a cost range and the assumptions behind it. You see what to do first and what to skip.</p></li>
-        <li class="ch" data-ch="3"><span class="ch__n">04<small>Fix</small></span><h3 data-surface>Quick wins in days, then the big one.</h3><p data-rise>We put the first fixes in place, train your team, and build a working demo of the most expensive problem on your own data.</p></li>
+        <li class="ch" data-ch="3"><span class="ch__n">04<small>Fix</small></span><h3 data-surface>Quick wins in days, then the big one.</h3><p data-rise>If you choose to go ahead, we put the first fixes in place, train your team, and build a working demo of the most expensive problem on your own data. Every fix runs beside the old way on your real work until it proves itself; nobody depends on it before then.</p></li>
       </ol>
     </div>
   </section>
@@ -711,11 +735,10 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
       <h2 id="fq-h" data-surface>Straight answers.</h2>
       <div class="list">
         <details><summary><span class="q mono">Q.1</span>Do we need to know anything about AI?<span class="pm" aria-hidden="true"></span></summary><p>No. You know your business; we work out where AI fits and handle the setup.</p></details>
-        <details><summary><span class="q mono">Q.2</span>Will you try to sell us custom software?<span class="pm" aria-hidden="true"></span></summary><p>Only when nothing on the market does the job. Most fixes are tools you can buy today, set up around how your team actually works.</p></details>
-        <details><summary><span class="q mono">Q.3</span>What happens to our information?<span class="pm" aria-hidden="true"></span></summary><p>It's used only for your assessment and never shared. We'll sign an NDA if you'd like, and we always ask before recording a conversation.</p></details>
-        <details><summary><span class="q mono">Q.4</span>Do we keep the assessment if we don't hire you?<span class="pm" aria-hidden="true"></span></summary><p>Yes. The findings and the plan are yours, whatever you decide.</p></details>
-        <details><summary><span class="q mono">Q.5</span>What does it cost?<span class="pm" aria-hidden="true"></span></summary><p>The first 15 minutes are free. A full assessment for an owner-led business is $999. For larger companies the in-depth assessment is quoted after a scoping call, and the ongoing work is a monthly retainer.</p></details>
-        <details><summary><span class="q mono">Q.6</span>How fast do we see something?<span class="pm" aria-hidden="true"></span></summary><p>The quick wins go in within days of the review call. The working demo on your own data follows, and you see the hours come back before any larger project starts.</p></details>
+        <details><summary><span class="q mono">Q.2</span>What happens to our information?<span class="pm" aria-hidden="true"></span></summary><p>It's used only to reply to you and to do your assessment, and it's never sold or passed to anyone outside that work. The form on this page is delivered to our inbox by an email relay service; the details are on our <a class="ilink" href="/privacy">privacy page</a>. We'll sign an NDA if you'd like, and we always ask before recording a conversation.</p></details>
+        <details><summary><span class="q mono">Q.3</span>Do we keep the assessment if we don't hire you?<span class="pm" aria-hidden="true"></span></summary><p>Yes. The findings and the plan are yours, whatever you decide.</p></details>
+        <details><summary><span class="q mono">Q.4</span>What does it cost?<span class="pm" aria-hidden="true"></span></summary><p>The 15-minute consultation is free. The assessment for an owner-led business is $999 and ends with a written plan you own. Putting the fixes in place is a separate step, quoted per job, and you can do it yourself from the plan. For larger companies the in-depth assessment is quoted after a scoping call, and the ongoing work is a monthly retainer.</p></details>
+        <details><summary><span class="q mono">Q.5</span>How fast do we see something?<span class="pm" aria-hidden="true"></span></summary><p>The free 15 minutes happen within a few days of your request. The assessment report arrives about a week after the interview. If you hire us for the setup, the first fixes go in within days of the review call and the working demo follows.</p></details>
       </div>
     </div>
   </section>
@@ -725,21 +748,17 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
   <section class="start" id="start" data-water="0" aria-labelledby="sa-h">
     <div class="wrap grid">
       <div class="start__head">
-        <p class="label mono"><i></i>Free assessment</p>
+        <p class="label mono"><i></i>Free 15-minute consultation</p>
         <h2 id="sa-h" data-surface>Start with your biggest bottleneck.</h2>
-        <p class="intro" data-rise>Tell us a little about your business. We'll reply within one business day to set up 15 minutes, and you'll leave with one specific fix whether or not you ever hire us.</p>
+        <p class="intro" data-rise>Four questions. We'll reply within one business day to set up 15 minutes, and you'll leave with one specific fix to try whether or not you ever hire us.</p>
         <p class="promise mono" data-rise>Two minutes. No pitch. Your numbers stay yours.</p>
       </div>
       <form id="intake" novalidate><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
         <div class="f"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
         <div class="f"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="f"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
-        <div class="f"><label for="f-role">Your role</label><input id="f-role" name="role" type="text" autocomplete="organization-title"></div>
-        <div class="f"><label for="f-size">Employees</label><select id="f-size" name="size"><option>1 to 10</option><option>11 to 50</option><option>51 to 200</option><option>200+</option></select></div>
-        <div class="f"><label for="f-rev">Annual revenue</label><select id="f-rev" name="revenue"><option>Under $1M</option><option>$1M to $5M</option><option>$5M to $20M</option><option>$20M to $50M</option><option>$50M+</option><option>Prefer not to say</option></select></div>
+        <div class="f"><label for="f-company">Company <span>(optional)</span></label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
         <div class="f f--wide"><label for="f-pain">What slows your business down most?</label><textarea id="f-pain" name="bottleneck" rows="3"></textarea></div>
-        <div class="f f--wide"><label for="f-tools">Software your team uses most <span>(optional)</span></label><input id="f-tools" name="software" type="text"></div>
-        <div class="form__foot"><p>Or call <span class="mono">(904) 293-9336</span></p><button class="btn btn--solid" type="submit">Request my free assessment <span class="arr arr--r" aria-hidden="true">→</span></button></div>
+        <div class="form__foot"><p>Or call <span class="mono">(904) 293-9336</span></p><button class="btn btn--solid" type="submit">Request my free consultation <span class="arr arr--r" aria-hidden="true">→</span></button></div>
         <p class="form__note" id="formNote" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
@@ -753,7 +772,7 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     <div class="foot__row">
       <div><span class="mono">Contact</span><span>hello@tideops.io</span><span class="mono">(904) 293-9336</span></div>
       <div><span class="mono">Station</span><span>Jacksonville, Florida</span><span class="mono">30.33° N, 81.66° W</span></div>
-      <div><span class="mono">TideOps LLC</span><span>© 2026</span><a class="ilink" href="#top">Back to top</a></div>
+      <div><span class="mono">TideOps LLC</span><span>© 2026</span><a class="ilink" href="/privacy">Privacy</a><a class="ilink" href="#top">Back to top</a></div>
     </div>
   </div>
 </footer>
@@ -810,8 +829,8 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
     if(!name){ say('Please add your name so we know who to reply to.'); form.name.focus(); return; }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ say('Please add a work email so we can reply.'); form.email.focus(); return; }
     var company=form.company.value.trim();
-    var data={name:name,email:email,company:company,role:form.role.value.trim(),employees:form.size.value,revenue:form.revenue.value,bottleneck:form.bottleneck.value.trim(),software:form.software.value.trim(),
-      _subject:'Free assessment request: '+name+(company?' at '+company:''),_replyto:email,_template:'table',_captcha:'false'};
+    var data={name:name,email:email,company:company,bottleneck:form.bottleneck.value.trim(),
+      _subject:'Free consultation request: '+name+(company?' at '+company:''),_replyto:email,_template:'table',_captcha:'false'};
     sendBtn.disabled=true; var was=sendLabel.textContent; sendLabel.textContent='Sending ';
     var ctrl=('AbortController' in window)?new AbortController():null; var tmr=ctrl&&setTimeout(function(){ctrl.abort()},15000);
     fetch('https://formsubmit.co/ajax/hello@tideops.io',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data),signal:ctrl?ctrl.signal:undefined})
@@ -835,12 +854,14 @@ footer{padding-block:clamp(40px, 6vw, 90px) 28px;overflow:clip}
   var seams=$$('.seam');
   var state={p:0, intro:0, mx:0.5, my:0.5, tmx:0.5, tmy:0.5};
   var vh=(vhp&&vhp.offsetHeight)||window.innerHeight, heroH=0, heroPin=1, coasts=[], itemY=[], lastGv='', lastGs='', lastHint=-1, lastWl=-1;
-  function target(p){var n=narrow();var top=n?0.51:0.15, bottom=n?0.9:0.85;return top+(bottom-top)*p}
+  var sTopFrac=0.52;
+  function target(p){var n=narrow();var top=n?sTopFrac:0.15, bottom=n?0.92:0.85;return top+(bottom-top)*p}
   function pageTop(el){var r=el.getBoundingClientRect();return r.top+window.scrollY}
   function layout(){
     vh=(vhp&&vhp.offsetHeight)||window.innerHeight; heroH=hero.offsetHeight; heroPin=Math.max(1,heroH-stage.offsetHeight);
     coasts=seams.map(function(sm){return pageTop(sm)+sm.offsetHeight*0.5});
-    itemY=items.map(function(li){return li.offsetTop+li.offsetHeight*0.5});
+    if(narrow()){ var cp=$('.hero__copy'), sb=cp.offsetTop+cp.offsetHeight+14, sh=stage.offsetHeight||vh; sTopFrac=Math.min(0.7, Math.max(0.5, sb/sh)); $('#soundings').style.setProperty('--sTop', (sTopFrac*100).toFixed(2)+'%'); }
+    itemY=items.map(function(li){var box=li.offsetParent; return (box?box.offsetTop:0)+li.offsetTop+li.offsetHeight*0.5});
   }
   layout(); window.addEventListener('resize',layout); window.addEventListener('load',layout); setTimeout(layout,600); setTimeout(layout,2500);
   /* anything that changes the page's height (an FAQ opening, fonts arriving) moves the coastlines too */

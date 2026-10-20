@@ -2,18 +2,71 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/index.html", "destination": "/", "permanent": true },
-    { "source": "/services.html", "destination": "/#tracks", "permanent": true },
-    { "source": "/services", "destination": "/#tracks", "permanent": true },
-    { "source": "/case-studies.html", "destination": "/#method", "permanent": true },
-    { "source": "/case-studies", "destination": "/#method", "permanent": true },
-    { "source": "/about.html", "destination": "/#team", "permanent": true },
-    { "source": "/about", "destination": "/#team", "permanent": true },
-    { "source": "/contact.html", "destination": "/#start", "permanent": true },
-    { "source": "/contact", "destination": "/#start", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/", "permanent": false }
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/#tracks",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/#tracks",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies.html",
+      "destination": "/#method",
+      "permanent": true
+    },
+    {
+      "source": "/case-studies",
+      "destination": "/#method",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/#team",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/#team",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/#start",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#start",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/",
+      "permanent": false
+    }
   ],
   "headers": [
-    { "source": "/assets/(.*)", "headers": [ { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" } ] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
   ]
 }
